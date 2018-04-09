@@ -12,6 +12,7 @@
 		2CF9B338207A8996008A3FDD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CF9B336207A8996008A3FDD /* Main.storyboard */; };
 		2CF9B33A207A8996008A3FDD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CF9B339207A8996008A3FDD /* Assets.xcassets */; };
 		2CF9B33D207A8996008A3FDD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CF9B33B207A8996008A3FDD /* LaunchScreen.storyboard */; };
+		2CF9B345207C1EE1008A3FDD /* StructureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF9B344207C1EE1008A3FDD /* StructureModel.swift */; };
 		58006B65F9657CB8FB27CDC6 /* Pods_FinalProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E21497D0742F505993082EC4 /* Pods_FinalProject.framework */; };
 /* End PBXBuildFile section */
 
@@ -24,6 +25,7 @@
 		2CF9B339207A8996008A3FDD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2CF9B33C207A8996008A3FDD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2CF9B33E207A8996008A3FDD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2CF9B344207C1EE1008A3FDD /* StructureModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StructureModel.swift; sourceTree = "<group>"; };
 		9527B83AE78CD56418D308CC /* Pods-FinalProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinalProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FinalProject/Pods-FinalProject.debug.xcconfig"; sourceTree = "<group>"; };
 		E21497D0742F505993082EC4 /* Pods_FinalProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FinalProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -78,6 +80,7 @@
 		2CF9B331207A8996008A3FDD /* FinalProject */ = {
 			isa = PBXGroup;
 			children = (
+				2CF9B344207C1EE1008A3FDD /* StructureModel.swift */,
 				2CF9B332207A8996008A3FDD /* AppDelegate.swift */,
 				2CF9B334207A8996008A3FDD /* ViewController.swift */,
 				2CF9B336207A8996008A3FDD /* Main.storyboard */,
@@ -218,6 +221,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CF9B335207A8996008A3FDD /* ViewController.swift in Sources */,
+				2CF9B345207C1EE1008A3FDD /* StructureModel.swift in Sources */,
 				2CF9B333207A8996008A3FDD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
