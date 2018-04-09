@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2CB6FA4E207C2706007561D9 /* DealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB6FA4D207C2706007561D9 /* DealViewController.swift */; };
+		2CB6FA50207C2766007561D9 /* MenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB6FA4F207C2766007561D9 /* MenuModel.swift */; };
+		2CB6FA52207C287C007561D9 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB6FA51207C287C007561D9 /* MenuTableViewController.swift */; };
+		2CB6FA54207C2B8A007561D9 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB6FA53207C2B8A007561D9 /* MapViewController.swift */; };
+		2CB6FA5C207C2C15007561D9 /* FavsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB6FA5B207C2C15007561D9 /* FavsCollectionViewController.swift */; };
 		2CF9B333207A8996008A3FDD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF9B332207A8996008A3FDD /* AppDelegate.swift */; };
-		2CF9B335207A8996008A3FDD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF9B334207A8996008A3FDD /* ViewController.swift */; };
 		2CF9B338207A8996008A3FDD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CF9B336207A8996008A3FDD /* Main.storyboard */; };
 		2CF9B33A207A8996008A3FDD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CF9B339207A8996008A3FDD /* Assets.xcassets */; };
 		2CF9B33D207A8996008A3FDD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CF9B33B207A8996008A3FDD /* LaunchScreen.storyboard */; };
@@ -18,9 +22,13 @@
 
 /* Begin PBXFileReference section */
 		108D419CB9E044D5038AD530 /* Pods-FinalProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinalProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-FinalProject/Pods-FinalProject.release.xcconfig"; sourceTree = "<group>"; };
+		2CB6FA4D207C2706007561D9 /* DealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealViewController.swift; sourceTree = "<group>"; };
+		2CB6FA4F207C2766007561D9 /* MenuModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuModel.swift; sourceTree = "<group>"; };
+		2CB6FA51207C287C007561D9 /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
+		2CB6FA53207C2B8A007561D9 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		2CB6FA5B207C2C15007561D9 /* FavsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavsCollectionViewController.swift; sourceTree = "<group>"; };
 		2CF9B32F207A8996008A3FDD /* FinalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CF9B332207A8996008A3FDD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2CF9B334207A8996008A3FDD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2CF9B337207A8996008A3FDD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2CF9B339207A8996008A3FDD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2CF9B33C207A8996008A3FDD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -59,6 +67,26 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		2CB6FA5D207C2C51007561D9 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				2CB6FA4D207C2706007561D9 /* DealViewController.swift */,
+				2CB6FA51207C287C007561D9 /* MenuTableViewController.swift */,
+				2CB6FA5B207C2C15007561D9 /* FavsCollectionViewController.swift */,
+				2CB6FA53207C2B8A007561D9 /* MapViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		2CB6FA5E207C2C5D007561D9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2CF9B344207C1EE1008A3FDD /* StructureModel.swift */,
+				2CB6FA4F207C2766007561D9 /* MenuModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		2CF9B326207A8996008A3FDD = {
 			isa = PBXGroup;
 			children = (
@@ -80,10 +108,10 @@
 		2CF9B331207A8996008A3FDD /* FinalProject */ = {
 			isa = PBXGroup;
 			children = (
-				2CF9B344207C1EE1008A3FDD /* StructureModel.swift */,
-				2CF9B332207A8996008A3FDD /* AppDelegate.swift */,
-				2CF9B334207A8996008A3FDD /* ViewController.swift */,
+				2CB6FA5E207C2C5D007561D9 /* Model */,
+				2CB6FA5D207C2C51007561D9 /* ViewControllers */,
 				2CF9B336207A8996008A3FDD /* Main.storyboard */,
+				2CF9B332207A8996008A3FDD /* AppDelegate.swift */,
 				2CF9B339207A8996008A3FDD /* Assets.xcassets */,
 				2CF9B33B207A8996008A3FDD /* LaunchScreen.storyboard */,
 				2CF9B33E207A8996008A3FDD /* Info.plist */,
@@ -220,8 +248,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2CF9B335207A8996008A3FDD /* ViewController.swift in Sources */,
+				2CB6FA50207C2766007561D9 /* MenuModel.swift in Sources */,
+				2CB6FA54207C2B8A007561D9 /* MapViewController.swift in Sources */,
+				2CB6FA4E207C2706007561D9 /* DealViewController.swift in Sources */,
+				2CB6FA52207C287C007561D9 /* MenuTableViewController.swift in Sources */,
 				2CF9B345207C1EE1008A3FDD /* StructureModel.swift in Sources */,
+				2CB6FA5C207C2C15007561D9 /* FavsCollectionViewController.swift in Sources */,
 				2CF9B333207A8996008A3FDD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
