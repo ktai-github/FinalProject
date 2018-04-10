@@ -58,13 +58,19 @@ class MenuTableViewController: UITableViewController {
       print("random deals selected")
     case 1:
       // selected restaurant deals
-      print("restaurant deals selected")
+      print("food deals selected")
     case 2:
       // selected drinks deals
       print("drinks deals selected")
     case 3:
       // selected event deals
-      print("event deals selected")
+      print("date deals selected")
+    case 4:
+      // selected event deals
+      print("fun deals selected")
+    case 5:
+      // selected event deals
+      print("group deals selected")
     default:
       // selected my deals
       print("my deals selected")
