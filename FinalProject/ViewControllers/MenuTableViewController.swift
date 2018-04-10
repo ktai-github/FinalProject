@@ -9,10 +9,16 @@
 import UIKit
 
 class MenuTableViewController: UITableViewController {
-  let menuModel = MenuModel()
+  
+  @IBOutlet weak var randomDealsTableViewCell: UITableViewCell!
+  @IBOutlet weak var restaurantDealsTableViewCell: UITableViewCell!
+  @IBOutlet weak var drinkDealsTableViewCell: UITableViewCell!
+  @IBOutlet weak var eventDealsTableViewCell: UITableViewCell!
+  @IBOutlet weak var myDealsTableViewCell: UITableViewCell!
   
     override func viewDidLoad() {
         super.viewDidLoad()
+      
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -27,25 +33,42 @@ class MenuTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
+//    override func numberOfSections(in tableView: UITableView) -> Int {
+//        // #warning Incomplete implementation, return the number of sections
+//        return 1
+//    }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return menuModel.menuItems.count
-    }
+//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        // #warning Incomplete implementation, return the number of rows
+//        return self.tableView.numberOfRows(inSection: 0)
+//    }
 
   
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-      
-      
-        return cell
-    }
+//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+//
+//
+//        return cell
+//    }
   
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    switch indexPath.row {
+    case 0:
+      // selected random deals
+      print("random deals selected")
+    case 1:
+      // selected restaurant deals
+      print("restaurant deals selected")
+    case 2:
+      // selected drinks deals
+      print("drinks deals selected")
+    case 3:
+      // selected event deals
+      print("event deals selected")
+    default:
+      // selected my deals
+      print("my deals selected")
+    }
     
   }
 

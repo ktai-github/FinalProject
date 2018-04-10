@@ -11,11 +11,16 @@ import UIKit
 struct Deal {
   var dealID: Int //primary key
   var dealName: String
-  var dealImageUrl: String
-  var price: String
-  var tags: [String]
-  var placeID: Int
-  var styleID: Int
+  var dealImageUrl: String?
+  var price: String?
+  var tags: [String]?
+  var placeID: Int?
+  var styleID: Int?
+  
+  init(dealID: Int, dealName: String) {
+    self.dealID = dealID
+    self.dealName = dealName
+  }
 }
 
 struct Place {
@@ -24,11 +29,11 @@ struct Place {
   var phoneNumber: String
   var placeCoordinates: (placeLong: Double,
                         placeLat: Double)
-  var placeLocation: (address: String,
-                      city: String, //keeping this in my class just in case
-                      state: String, //keeping this in my class just in case
-                      zip: String, //keeping this in my class just in case
-                      country: String //keeping this in my class just in case
+  var placeLocation: (String
+//                      city: String, //keeping this in my class just in case
+//                      state: String, //keeping this in my class just in case
+//                      zip: String, //keeping this in my class just in case
+//                      country: String //keeping this in my class just in case
 )}
 
 struct Style {
@@ -44,5 +49,5 @@ struct User {
   var password: String
   var dealLog: [Int] //dealID, keeping this in my class for later
   var dealFavs: [Int] //dealID
-  var reviews: (placeID: Int, reviewText: String) // possible future use
+//  var reviews: (placeID: Int, reviewText: String) // possible future use
 }
