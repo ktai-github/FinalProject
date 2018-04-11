@@ -8,6 +8,8 @@
 
 import UIKit
 
+var favs = ["deal1", "deal2"]
+
 struct Deal {
   var dealID: Int //primary key
   var dealName: String

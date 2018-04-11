@@ -9,18 +9,13 @@
 import UIKit
 
 extension Notification.Name {
-  
   static let deal: Notification.Name = Notification.Name("deal")
 }
 
 class DealViewController: UIViewController {
 
-//  var selectedMenuItem: String = ""
-  
-
     override func viewDidLoad() {
         super.viewDidLoad()
-//      NotificationCenter.default.post(name: Notification.Name(rawValue: "random"), object: randomSelected)
       NotificationCenter.default.addObserver(self,
                                              selector: #selector(notificationReceived(_:)),
                                              name: Notification.Name.deal,
@@ -47,9 +42,6 @@ class DealViewController: UIViewController {
                                                   object: nil)
   }
 
-//  extension Notification.Name {
-//    static let randomMenuItem = Notification.Name("random")
-//  }
     /*
     // MARK: - Navigation
 

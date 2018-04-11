@@ -8,8 +8,6 @@
 
 import UIKit
 
-var favs = ["deal1", "deal2"]
-
 class FavsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
   
   @IBOutlet weak var favsTableView: UITableView!
@@ -41,6 +39,7 @@ class FavsViewController: UIViewController, UITableViewDelegate, UITableViewData
       let cell = FavsTableViewCell(style: .default, reuseIdentifier: "Cell")
       return cell
     }
+    
     cell.dealLabel.text = favs[indexPath.row]
     return cell
   }
