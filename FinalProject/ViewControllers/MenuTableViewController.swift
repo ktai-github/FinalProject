@@ -58,46 +58,44 @@ class MenuTableViewController: UITableViewController {
 //        return cell
 //    }
   
+  func userSelected(category: String) {
+    userSelectedCategory = category
+    NotificationCenter.default.post(name: Notification.Name.deal,
+                                    object: userSelectedCategory)
+    self.navigationController?.popViewController(animated: true)
+
+  }
+  
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     switch indexPath.row {
     case 0:
-      // selected random deals
       print("random deals selected")
-      userSelectedCategory = "random deals selected"
-      NotificationCenter.default.post(name: Notification.Name.deal,
-                                      object: userSelectedCategory)
-      self.navigationController?.popViewController(animated: true)
+      userSelected(category: "random deals")
+      
     case 1:
-      // selected restaurant deals
       print("food deals selected")
-      self.navigationController?.popViewController(animated: true)
+      userSelected(category: "food deals")
 
     case 2:
-      // selected drinks deals
       print("drinks deals selected")
-      self.navigationController?.popViewController(animated: true)
+      userSelected(category: "drink deals")
 
     case 3:
-      // selected date deals
       print("date deals selected")
-      self.navigationController?.popViewController(animated: true)
+      userSelected(category: "date deals")
 
     case 4:
-      // selected fun deals
       print("fun deals selected")
-      self.navigationController?.popViewController(animated: true)
+      userSelected(category: "fun deals")
 
     case 5:
-      // selected group deals
       print("group deals selected")
-      self.navigationController?.popViewController(animated: true)
+      userSelected(category: "group deals")
 
     case 6:
-      // selected my deals
       print("my deals selected")
       
     default:
-      // selected clear my deals
       print("clear my deals selected")
       
 //      warn user about clearing their favs

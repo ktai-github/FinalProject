@@ -34,13 +34,16 @@ class DealViewController: UIViewController {
     }
 
   @objc func notificationReceived(_ notification: Notification) {
-    let selectedDealCategory = notification.object
-    print(selectedDealCategory)
+    guard let selectedDealCategory = notification.object else {
+      print("selected deal category error")
+      return
+    }
+    print(String(describing: selectedDealCategory) + " notification received")
   }
   
   deinit {
         NotificationCenter.default.removeObserver(self,
-                                                  name: Notification.Name.randomDeal,
+                                                  name: Notification.Name.deal,
                                                   object: nil)
   }
 
