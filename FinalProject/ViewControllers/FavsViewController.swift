@@ -17,6 +17,8 @@ class FavsViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
       self.favsTableView.dataSource = self
+      self.favsTableView.delegate = self
+      self.favsTableView.reloadData()
         // Do any additional setup after loading the view.
     }
 
@@ -34,11 +36,19 @@ class FavsViewController: UIViewController, UITableViewDelegate, UITableViewData
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-    
+    guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? FavsTableViewCell else {
+      print("guard let cell error")
+      let cell = FavsTableViewCell(style: .default, reuseIdentifier: "Cell")
+      return cell
+    }
+    cell.dealLabel.text = favs[indexPath.row]
     return cell
   }
   
+  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 300 //return height size whichever you want
+    
+  }
     /*
     // MARK: - Navigation
 
