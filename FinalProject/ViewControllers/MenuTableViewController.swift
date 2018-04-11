@@ -60,24 +60,27 @@ class MenuTableViewController: UITableViewController {
       // selected drinks deals
       print("drinks deals selected")
     case 3:
-      // selected event deals
+      // selected date deals
       print("date deals selected")
     case 4:
-      // selected event deals
+      // selected fun deals
       print("fun deals selected")
     case 5:
-      // selected event deals
+      // selected group deals
       print("group deals selected")
     case 6:
-      // selected event deals
+      // selected my deals
       print("my deals selected")
     default:
-      // selected my deals
-      print("reset my deals selected")
+      // selected clear my deals
+      print("clear my deals selected")
+      let clearAlert = UIAlertController.init(title: "Confirm Clear", message: "Clear your favorite deals? Your favorite deals will be erased from your device.", preferredStyle: .alert)
+      clearAlert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default"), style: .default, handler: { _ in print("alert presented")
+      }))
+      self.present(clearAlert, animated: true, completion: nil)
     }
-    
   }
-
+  
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
