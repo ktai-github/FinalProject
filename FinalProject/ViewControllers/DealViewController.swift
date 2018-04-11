@@ -8,11 +8,23 @@
 
 import UIKit
 
+extension Notification.Name {
+  
+  static let deal: Notification.Name = Notification.Name("deal")
+}
+
 class DealViewController: UIViewController {
+
+//  var selectedMenuItem: String = ""
+  
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+//      NotificationCenter.default.post(name: Notification.Name(rawValue: "random"), object: randomSelected)
+      NotificationCenter.default.addObserver(self,
+                                             selector: #selector(notificationReceived(_:)),
+                                             name: Notification.Name.deal,
+                                             object: nil)
         // Do any additional setup after loading the view.
     }
 
@@ -20,8 +32,21 @@ class DealViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
+  @objc func notificationReceived(_ notification: Notification) {
+    let selectedDealCategory = notification.object
+    print(selectedDealCategory)
+  }
+  
+  deinit {
+        NotificationCenter.default.removeObserver(self,
+                                                  name: Notification.Name.randomDeal,
+                                                  object: nil)
+  }
+
+//  extension Notification.Name {
+//    static let randomMenuItem = Notification.Name("random")
+//  }
     /*
     // MARK: - Navigation
 

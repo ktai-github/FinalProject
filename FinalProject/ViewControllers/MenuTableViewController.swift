@@ -8,20 +8,30 @@
 
 import UIKit
 
+let notificationKey = "selectedMenuItem.NotificationKey"
+
 class MenuTableViewController: UITableViewController {
   
   @IBOutlet weak var randomDealsTableViewCell: UITableViewCell!
   @IBOutlet weak var drinkDealsTableViewCell: UITableViewCell!
   
+  var userSelectedCategory: String = ""
+  
     override func viewDidLoad() {
         super.viewDidLoad()
       
+//      NotificationCenter.default.addObserver(self, selector: #selector(setToRandomDeals), name: NSNotification.Name(rawValue: notificationKey), object: nil)
+
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+
+//  @objc func setToRandomDeals() {
+//    print ("Random Deals")
+//  }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -53,27 +63,44 @@ class MenuTableViewController: UITableViewController {
     case 0:
       // selected random deals
       print("random deals selected")
+      userSelectedCategory = "random deals selected"
+      NotificationCenter.default.post(name: Notification.Name.deal,
+                                      object: userSelectedCategory)
+      self.navigationController?.popViewController(animated: true)
     case 1:
       // selected restaurant deals
       print("food deals selected")
+      self.navigationController?.popViewController(animated: true)
+
     case 2:
       // selected drinks deals
       print("drinks deals selected")
+      self.navigationController?.popViewController(animated: true)
+
     case 3:
       // selected date deals
       print("date deals selected")
+      self.navigationController?.popViewController(animated: true)
+
     case 4:
       // selected fun deals
       print("fun deals selected")
+      self.navigationController?.popViewController(animated: true)
+
     case 5:
       // selected group deals
       print("group deals selected")
+      self.navigationController?.popViewController(animated: true)
+
     case 6:
       // selected my deals
       print("my deals selected")
+      
     default:
       // selected clear my deals
       print("clear my deals selected")
+      
+//      warn user about clearing their favs
       let clearAlert = UIAlertController.init(title: "Confirm Clear", message: "Clear your favorite deals? Your favorite deals will be erased from your device.", preferredStyle: .alert)
       clearAlert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default"), style: .default, handler: { _ in print("alert presented")
       }))
