@@ -11,10 +11,7 @@ import UIKit
 class MenuTableViewController: UITableViewController {
   
   @IBOutlet weak var randomDealsTableViewCell: UITableViewCell!
-  @IBOutlet weak var restaurantDealsTableViewCell: UITableViewCell!
   @IBOutlet weak var drinkDealsTableViewCell: UITableViewCell!
-  @IBOutlet weak var eventDealsTableViewCell: UITableViewCell!
-  @IBOutlet weak var myDealsTableViewCell: UITableViewCell!
   
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,9 +68,12 @@ class MenuTableViewController: UITableViewController {
     case 5:
       // selected event deals
       print("group deals selected")
+    case 6:
+      // selected event deals
+      print("my deals selected")
     default:
       // selected my deals
-      print("my deals selected")
+      print("reset my deals selected")
     }
     
   }
