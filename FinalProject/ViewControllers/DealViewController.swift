@@ -62,6 +62,12 @@ class DealViewController: UIViewController {
     }
   }
   
+  @IBAction func shareButton(_ sender: UIBarButtonItem) {
+    print("share tapped")
+    let activityViewController = UIActivityViewController(activityItems: ["Would you like to go to someplace for somedeal?"], applicationActivities: nil)
+    activityViewController.popoverPresentationController?.sourceView = self.view
+    self.present(activityViewController, animated: true, completion: nil)
+  }
   
   deinit {
         NotificationCenter.default.removeObserver(self,

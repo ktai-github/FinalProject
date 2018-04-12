@@ -442,9 +442,14 @@
                         <viewLayoutGuide key="safeArea" id="PUs-d8-scq"/>
                     </view>
                     <navigationItem key="navigationItem" title="Deal" id="i9O-Mj-6va">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="menu" id="gh8-sU-b7A">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="menu" id="gh8-sU-b7A" userLabel="Menu">
                             <connections>
                                 <segue destination="ErU-zg-YPj" kind="show" id="aAn-pz-Lxm"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="ura-Rn-RFy">
+                            <connections>
+                                <action selector="shareButton:" destination="THJ-yi-499" id="FLj-2i-fM1"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -492,6 +497,7 @@
         <image name="menu" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="aAn-pz-Lxm"/>
         <segue reference="Cjk-uh-FYx"/>
     </inferredMetricsTieBreakers>
 </document>
