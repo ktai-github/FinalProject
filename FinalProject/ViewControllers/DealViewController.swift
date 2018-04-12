@@ -14,6 +14,11 @@ extension Notification.Name {
 
 class DealViewController: UIViewController {
 
+  @IBOutlet var swipeLeftGestRec: UISwipeGestureRecognizer!
+  @IBOutlet var swipeRightGestRec: UISwipeGestureRecognizer!
+  
+  @IBOutlet weak var imageView: UIImageView!
+  
   var selectedDealCategory: String = ""
   
     override func viewDidLoad() {
@@ -22,6 +27,11 @@ class DealViewController: UIViewController {
                                              selector: #selector(notificationReceived(_:)),
                                              name: Notification.Name.deal,
                                              object: nil)
+      swipeRightGestRec.direction = .right
+      swipeLeftGestRec.direction = .left
+      imageView.addGestureRecognizer(swipeRightGestRec)
+      imageView.addGestureRecognizer(swipeLeftGestRec)
+
         // Do any additional setup after loading the view.
     }
 
@@ -38,6 +48,20 @@ class DealViewController: UIViewController {
     selectedDealCategory = String(describing: unwNotificationObj)
     print(selectedDealCategory + " notification received")
   }
+  
+  @IBAction func swipeLeftGestRec(_ sender: UISwipeGestureRecognizer) {
+    print("swiped left")
+  }
+  @IBAction func swipeRightGestRec(_ sender: UISwipeGestureRecognizer) {
+    print("swiped right")
+  }
+  
+  @IBAction func nextDealButton(_ sender: Any) {
+    if selectedDealCategory == "my deals" {
+      print("my deals")
+    }
+  }
+  
   
   deinit {
         NotificationCenter.default.removeObserver(self,
