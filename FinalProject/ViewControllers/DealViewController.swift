@@ -14,6 +14,8 @@ extension Notification.Name {
 
 class DealViewController: UIViewController {
 
+  var selectedDealCategory: String = ""
+  
     override func viewDidLoad() {
         super.viewDidLoad()
       NotificationCenter.default.addObserver(self,
@@ -29,11 +31,12 @@ class DealViewController: UIViewController {
     }
 
   @objc func notificationReceived(_ notification: Notification) {
-    guard let selectedDealCategory = notification.object else {
+    guard let unwNotificationObj = notification.object else {
       print("selected deal category error")
       return
     }
-    print(String(describing: selectedDealCategory) + " notification received")
+    selectedDealCategory = String(describing: unwNotificationObj)
+    print(selectedDealCategory + " notification received")
   }
   
   deinit {

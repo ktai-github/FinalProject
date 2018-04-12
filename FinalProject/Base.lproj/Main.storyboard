@@ -357,6 +357,10 @@
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Lighthouse-night" translatesAutoresizingMaskIntoConstraints="NO" id="eus-vl-Ktb">
                                 <rect key="frame" x="16" y="62" width="382" height="472"/>
                                 <color key="backgroundColor" red="0.83216959239999999" green="0.98548370600000001" blue="0.47333085539999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="eNx-eK-Fhg" appends="YES" id="6Ym-Nt-mpJ"/>
+                                </connections>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nrw-h9-m6W">
                                 <rect key="frame" x="16" y="690" width="382" height="30"/>
@@ -447,6 +451,7 @@
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7s2-wZ-G3A" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="eNx-eK-Fhg"/>
             </objects>
             <point key="canvasLocation" x="4735" y="117"/>
         </scene>
@@ -474,6 +479,7 @@
         <image name="menu" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="aAn-pz-Lxm"/>
         <segue reference="Cjk-uh-FYx"/>
     </inferredMetricsTieBreakers>
 </document>
