@@ -9,9 +9,9 @@
 import UIKit
 
 // notification for the category of deal selected in the menu
-extension Notification.Name {
-  static let deal: Notification.Name = Notification.Name("deal")
-}
+//extension Notification.Name {
+//  static let deal: Notification.Name = Notification.Name("deal")
+//}
 
 class DealViewController: UIViewController {
 
@@ -33,36 +33,38 @@ class DealViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
       
-//      notification for the category of deal selected in the menu
-      NotificationCenter.default.addObserver(self,
-                                             selector: #selector(notificationReceived(_:)),
-                                             name: Notification.Name.deal,
-                                             object: nil)
-      
 //      recognize swiping left and right
-      swipeRightGestRec.direction = .right
-      swipeLeftGestRec.direction = .left
+      swipeRightGestRec.direction = UISwipeGestureRecognizerDirection.right
+      swipeLeftGestRec.direction = UISwipeGestureRecognizerDirection.left
       blackMaskView.addGestureRecognizer(swipeRightGestRec)
       blackMaskView.addGestureRecognizer(swipeLeftGestRec)
       
         // Do any additional setup after loading the view.
-    }
 
+    //      notification for the category of deal selected in the menu
+//    NotificationCenter.default.addObserver(self,
+//                                           selector: #selector(notificationReceived(_:)),
+//                                           name: Notification.Name.deal,
+//                                           object: nil)
+  }
+  
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
-  @objc func notificationReceived(_ notification: Notification) {
-    guard let unwNotificationObj = notification.object else {
-      print("selected deal category error")
-      return
-    }
-    
-//    receiving notification for the category of deal selected
-    selectedDealCategory = String(describing: unwNotificationObj)
-    print(selectedDealCategory + " notification received")
-  }
+//  @objc func notificationReceived(_ notification: Notification) {
+//    guard let unwNotificationObj = notification.object else {
+//      print("selected deal category error")
+//      return
+//    }
+//
+////    receiving notification for the category of deal selected
+//    selectedDealCategory = String(describing: unwNotificationObj)
+//    print(selectedDealCategory + " notification received")
+//  }
+  
+  @IBAction func unwindToDealVC(segue:UIStoryboardSegue) {}
   
   @IBAction func swipeLeftGestRec(_ sender: UISwipeGestureRecognizer) {
     print("swiped left")
@@ -95,12 +97,13 @@ class DealViewController: UIViewController {
     self.present(activityViewController, animated: true, completion: nil)
   }
   
-  deinit {
-//    removing observer from notification
-        NotificationCenter.default.removeObserver(self,
-                                                  name: Notification.Name.deal,
-                                                  object: nil)
-  }
+//  deinit {
+//
+////    removing observer from notification
+//        NotificationCenter.default.removeObserver(self,
+//                                                  name: Notification.Name.deal,
+//                                                  object: nil)
+//  }
 
     /*
     // MARK: - Navigation

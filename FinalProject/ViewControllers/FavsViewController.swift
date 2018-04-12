@@ -59,7 +59,13 @@ class FavsViewController: UIViewController, UITableViewDelegate, UITableViewData
     tableView.endUpdates()
     print("deleted row")
   }
-    /*
+  
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    MenuTableViewController().userSelected(category: "selected fav deals")
+    performSegue(withIdentifier: "unwindSegueToDealVC", sender: self)
+
+  }
+  
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -67,6 +73,5 @@ class FavsViewController: UIViewController, UITableViewDelegate, UITableViewData
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
-
+  
 }

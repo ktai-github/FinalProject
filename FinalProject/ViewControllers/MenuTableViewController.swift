@@ -52,8 +52,8 @@ class MenuTableViewController: UITableViewController {
   
   func userSelected(category: String) {
     userSelectedCategory = category
-    NotificationCenter.default.post(name: Notification.Name.deal,
-                                    object: userSelectedCategory)
+//    NotificationCenter.default.post(name: Notification.Name.deal,
+//                                    object: userSelectedCategory)
     self.navigationController?.popViewController(animated: true)
 
   }
@@ -109,6 +109,8 @@ class MenuTableViewController: UITableViewController {
       self.present(clearAlert, animated: true, completion: nil)
     }
   }
+  
+  
   
     /*
     // Override to support conditional editing of the table view.
