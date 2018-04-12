@@ -474,7 +474,6 @@
         <image name="menu" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="8rw-oc-GHZ"/>
         <segue reference="Cjk-uh-FYx"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -30,7 +30,7 @@ class FavsViewController: UIViewController, UITableViewDelegate, UITableViewData
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return favs.count
+    return favsArray.count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -40,13 +40,24 @@ class FavsViewController: UIViewController, UITableViewDelegate, UITableViewData
       return cell
     }
     
-    cell.dealLabel.text = favs[indexPath.row]
+    cell.dealLabel.text = favsArray[indexPath.row]
     return cell
   }
   
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 300 //return height size whichever you want
-    
+    return 300 //return height size whichever you want
+  }
+  
+  func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+    return true
+  }
+  
+  func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    favsArray.remove(at: indexPath.row)
+    tableView.beginUpdates()
+    tableView.deleteRows(at: [indexPath], with: .automatic)
+    tableView.endUpdates()
+    print("deleted row")
   }
     /*
     // MARK: - Navigation

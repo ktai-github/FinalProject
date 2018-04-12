@@ -86,6 +86,7 @@ class MenuTableViewController: UITableViewController {
 
     case 6:
       print("my deals selected")
+//      storyboard segue to my deals vc
       
     default:
       print("clear my deals selected")
@@ -96,7 +97,7 @@ class MenuTableViewController: UITableViewController {
       clearAlert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "OK"),
                                          style: .default,
                                          handler: { _ in print("clicked ok")
-        favs.removeAll()
+        favsArray.removeAll()
       }))
       
       clearAlert.addAction(UIAlertAction(title: NSLocalizedString("Cancel",

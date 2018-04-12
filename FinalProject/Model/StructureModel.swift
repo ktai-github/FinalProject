@@ -8,7 +8,7 @@
 
 import UIKit
 
-var favs = ["deal1", "deal2"]
+var favsArray = ["deal1", "deal2"]
 
 struct Deal {
   var dealID: Int //primary key
