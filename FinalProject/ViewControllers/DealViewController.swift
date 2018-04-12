@@ -31,7 +31,7 @@ class DealViewController: UIViewController {
       swipeLeftGestRec.direction = .left
       imageView.addGestureRecognizer(swipeRightGestRec)
       imageView.addGestureRecognizer(swipeLeftGestRec)
-
+      
         // Do any additional setup after loading the view.
     }
 
