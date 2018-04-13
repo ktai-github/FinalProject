@@ -7,24 +7,37 @@
 //
 
 import UIKit
+import RealmSwift
 
 var favsArray = ["deal1", "deal2", "deal3"]
 
-struct Deal {
-  var dealID: Int //primary key
-  var dealName: String
-  var dealImageUrl: String?
-  var price: String?
-  var tags: [String]?
-  var placeID: Int?
-  var styleID: Int?
-  var dealFaved: Bool
-  
-  init(dealID: Int, dealName: String) {
-    self.dealID = dealID
-    self.dealName = dealName
-    self.dealFaved = false
-  }
+//struct Deal {
+//  var dealID: Int //primary key
+//  var dealName: String
+//  var dealImageUrl: String?
+//  var price: String?
+//  var tags: [String]?
+//  var placeID: Int?
+//  var styleID: Int?
+//  var dealFaved: Bool
+//
+//  init(dealID: Int, dealName: String) {
+//    self.dealID = dealID
+//    self.dealName = dealName
+//    self.dealFaved = false
+//  }
+//}
+
+class Deal: Object {
+  @objc dynamic var dealID = 0 //primary key
+  @objc dynamic var dealName = ""
+  @objc dynamic var dealImageUrl = ""
+  @objc dynamic var price = ""
+  @objc dynamic var tags = ""
+  @objc dynamic var placeID = 0
+  @objc dynamic var styleID = 0
+  @objc dynamic var dealFaved = false
+
 }
 
 struct Place {
