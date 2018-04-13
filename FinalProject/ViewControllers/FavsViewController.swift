@@ -61,10 +61,11 @@ class FavsViewController: UIViewController, UITableViewDelegate, UITableViewData
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    MenuTableViewController().userSelected(category: "selected fav deals")
+//    MenuTableViewController().userSelected(category: enumSelectedDealCategory.enumMyDeals)
     performSegue(withIdentifier: "unwindSegueToDealVC", sender: self)
 
   }
+  
   
     // MARK: - Navigation
 
@@ -72,6 +73,12 @@ class FavsViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+      if segue.identifier == "unwindSegueToDealVC" {
+        
+        let dealVC = segue.destination as! DealViewController
+        dealVC.selectedDealCategory = enumSelectedDealCategory.enumMyDeals
+        
+      }
     }
   
 }

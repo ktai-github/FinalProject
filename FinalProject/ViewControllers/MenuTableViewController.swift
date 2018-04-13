@@ -13,7 +13,7 @@ class MenuTableViewController: UITableViewController {
   @IBOutlet weak var randomDealsTableViewCell: UITableViewCell!
   @IBOutlet weak var drinkDealsTableViewCell: UITableViewCell!
   
-  var userSelectedCategory: String = ""
+  var userSelectedCategory: enumSelectedDealCategory = enumSelectedDealCategory.enumRandomDeals
   
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +50,7 @@ class MenuTableViewController: UITableViewController {
 //        return cell
 //    }
   
-  func userSelected(category: String) {
+  func userSelected(category: enumSelectedDealCategory) {
     userSelectedCategory = category
 //    NotificationCenter.default.post(name: Notification.Name.deal,
 //                                    object: userSelectedCategory)
@@ -62,30 +62,31 @@ class MenuTableViewController: UITableViewController {
     switch indexPath.row {
     case 0:
       print("random deals selected")
-      userSelected(category: "random deals")
+      userSelected(category: enumSelectedDealCategory.enumRandomDeals)
       
     case 1:
       print("food deals selected")
-      userSelected(category: "food deals")
+      userSelected(category: enumSelectedDealCategory.enumFoodDeals)
 
     case 2:
       print("drinks deals selected")
-      userSelected(category: "drink deals")
+      userSelected(category: enumSelectedDealCategory.enumDrinkDeals)
 
     case 3:
       print("date deals selected")
-      userSelected(category: "date deals")
+      userSelected(category: enumSelectedDealCategory.enumDateDeals)
 
     case 4:
       print("fun deals selected")
-      userSelected(category: "fun deals")
+      userSelected(category: enumSelectedDealCategory.enumFunDeals)
 
     case 5:
       print("group deals selected")
-      userSelected(category: "group deals")
+      userSelected(category: enumSelectedDealCategory.enumGroupDeals)
 
     case 6:
       print("my deals selected")
+      userSelected(category: enumSelectedDealCategory.enumMyDeals)
 //      storyboard segue to my deals vc
       
     default:

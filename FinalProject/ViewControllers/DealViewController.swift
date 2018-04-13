@@ -13,6 +13,16 @@ import UIKit
 //  static let deal: Notification.Name = Notification.Name("deal")
 //}
 
+enum enumSelectedDealCategory {
+  case enumRandomDeals
+  case enumFoodDeals
+  case enumDrinkDeals
+  case enumDateDeals
+  case enumFunDeals
+  case enumGroupDeals
+  case enumMyDeals
+}
+
 class DealViewController: UIViewController {
 
   @IBOutlet var swipeLeftGestRec: UISwipeGestureRecognizer!
@@ -28,8 +38,9 @@ class DealViewController: UIViewController {
   @IBOutlet weak var descriptionLabel: UILabel!
   @IBOutlet weak var tagsLabel: UILabel!
   
-  var selectedDealCategory: String = ""
-
+  var selectedDealCategory: enumSelectedDealCategory = enumSelectedDealCategory.enumRandomDeals
+  
+  
     override func viewDidLoad() {
         super.viewDidLoad()
       
@@ -74,7 +85,7 @@ class DealViewController: UIViewController {
   }
   
   @IBAction func nextDealButton(_ sender: Any) {
-    if selectedDealCategory == "my deals" {
+    if selectedDealCategory == enumSelectedDealCategory.enumMyDeals {
       print("my deals")
     }
   }
