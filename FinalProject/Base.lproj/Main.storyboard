@@ -431,6 +431,13 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Gy1-pK-W1j">
+                                <rect key="frame" x="257" y="74" width="49" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="favSwitch:" destination="THJ-yi-499" eventType="valueChanged" id="XNe-hy-mAz"/>
+                                </connections>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -475,6 +482,7 @@
                         <outlet property="blackMaskView" destination="YfX-ug-9Ts" id="Frc-2c-vyC"/>
                         <outlet property="dealLabel" destination="OOH-2X-YuS" id="Qmp-y4-43z"/>
                         <outlet property="descriptionLabel" destination="oDh-Ne-Nl8" id="AUy-MF-JWm"/>
+                        <outlet property="favSwitch" destination="Gy1-pK-W1j" id="2AA-uo-Ltl"/>
                         <outlet property="imageView" destination="eus-vl-Ktb" id="fUs-ah-4B7"/>
                         <outlet property="placeNameLabel" destination="eNS-97-DCK" id="kuq-mi-4yo"/>
                         <outlet property="priceLabel" destination="qhK-sN-2se" id="tEv-TR-CaW"/>

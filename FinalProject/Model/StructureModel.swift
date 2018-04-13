@@ -18,10 +18,12 @@ struct Deal {
   var tags: [String]?
   var placeID: Int?
   var styleID: Int?
+  var dealFaved: Bool
   
   init(dealID: Int, dealName: String) {
     self.dealID = dealID
     self.dealName = dealName
+    self.dealFaved = false
   }
 }
 

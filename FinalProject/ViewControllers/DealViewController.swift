@@ -28,6 +28,7 @@ class DealViewController: UIViewController {
   @IBOutlet var swipeLeftGestRec: UISwipeGestureRecognizer!
   @IBOutlet var swipeRightGestRec: UISwipeGestureRecognizer!
   
+  @IBOutlet weak var favSwitch: UISwitch!
   @IBOutlet weak var blackMaskView: UIView!
   @IBOutlet weak var dealLabel: UILabel!
   @IBOutlet weak var placeNameLabel: UILabel!
@@ -57,6 +58,15 @@ class DealViewController: UIViewController {
 //                                           selector: #selector(notificationReceived(_:)),
 //                                           name: Notification.Name.deal,
 //                                           object: nil)
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    if selectedDealCategory == enumSelectedDealCategory.enumMyDeals {
+      favSwitch.isHidden = true
+    } else {
+      favSwitch.isHidden = false
+    }
+    self.view.layoutIfNeeded()
   }
   
     override func didReceiveMemoryWarning() {
@@ -109,6 +119,27 @@ class DealViewController: UIViewController {
     activityViewController.popoverPresentationController?.sourceView = self.view
     self.present(activityViewController, animated: true, completion: nil)
   }
+  
+  @IBAction func favSwitch(_ sender: UISwitch) {
+    
+    if sender.isOn == true {
+      print("fav switch is on")
+      guard let unwDealName = dealLabel.text else {
+        return
+      }
+      
+    //    let deal = Deal(dealID: 10, dealName: unwDealName)
+    
+        favsArray.append(unwDealName)
+    } else {
+      print("fav switch is off")
+//      favsArray.remove(at: dealID)
+    }
+  }
+  
+
+    
+
   
 //  deinit {
 //
