@@ -14,7 +14,6 @@ class FavsViewController: UIViewController, UITableViewDelegate, UITableViewData
   @IBOutlet weak var favsTableView: UITableView!
 
 //  let realm = try! Realm()
-  let deals = try! Realm().objects(Deal.self)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,8 +33,9 @@ class FavsViewController: UIViewController, UITableViewDelegate, UITableViewData
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//    let realm = try! Realm()
+    let realm = try! Realm()
 //    let deals = realm.objects(Deal.self)
+    let deals = try! realm.objects(Deal.self)
     return deals.count
   }
   
@@ -46,9 +46,10 @@ class FavsViewController: UIViewController, UITableViewDelegate, UITableViewData
       return cell
     }
     
-//    let realm = try! Realm()
+    let realm = try! Realm()
 //    let deals = realm.objects(Deal.self)
-    
+    let deals = try! realm.objects(Deal.self)
+
     cell.dealLabel.text = deals[indexPath.row].dealName
     return cell
   }
@@ -63,8 +64,8 @@ class FavsViewController: UIViewController, UITableViewDelegate, UITableViewData
   
   func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
     let deal = Deal()
-    
-    guard let unwDealName = tableView.cellForRow(at: indexPath)?.textLabel?.text else {
+    let cell = tableView.cellForRow(at: indexPath) as? FavsTableViewCell
+    guard let unwDealName = cell?.dealLabel.text else {
       print("no deal label")
       return
     }
@@ -80,12 +81,13 @@ class FavsViewController: UIViewController, UITableViewDelegate, UITableViewData
 //    deal.tags = "sightseeing"
     
     let realm = try! Realm()
-    try! Realm().write {
-      realm.delete(deal)
+    let deals = realm.objects(Deal.self).filter("dealName = '\(unwDealName)'").first
+
+    try! realm.write {
+      realm.delete(deals!)
       print("deleted \(deal.dealName) from realm")
     }
 
-//    favsArray.remove(at: indexPath.row)
     tableView.beginUpdates()
     tableView.deleteRows(at: [indexPath], with: .automatic)
     tableView.endUpdates()

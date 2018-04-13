@@ -60,8 +60,8 @@
                                             <constraint firstItem="Dg8-Lm-8R2" firstAttribute="centerY" secondItem="Pla-hs-LJr" secondAttribute="centerY" id="rG2-Jc-HIM"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="dealImageView" destination="Dg8-Lm-8R2" id="SUE-lU-st9"/>
-                                            <outlet property="dealLabel" destination="xco-Jn-Oe3" id="m39-GO-H05"/>
+                                            <outlet property="dealImageView" destination="Dg8-Lm-8R2" id="7h2-vx-wZv"/>
+                                            <outlet property="dealLabel" destination="xco-Jn-Oe3" id="dSw-Cp-CYQ"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

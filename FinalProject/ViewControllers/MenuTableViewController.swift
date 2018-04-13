@@ -98,8 +98,8 @@ class MenuTableViewController: UITableViewController {
       clearAlert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "OK"),
                                          style: .default,
                                          handler: { _ in print("clicked ok")
-//        favsArray.removeAll()
-        let realm = try! Realm()
+
+      let realm = try! Realm()
         try! realm.write {
           realm.deleteAll()
         }
