@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 // notification for the category of deal selected in the menu
 //extension Notification.Name {
@@ -96,7 +97,7 @@ class DealViewController: UIViewController {
   
   @IBAction func nextDealButton(_ sender: Any) {
     print(selectedDealCategory)
-
+    
     if selectedDealCategory == enumSelectedDealCategory.enumMyDeals {
       print("my deals")
     }
@@ -128,12 +129,32 @@ class DealViewController: UIViewController {
         return
       }
       
+      let deal = Deal()
+      deal.dealFaved = true
+      deal.dealName = unwDealName
+      deal.dealID = 100
+      deal.dealImageUrl = "http://whatever.com/whatever.jpg"
+      deal.placeID = 1000
+      deal.price = "$10"
+      deal.styleID = 4
+      deal.tags = "sightseeing"
+      
+      let realm = try! Realm()
+      try! realm.write {
+        realm.add(deal)
+        print("added \(deal.dealName) to realm")
+      }
     //    let deal = Deal(dealID: 10, dealName: unwDealName)
     
-        favsArray.append(unwDealName)
+//        favsArray.append(unwDealName)
     } else {
       print("fav switch is off")
-//      favsArray.remove(at: dealID)
+      
+//      let realm = try! Realm()
+//      try! realm.write {
+//        realm.delete(deal)
+//        print("deleted \(deal.dealName) to realm")
+//      }
     }
   }
   

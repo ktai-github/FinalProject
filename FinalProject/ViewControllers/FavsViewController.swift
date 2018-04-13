@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class FavsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
   
@@ -30,7 +31,9 @@ class FavsViewController: UIViewController, UITableViewDelegate, UITableViewData
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return favsArray.count
+    let realm = try! Realm()
+    let deals = realm.objects(Deal.self)
+    return deals.count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -40,7 +43,10 @@ class FavsViewController: UIViewController, UITableViewDelegate, UITableViewData
       return cell
     }
     
-    cell.dealLabel.text = favsArray[indexPath.row]
+    let realm = try! Realm()
+    let deals = realm.objects(Deal.self)
+    
+    cell.dealLabel.text = deals[indexPath.row].dealName
     return cell
   }
   
