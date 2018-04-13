@@ -10,6 +10,7 @@ target 'FinalProject' do
   # use_frameworks!
   pod 'Nuke', '~> 6.0'
   pod 'RealmSwift'
+  pod 'Firebase/Core'
   # Pods for FinalProject
 
 end
