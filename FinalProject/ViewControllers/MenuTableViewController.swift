@@ -55,7 +55,7 @@ class MenuTableViewController: UITableViewController {
 //    NotificationCenter.default.post(name: Notification.Name.deal,
 //                                    object: userSelectedCategory)
 //    self.navigationController?.popViewController(animated: true)
-    performSegue(withIdentifier: "unwindSegueToDealVC", sender: self)
+    performSegue(withIdentifier: "unwindSegueFromMenuToDealVC", sender: self)
   }
   
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -153,7 +153,7 @@ class MenuTableViewController: UITableViewController {
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     // Get the new view controller using segue.destinationViewController.
     // Pass the selected object to the new view controller.
-    if segue.identifier == "unwindSegueToDealVC" {
+    if segue.identifier == "unwindSegueFromMenuToDealVC" {
       
       let dealVC = segue.destination as! DealViewController
       dealVC.selectedDealCategory = userSelectedCategory

@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="300" id="Pla-hs-LJr" customClass="FavsTableViewCell" customModule="FinalProject" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="300" id="Pla-hs-LJr" customClass="FavsTableViewCell" customModule="FinalProject" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="300"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Pla-hs-LJr" id="xBe-6d-795">
@@ -328,9 +328,11 @@
                     <connections>
                         <outlet property="drinkDealsTableViewCell" destination="SgM-xO-mAY" id="R1j-8M-7ep"/>
                         <outlet property="randomDealsTableViewCell" destination="oLW-Bo-VWz" id="IRP-xa-o6W"/>
+                        <segue destination="eC5-2g-GBB" kind="unwind" identifier="unwindSegueFromMenuToDealVC" unwindAction="unwindToDealVCWithSegue:" id="XiG-9W-c41"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="84R-ay-J1u" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="eC5-2g-GBB" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="5569.5652173913049" y="116.57608695652175"/>
         </scene>
