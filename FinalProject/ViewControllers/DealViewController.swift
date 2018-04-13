@@ -85,6 +85,8 @@ class DealViewController: UIViewController {
   }
   
   @IBAction func nextDealButton(_ sender: Any) {
+    print(selectedDealCategory)
+
     if selectedDealCategory == enumSelectedDealCategory.enumMyDeals {
       print("my deals")
     }
