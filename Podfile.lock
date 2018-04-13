@@ -1,12 +1,26 @@
 PODS:
   - Nuke (6.1)
+  - Realm (3.3.2):
+    - Realm/Headers (= 3.3.2)
+  - Realm/Headers (3.3.2)
+  - RealmSwift (3.3.2):
+    - Realm (= 3.3.2)
 
 DEPENDENCIES:
   - Nuke (~> 6.0)
+  - RealmSwift
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Nuke
+    - Realm
+    - RealmSwift
 
 SPEC CHECKSUMS:
   Nuke: 0513c8d156bd9a2adb15db70622c3527f44542c5
+  Realm: d927fbf66df5532cfafc08afb5f7e53ded37b894
+  RealmSwift: 4e903a494e05d866581d69ad6f7e7b879d446baf
 
-PODFILE CHECKSUM: a38fc23a1d912465721923342c1d5ed435f7e436
+PODFILE CHECKSUM: 13a941b2c0ddfe0857631f676a60ca9da488b988
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.0
