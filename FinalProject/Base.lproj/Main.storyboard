@@ -102,23 +102,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="tMd-qB-qci">
-                                <rect key="frame" x="0.0" y="120" width="320" height="448"/>
-                            </mapView>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="DjB-dE-leS">
+                            <searchBar contentMode="redraw" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DjB-dE-leS">
                                 <rect key="frame" x="0.0" y="64" width="320" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="tMd-qB-qci" firstAttribute="bottom" secondItem="Ghb-CD-XE7" secondAttribute="bottom" id="0HB-gm-zHe"/>
                             <constraint firstItem="DjB-dE-leS" firstAttribute="leading" secondItem="GYH-To-irM" secondAttribute="leading" id="1ij-ar-EAw"/>
-                            <constraint firstItem="DjB-dE-leS" firstAttribute="leading" secondItem="tMd-qB-qci" secondAttribute="leading" id="4Wf-BR-yfh"/>
-                            <constraint firstItem="tMd-qB-qci" firstAttribute="width" secondItem="Ghb-CD-XE7" secondAttribute="width" id="EeU-39-5sn"/>
                             <constraint firstItem="DjB-dE-leS" firstAttribute="top" secondItem="Ghb-CD-XE7" secondAttribute="top" id="MdL-To-R2N"/>
-                            <constraint firstItem="DjB-dE-leS" firstAttribute="bottom" secondItem="tMd-qB-qci" secondAttribute="top" id="bm9-uT-CyK"/>
-                            <constraint firstItem="DjB-dE-leS" firstAttribute="trailing" secondItem="tMd-qB-qci" secondAttribute="trailing" id="tZk-Yl-LVA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ghb-CD-XE7"/>
                     </view>
