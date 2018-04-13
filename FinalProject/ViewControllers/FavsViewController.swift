@@ -13,6 +13,9 @@ class FavsViewController: UIViewController, UITableViewDelegate, UITableViewData
   
   @IBOutlet weak var favsTableView: UITableView!
 
+//  let realm = try! Realm()
+  let deals = try! Realm().objects(Deal.self)
+
     override func viewDidLoad() {
         super.viewDidLoad()
       self.favsTableView.dataSource = self
@@ -31,8 +34,8 @@ class FavsViewController: UIViewController, UITableViewDelegate, UITableViewData
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    let realm = try! Realm()
-    let deals = realm.objects(Deal.self)
+//    let realm = try! Realm()
+//    let deals = realm.objects(Deal.self)
     return deals.count
   }
   
@@ -43,8 +46,8 @@ class FavsViewController: UIViewController, UITableViewDelegate, UITableViewData
       return cell
     }
     
-    let realm = try! Realm()
-    let deals = realm.objects(Deal.self)
+//    let realm = try! Realm()
+//    let deals = realm.objects(Deal.self)
     
     cell.dealLabel.text = deals[indexPath.row].dealName
     return cell
@@ -59,7 +62,30 @@ class FavsViewController: UIViewController, UITableViewDelegate, UITableViewData
   }
   
   func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-    favsArray.remove(at: indexPath.row)
+    let deal = Deal()
+    
+    guard let unwDealName = tableView.cellForRow(at: indexPath)?.textLabel?.text else {
+      print("no deal label")
+      return
+    }
+    
+    deal.dealName = unwDealName
+    deal.dealFaved = false
+    
+//    deal.dealID = 100
+//    deal.dealImageUrl = "http://whatever.com/whatever.jpg"
+//    deal.placeID = 1000
+//    deal.price = "$10"
+//    deal.styleID = 4
+//    deal.tags = "sightseeing"
+    
+    let realm = try! Realm()
+    try! Realm().write {
+      realm.delete(deal)
+      print("deleted \(deal.dealName) from realm")
+    }
+
+//    favsArray.remove(at: indexPath.row)
     tableView.beginUpdates()
     tableView.deleteRows(at: [indexPath], with: .automatic)
     tableView.endUpdates()
