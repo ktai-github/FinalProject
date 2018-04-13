@@ -7,13 +7,11 @@
 //
 
 import UIKit
-import RealmSwift
+//import RealmSwift
 
 class FavsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
   
   @IBOutlet weak var favsTableView: UITableView!
-
-//  let realm = try! Realm()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,9 +31,7 @@ class FavsViewController: UIViewController, UITableViewDelegate, UITableViewData
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    let realm = try! Realm()
-//    let deals = realm.objects(Deal.self)
-    let deals = try! realm.objects(Deal.self)
+    let deals = RealmManager.realmQueryAllRecords()
     return deals.count
   }
   
@@ -46,10 +42,7 @@ class FavsViewController: UIViewController, UITableViewDelegate, UITableViewData
       return cell
     }
     
-    let realm = try! Realm()
-//    let deals = realm.objects(Deal.self)
-    let deals = try! realm.objects(Deal.self)
-
+    let deals = RealmManager.realmQueryAllRecords()
     cell.dealLabel.text = deals[indexPath.row].dealName
     return cell
   }
@@ -62,6 +55,8 @@ class FavsViewController: UIViewController, UITableViewDelegate, UITableViewData
     return true
   }
   
+  
+  
   func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
     let deal = Deal()
     let cell = tableView.cellForRow(at: indexPath) as? FavsTableViewCell
@@ -73,20 +68,7 @@ class FavsViewController: UIViewController, UITableViewDelegate, UITableViewData
     deal.dealName = unwDealName
     deal.dealFaved = false
     
-//    deal.dealID = 100
-//    deal.dealImageUrl = "http://whatever.com/whatever.jpg"
-//    deal.placeID = 1000
-//    deal.price = "$10"
-//    deal.styleID = 4
-//    deal.tags = "sightseeing"
-    
-    let realm = try! Realm()
-    let deals = realm.objects(Deal.self).filter("dealName = '\(unwDealName)'").first
-
-    try! realm.write {
-      realm.delete(deals!)
-      print("deleted \(deal.dealName) from realm")
-    }
+    RealmManager.realmDelete(unwDealName, deal)
 
     tableView.beginUpdates()
     tableView.deleteRows(at: [indexPath], with: .automatic)
