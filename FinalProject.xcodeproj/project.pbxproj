@@ -14,6 +14,7 @@
 		2CB6FA62207D8191007561D9 /* FavsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB6FA61207D8191007561D9 /* FavsTableViewCell.swift */; };
 		2CEC0BDC2081700E00A6EE63 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CEC0BDB2081700E00A6EE63 /* RealmManager.swift */; };
 		2CEC0BDE20817C1900A6EE63 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CEC0BDD20817C1900A6EE63 /* GoogleService-Info.plist */; };
+		2CEC0BE02082822F00A6EE63 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CEC0BDF2082822F00A6EE63 /* FirebaseManager.swift */; };
 		2CF9B333207A8996008A3FDD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF9B332207A8996008A3FDD /* AppDelegate.swift */; };
 		2CF9B338207A8996008A3FDD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CF9B336207A8996008A3FDD /* Main.storyboard */; };
 		2CF9B33A207A8996008A3FDD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CF9B339207A8996008A3FDD /* Assets.xcassets */; };
@@ -31,6 +32,7 @@
 		2CB6FA61207D8191007561D9 /* FavsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavsTableViewCell.swift; sourceTree = "<group>"; };
 		2CEC0BDB2081700E00A6EE63 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RealmManager.swift; path = FinalProject/Model/RealmManager.swift; sourceTree = SOURCE_ROOT; };
 		2CEC0BDD20817C1900A6EE63 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		2CEC0BDF2082822F00A6EE63 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FirebaseManager.swift; path = FinalProject/Model/FirebaseManager.swift; sourceTree = SOURCE_ROOT; };
 		2CF9B32F207A8996008A3FDD /* FinalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CF9B332207A8996008A3FDD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CF9B337207A8996008A3FDD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 			children = (
 				2CF9B344207C1EE1008A3FDD /* StructureModel.swift */,
 				2CEC0BDB2081700E00A6EE63 /* RealmManager.swift */,
+				2CEC0BDF2082822F00A6EE63 /* FirebaseManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -252,6 +255,7 @@
 				2CB6FA54207C2B8A007561D9 /* MapViewController.swift in Sources */,
 				2CEC0BDC2081700E00A6EE63 /* RealmManager.swift in Sources */,
 				2CB6FA4E207C2706007561D9 /* DealViewController.swift in Sources */,
+				2CEC0BE02082822F00A6EE63 /* FirebaseManager.swift in Sources */,
 				2CB6FA52207C287C007561D9 /* MenuTableViewController.swift in Sources */,
 				2CF9B345207C1EE1008A3FDD /* StructureModel.swift in Sources */,
 				2CB6FA60207D75DA007561D9 /* FavsViewController.swift in Sources */,

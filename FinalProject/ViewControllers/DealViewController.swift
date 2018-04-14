@@ -8,7 +8,6 @@
 
 import UIKit
 //import Firebase
-import FirebaseDatabase
 //import RealmSwift
 
 // notification for the category of deal selected in the menu
@@ -45,10 +44,6 @@ class DealViewController: UIViewController {
   var selectedDealCategory: enumSelectedDealCategory = enumSelectedDealCategory.enumRandomDeals
   
   
-  var ref: DatabaseReference!
-  var databaseHandle: DatabaseHandle?
-  var dealsData = [Any]()
-  
     override func viewDidLoad() {
         super.viewDidLoad()
       
@@ -68,9 +63,11 @@ class DealViewController: UIViewController {
 //        let deal = snapshot.value as? String
         if let actualDeal = snapshot.value {
           self.dealsData.append(actualDeal)
-          print(self.dealsData)
+//          print(actualDeal)
         }
+
       })
+      
 
         // Do any additional setup after loading the view.
 
@@ -117,7 +114,7 @@ class DealViewController: UIViewController {
   
   @IBAction func nextDealButton(_ sender: Any) {
     print(selectedDealCategory)
-    
+    print(dealsData)
     if selectedDealCategory == enumSelectedDealCategory.enumMyDeals {
       print("my deals")
     }
