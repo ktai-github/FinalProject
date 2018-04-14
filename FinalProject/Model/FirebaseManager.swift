@@ -11,11 +11,12 @@ import FirebaseDatabase
 
 class FirebaseManager: NSObject {
 
-  var ref: DatabaseReference!
   var databaseHandle: DatabaseHandle?
   var dealsData = [Any]()
   
-  static func loadFromFirebase(node: String) {
-    
+  static func loadFromFirebase(node: String) -> ([Any]) {
+//    set the firebase reference
+    var ref: DatabaseReference!
+    ref = Database.database().reference()
   }
 }

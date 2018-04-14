@@ -53,8 +53,7 @@ class DealViewController: UIViewController {
       blackMaskView.addGestureRecognizer(swipeRightGestRec)
       blackMaskView.addGestureRecognizer(swipeLeftGestRec)
       
-//      set the firebase reference
-      ref = Database.database().reference()
+//      
       
 //      retrieve the posts and listen for changes
       databaseHandle = ref?.child("deals").observe(.childAdded, with: { (snapshot) in
