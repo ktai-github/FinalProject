@@ -18,20 +18,26 @@ class FirebaseManager: NSObject {
 
   var nodeData = [Any]()
   
-  func loadFromFirebase(node: String, completionHandler: (_ nodeData: [Any]) -> Void) {
+  func loadFromFirebase(node: String, completionHandler: @escaping (_ nodeData: [Any]) -> Void) {
+    //check out object mapper cocoapod to automate conversion from json to any object you want
+    //
+    
 //    set the firebase reference
     ref = Database.database().reference()
     
     //      retrieve the posts and listen for changes
-    databaseHandle = ref?.child(node).observe(.childAdded, with: { (snapshot) in
+    databaseHandle = ref?.child(node).observe(.childAdded, with: { [unowned self] (snapshot) in
+      
       //        code to execute when child is added under deals
       //        take the value from the snapshot and added it to the dealsdata array
       //        let deal = snapshot.value as? String
+      
       if let actualSubNode = snapshot.value {
+        
         self.nodeData.append(actualSubNode)
         //          print(actualDeal)
       }
+      completionHandler(self.nodeData)
     })
-    completionHandler(nodeData)
   }
 }

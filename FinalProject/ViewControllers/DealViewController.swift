@@ -49,12 +49,10 @@ class DealViewController: UIViewController {
         super.viewDidLoad()
       
       FirebaseManager.defaultManager.loadFromFirebase(node: "deals") {(nodeData: [Any]) in
-        
         print(nodeData)
       }
       
-//      print(dealsData)
-      
+
 //      recognize swiping left and right
       swipeRightGestRec.direction = UISwipeGestureRecognizerDirection.right
       swipeLeftGestRec.direction = UISwipeGestureRecognizerDirection.left
