@@ -43,9 +43,17 @@ class DealViewController: UIViewController {
   
   var selectedDealCategory: enumSelectedDealCategory = enumSelectedDealCategory.enumRandomDeals
   
-  
+  var nodeData = [Any]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
+      
+      FirebaseManager.defaultManager.loadFromFirebase(node: "deals") {(nodeData: [Any]) in
+        
+        print(nodeData)
+      }
+      
+//      print(dealsData)
       
 //      recognize swiping left and right
       swipeRightGestRec.direction = UISwipeGestureRecognizerDirection.right
@@ -53,21 +61,6 @@ class DealViewController: UIViewController {
       blackMaskView.addGestureRecognizer(swipeRightGestRec)
       blackMaskView.addGestureRecognizer(swipeLeftGestRec)
       
-//      
-      
-//      retrieve the posts and listen for changes
-      databaseHandle = ref?.child("deals").observe(.childAdded, with: { (snapshot) in
-//        code to execute when child is added under deals
-//        take the value from the snapshot and added it to the dealsdata array
-//        let deal = snapshot.value as? String
-        if let actualDeal = snapshot.value {
-          self.dealsData.append(actualDeal)
-//          print(actualDeal)
-        }
-
-      })
-      
-
         // Do any additional setup after loading the view.
 
     //      notification for the category of deal selected in the menu
@@ -113,7 +106,7 @@ class DealViewController: UIViewController {
   
   @IBAction func nextDealButton(_ sender: Any) {
     print(selectedDealCategory)
-    print(dealsData)
+    print(nodeData)
     if selectedDealCategory == enumSelectedDealCategory.enumMyDeals {
       print("my deals")
     }
