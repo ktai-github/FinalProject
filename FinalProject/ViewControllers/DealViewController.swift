@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 //import RealmSwift
 
 // notification for the category of deal selected in the menu
@@ -51,6 +52,9 @@ class DealViewController: UIViewController {
       swipeLeftGestRec.direction = UISwipeGestureRecognizerDirection.left
       blackMaskView.addGestureRecognizer(swipeRightGestRec)
       blackMaskView.addGestureRecognizer(swipeLeftGestRec)
+      
+      var ref: DatabaseReference!
+      ref = Database.database().reference()
       
         // Do any additional setup after loading the view.
 

@@ -13,6 +13,7 @@
 		2CB6FA60207D75DA007561D9 /* FavsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB6FA5F207D75DA007561D9 /* FavsViewController.swift */; };
 		2CB6FA62207D8191007561D9 /* FavsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB6FA61207D8191007561D9 /* FavsTableViewCell.swift */; };
 		2CEC0BDC2081700E00A6EE63 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CEC0BDB2081700E00A6EE63 /* RealmManager.swift */; };
+		2CEC0BDE20817C1900A6EE63 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CEC0BDD20817C1900A6EE63 /* GoogleService-Info.plist */; };
 		2CF9B333207A8996008A3FDD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF9B332207A8996008A3FDD /* AppDelegate.swift */; };
 		2CF9B338207A8996008A3FDD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CF9B336207A8996008A3FDD /* Main.storyboard */; };
 		2CF9B33A207A8996008A3FDD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CF9B339207A8996008A3FDD /* Assets.xcassets */; };
@@ -29,6 +30,7 @@
 		2CB6FA5F207D75DA007561D9 /* FavsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavsViewController.swift; sourceTree = "<group>"; };
 		2CB6FA61207D8191007561D9 /* FavsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavsTableViewCell.swift; sourceTree = "<group>"; };
 		2CEC0BDB2081700E00A6EE63 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RealmManager.swift; path = FinalProject/Model/RealmManager.swift; sourceTree = SOURCE_ROOT; };
+		2CEC0BDD20817C1900A6EE63 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		2CF9B32F207A8996008A3FDD /* FinalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CF9B332207A8996008A3FDD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CF9B337207A8996008A3FDD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				2CF9B339207A8996008A3FDD /* Assets.xcassets */,
 				2CF9B33B207A8996008A3FDD /* LaunchScreen.storyboard */,
 				2CF9B33E207A8996008A3FDD /* Info.plist */,
+				2CEC0BDD20817C1900A6EE63 /* GoogleService-Info.plist */,
 			);
 			path = FinalProject;
 			sourceTree = "<group>";
@@ -184,6 +187,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CF9B33D207A8996008A3FDD /* LaunchScreen.storyboard in Resources */,
+				2CEC0BDE20817C1900A6EE63 /* GoogleService-Info.plist in Resources */,
 				2CF9B33A207A8996008A3FDD /* Assets.xcassets in Resources */,
 				2CF9B338207A8996008A3FDD /* Main.storyboard in Resources */,
 			);
@@ -203,6 +207,7 @@
 				"${BUILT_PRODUCTS_DIR}/Nuke/Nuke.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -211,6 +216,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nuke.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;

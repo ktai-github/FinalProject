@@ -11,6 +11,7 @@ target 'FinalProject' do
   pod 'Nuke', '~> 6.0'
   pod 'RealmSwift'
   pod 'Firebase/Core'
+  pod 'Firebase/Database'
   # Pods for FinalProject
 
 end
