@@ -102,22 +102,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DjB-dE-leS">
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="DjB-dE-leS">
                                 <rect key="frame" x="0.0" y="64" width="320" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="QWh-rg-iBj">
+                                <rect key="frame" x="0.0" y="120" width="320" height="448"/>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="DjB-dE-leS" firstAttribute="leading" secondItem="GYH-To-irM" secondAttribute="leading" id="1ij-ar-EAw"/>
-                            <constraint firstItem="DjB-dE-leS" firstAttribute="top" secondItem="Ghb-CD-XE7" secondAttribute="top" id="MdL-To-R2N"/>
+                            <constraint firstAttribute="trailing" secondItem="DjB-dE-leS" secondAttribute="trailing" id="DO1-OY-MYm"/>
+                            <constraint firstItem="DjB-dE-leS" firstAttribute="leading" secondItem="QWh-rg-iBj" secondAttribute="leading" id="IfJ-a9-lBd"/>
+                            <constraint firstItem="DjB-dE-leS" firstAttribute="trailing" secondItem="QWh-rg-iBj" secondAttribute="trailing" id="V9X-kh-aoN"/>
+                            <constraint firstItem="QWh-rg-iBj" firstAttribute="bottom" secondItem="Ghb-CD-XE7" secondAttribute="bottom" id="b5y-o6-YNW"/>
+                            <constraint firstItem="DjB-dE-leS" firstAttribute="leading" secondItem="GYH-To-irM" secondAttribute="leading" id="eIR-1F-DB9"/>
+                            <constraint firstItem="DjB-dE-leS" firstAttribute="top" secondItem="Ghb-CD-XE7" secondAttribute="top" id="vNB-7H-vPF"/>
+                            <constraint firstItem="QWh-rg-iBj" firstAttribute="top" secondItem="DjB-dE-leS" secondAttribute="bottom" id="xaA-ys-s7W"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ghb-CD-XE7"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MmO-uC-Zv1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7353.6231884057979" y="116.57608695652175"/>
+            <point key="canvasLocation" x="7351.875" y="116.19718309859155"/>
         </scene>
         <!--Deals Menu-->
         <scene sceneID="mKH-gD-vIX">
