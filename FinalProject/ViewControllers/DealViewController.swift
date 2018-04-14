@@ -7,7 +7,8 @@
 //
 
 import UIKit
-import Firebase
+//import Firebase
+import FirebaseDatabase
 //import RealmSwift
 
 // notification for the category of deal selected in the menu
@@ -44,6 +45,10 @@ class DealViewController: UIViewController {
   var selectedDealCategory: enumSelectedDealCategory = enumSelectedDealCategory.enumRandomDeals
   
   
+  var ref: DatabaseReference!
+  var databaseHandle: DatabaseHandle?
+  var dealsData = [Any]()
+  
     override func viewDidLoad() {
         super.viewDidLoad()
       
@@ -53,9 +58,20 @@ class DealViewController: UIViewController {
       blackMaskView.addGestureRecognizer(swipeRightGestRec)
       blackMaskView.addGestureRecognizer(swipeLeftGestRec)
       
-      var ref: DatabaseReference!
+//      set the firebase reference
       ref = Database.database().reference()
       
+//      retrieve the posts and listen for changes
+      databaseHandle = ref?.child("deals").observe(.childAdded, with: { (snapshot) in
+//        code to execute when child is added under deals
+//        take the value from the snapshot and added it to the dealsdata array
+//        let deal = snapshot.value as? String
+        if let actualDeal = snapshot.value {
+          self.dealsData.append(actualDeal)
+          print(self.dealsData)
+        }
+      })
+
         // Do any additional setup after loading the view.
 
     //      notification for the category of deal selected in the menu
