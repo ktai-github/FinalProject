@@ -16,9 +16,9 @@ class FirebaseManager: NSObject {
   var ref: DatabaseReference!
   var databaseHandle: DatabaseHandle?
 
-  var nodeData = [Any]()
+//  var nodeData = [Any]()
   
-  func loadFromFirebase(node: String, completionHandler: @escaping (_ nodeData: [Any]) -> Void) {
+  func loadFromFirebase(node: String, completionHandler: @escaping (_ actualSubnode: Any) -> Void) {
     //check out object mapper cocoapod to automate conversion from json to any object you want
     //
     
@@ -33,11 +33,11 @@ class FirebaseManager: NSObject {
       //        let deal = snapshot.value as? String
       
       if let actualSubNode = snapshot.value {
-        
-        self.nodeData.append(actualSubNode)
+        completionHandler(actualSubNode)
+//        self.nodeData.append(actualSubNode)
         //          print(actualDeal)
       }
-      completionHandler(self.nodeData)
+//      completionHandler(self.nodeData)
     })
   }
 }
