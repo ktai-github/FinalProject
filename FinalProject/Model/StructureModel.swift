@@ -18,7 +18,7 @@ struct DealJson {
   var img: String?
   var price: String?
 //  var tags: [String]?
-  var placeid: Int?
+  var placeid: String?
   var style: [String]?
 //  var dealFaved: Bool
 

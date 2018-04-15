@@ -7,7 +7,7 @@
 //
 
 import UIKit
-//import Firebase
+import FirebaseDatabase
 //import RealmSwift
 
 // notification for the category of deal selected in the menu
@@ -46,20 +46,26 @@ class DealViewController: UIViewController {
   var dealsData = [Any]()
   var placesData = [Any]()
   
+  var ref: DatabaseReference!
+  var refHandle: UInt!
+  var dealsList = [DealJson]()
+  
     override func viewDidLoad() {
         super.viewDidLoad()
       
-      FirebaseManager.defaultManager.loadFromFirebase(node: "deals") { (actualSubnode: Any) in
-        self.dealsData.append(actualSubnode)
-        print(actualSubnode)
-        print("added actualsubnode")
-      }
-      
-      FirebaseManager.defaultManager.loadFromFirebase(node: "places") { (actualSubnode: Any) in
-        self.placesData.append(actualSubnode)
-        print(actualSubnode)
-        print("added actualsubnode")
-      }
+      ref = Database.database().reference()
+      fetchDeals()
+//      FirebaseManager.defaultManager.loadFromFirebase(node: "deals") { (actualSubnode: Any) in
+//        self.dealsData.append(actualSubnode)
+//        print(actualSubnode)
+//        print("added actualsubnode")
+//      }
+//
+//      FirebaseManager.defaultManager.loadFromFirebase(node: "places") { (actualSubnode: Any) in
+//        self.placesData.append(actualSubnode)
+//        print(actualSubnode)
+//        print("added actualsubnode")
+//      }
       
 
 //      recognize swiping left and right
@@ -90,7 +96,30 @@ class DealViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+  func fetchDeals() {
+    refHandle = ref.child("deals").observe(DataEventType.childAdded, with: { (snapshot) in
+      
+      if let dictionary = snapshot.value as? [String: Any] {
+        var dealJson = DealJson()
+        dealJson.dealName = dictionary["dealName"] as? String
+        print("printing dealjson.dealname " + dealJson.dealName!)
+//        dealJson.dealID = dictionary["dealID"] as? String
+//        print("printing dealjson.dealID " + dealJson.dealID!)
+        dealJson.img = dictionary["img"] as? String
+        print("printing dealjson.img " + dealJson.img!)
+        dealJson.placeid = dictionary["placeid"] as? String
+        print("printing dealjson.placeid " + dealJson.placeid!)
+        dealJson.price = dictionary["price"] as? String
+        print("printing dealjson.price " + dealJson.price!)
 
+        self.dealsList.append(dealJson)
+        
+      }
+      
+    })
+  }
+  
+  
 //  @objc func notificationReceived(_ notification: Notification) {
 //    guard let unwNotificationObj = notification.object else {
 //      print("selected deal category error")
@@ -113,13 +142,16 @@ class DealViewController: UIViewController {
   
   @IBAction func nextDealButton(_ sender: Any) {
     print(selectedDealCategory)
-    print(dealsData)
-    print(placesData)
-    print("printed dealsdata count = " + String(describing: dealsData.count))
-    print("printed placesdata count = " + String(describing: placesData.count))
+//    print(dealsData)
+//    print(placesData)
+//    print("printed dealsdata count = " + String(describing: dealsData.count))
+//    print("printed placesdata count = " + String(describing: placesData.count))
+    print("count of deals " + String(describing: dealsList.count))
+    dealLabel.text = dealsList[0].dealName
     if selectedDealCategory == enumSelectedDealCategory.enumMyDeals {
       print("my deals")
     }
+    self.view.layoutIfNeeded()
   }
   
   @IBAction func shareButton(_ sender: UIBarButtonItem) {
