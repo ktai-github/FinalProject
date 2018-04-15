@@ -44,12 +44,19 @@ class DealViewController: UIViewController {
   var selectedDealCategory: enumSelectedDealCategory = enumSelectedDealCategory.enumRandomDeals
   
   var dealsData = [Any]()
-
+  var placesData = [Any]()
+  
     override func viewDidLoad() {
         super.viewDidLoad()
       
-      FirebaseManager.defaultManager.loadFromFirebase(node: "deals") {(actualSubnode: Any) in
+      FirebaseManager.defaultManager.loadFromFirebase(node: "deals") { (actualSubnode: Any) in
         self.dealsData.append(actualSubnode)
+        print(actualSubnode)
+        print("added actualsubnode")
+      }
+      
+      FirebaseManager.defaultManager.loadFromFirebase(node: "places") { (actualSubnode: Any) in
+        self.placesData.append(actualSubnode)
         print(actualSubnode)
         print("added actualsubnode")
       }
@@ -107,6 +114,9 @@ class DealViewController: UIViewController {
   @IBAction func nextDealButton(_ sender: Any) {
     print(selectedDealCategory)
     print(dealsData)
+    print(placesData)
+    print("printed dealsdata count = " + String(describing: dealsData.count))
+    print("printed placesdata count = " + String(describing: placesData.count))
     if selectedDealCategory == enumSelectedDealCategory.enumMyDeals {
       print("my deals")
     }
