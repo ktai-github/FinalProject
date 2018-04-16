@@ -202,7 +202,40 @@ class DealViewController: UIViewController {
           filteredDealsList.append(deal)
         }
       }
-      print("filted food deals only")
+      print("filtered food deals only")
+      
+    } else if selectedDealCategory == enumSelectedDealCategory.enumFunDeals {
+      for deal in dealsList {
+        if (deal.style?.contains("Fun"))! {
+          filteredDealsList.append(deal)
+        }
+      }
+      print("filtered fun deals only")
+      
+    } else if selectedDealCategory == enumSelectedDealCategory.enumDateDeals {
+      for deal in dealsList {
+        if (deal.style?.contains("Date"))! {
+          filteredDealsList.append(deal)
+        }
+      }
+      print("filtered date deals only")
+      
+    } else if selectedDealCategory == enumSelectedDealCategory.enumGroupDeals {
+      for deal in dealsList {
+        if (deal.style?.contains("Group"))! {
+          filteredDealsList.append(deal)
+        }
+      }
+      print("filtered group deals only")
+      
+    } else if selectedDealCategory == enumSelectedDealCategory.enumDrinkDeals {
+      for deal in dealsList {
+        if (deal.style?.contains("Drinks"))! {
+          filteredDealsList.append(deal)
+        }
+      }
+      print("filtered drink deals only")
+      
     } else {
 //      dummy filter
       filteredDealsList = dealsList
