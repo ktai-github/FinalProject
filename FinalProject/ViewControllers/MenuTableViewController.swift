@@ -64,7 +64,7 @@ class MenuTableViewController: UITableViewController {
     case 0:
       print("random deals selected")
       userSelected(category: enumSelectedDealCategory.enumRandomDeals)
-      
+
     case 1:
       print("food deals selected")
       userSelected(category: enumSelectedDealCategory.enumFoodDeals)
@@ -113,6 +113,8 @@ class MenuTableViewController: UITableViewController {
       
       self.present(clearAlert, animated: true, completion: nil)
     }
+    
+
   }
   
   

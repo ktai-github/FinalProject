@@ -112,7 +112,6 @@ class DealViewController: UIViewController {
     } else if selectedDealCategory == enumSelectedDealCategory.enumFunDeals {
       
     }
-    
     self.view.layoutIfNeeded()
   }
   
