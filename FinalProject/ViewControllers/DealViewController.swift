@@ -52,20 +52,29 @@ class DealViewController: UIViewController {
   var placeCoordinateLatitude: String?
   var placeCoordinateLongitude: String?
   
-  var ref: DatabaseReference!
-  var refHandle: UInt!
+//  var ref: DatabaseReference!
+//  var refHandle: UInt!
 
     override func viewDidLoad() {
         super.viewDidLoad()
       
-      ref = Database.database().reference()
+//      ref = Database.database().reference()
 
-      fetchDeals()
-      fetchPlaces()
+//      fetchDeals()
+//      fetchPlaces()
       
       
-//      FirebaseManager.defaultManager.fetchDeals()
-//      FirebaseManager.defaultManager.fetchPlaces()
+      
+      FirebaseManager.defaultManager.fetchDeals {
+        
+        print("fetched deals")
+      }
+      FirebaseManager.defaultManager.fetchPlaces {
+        DispatchQueue.main.async {
+          self.loadDetails()
+        }
+      }
+
 
 //      FirebaseManager.defaultManager.loadFromFirebase(node: "deals") { (actualSubnode: Any) in
 //        self.dealsData.append(actualSubnode)
@@ -112,55 +121,55 @@ class DealViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
   
-  func fetchDeals() {
-    refHandle = ref.child("deals").observe(DataEventType.childAdded, with: { [unowned self] (snapshot) in
+//  func fetchDeals() {
+//    refHandle = ref.child("deals").observe(DataEventType.childAdded, with: { [unowned self] (snapshot) in
+//
+//      if let dictionary = snapshot.value as? [String: Any] {
+//        var dealFirebase = DealFirebase()
+//        dealFirebase.dealName = dictionary["dealName"] as? String
+//        print("printing dealFirebase.dealname " + dealFirebase.dealName!)
+//        dealFirebase.img = dictionary["img"] as? String
+//        print("printing dealFirebase.img " + dealFirebase.img!)
+//        dealFirebase.placeid = dictionary["placeid"] as? String
+//        print("printing dealFirebase.placeid " + dealFirebase.placeid!)
+//        dealFirebase.price = dictionary["price"] as? String
+//        print("printing dealFirebase.price " + dealFirebase.price!)
+//        let styleArray = dictionary["style"] as? [String]
+//        dealFirebase.style = styleArray?.joined(separator: ", ")
+//        print("printing dealFirebase.style " + dealFirebase.style!)
+////        print("printing dealFirebase.style " + dealFirebase.style!.joined(separator: ", "))
+//        dealFirebase.daysAvalable = dictionary["daysAvalable"] as? [String]
+//        print("printing dealFirebase.daysAvalable " + dealFirebase.daysAvalable!.joined(separator: ", "))
+//
+//        dealsList.append(dealFirebase)
+//
+//      }
+//    })
+//  }
 
-      if let dictionary = snapshot.value as? [String: Any] {
-        var dealFirebase = DealFirebase()
-        dealFirebase.dealName = dictionary["dealName"] as? String
-        print("printing dealFirebase.dealname " + dealFirebase.dealName!)
-        dealFirebase.img = dictionary["img"] as? String
-        print("printing dealFirebase.img " + dealFirebase.img!)
-        dealFirebase.placeid = dictionary["placeid"] as? String
-        print("printing dealFirebase.placeid " + dealFirebase.placeid!)
-        dealFirebase.price = dictionary["price"] as? String
-        print("printing dealFirebase.price " + dealFirebase.price!)
-        let styleArray = dictionary["style"] as? [String]
-        dealFirebase.style = styleArray?.joined(separator: ", ")
-        print("printing dealFirebase.style " + dealFirebase.style!)
-//        print("printing dealFirebase.style " + dealFirebase.style!.joined(separator: ", "))
-        dealFirebase.daysAvalable = dictionary["daysAvalable"] as? [String]
-        print("printing dealFirebase.daysAvalable " + dealFirebase.daysAvalable!.joined(separator: ", "))
-
-        dealsList.append(dealFirebase)
-
-      }
-    })
-  }
-
-  func fetchPlaces() {
-    refHandle = ref.child("places").observe(DataEventType.childAdded, with: { [unowned self] (snapshot) in
-
-      if let dictionary = snapshot.value as? [String: Any] {
-        var placeFirebase = PlaceFirebase()
-        placeFirebase.address = dictionary["address"] as? String
-        print("printing placeFirebase.address " + placeFirebase.address!)
-        placeFirebase.lat = dictionary["lat"] as? String
-        print("printing placeFirebase.lat " + placeFirebase.lat!)
-        placeFirebase.lon = dictionary["lon"] as? String
-        print("printing placeFirebase.lon " + placeFirebase.lon!)
-        placeFirebase.name = dictionary["name"] as? String
-        print("printing placeFirebase.name " + placeFirebase.name!)
-        placeFirebase.phone = dictionary["phone"] as? String
-        print("printing placeFirebase.phone " + placeFirebase.phone!)
-        placeFirebase.placeID = dictionary["placeID"] as? String
-        print("printing placeFirebase.placeID " + placeFirebase.placeID!)
-
-        placesList.append(placeFirebase)
-
-      }
-    })
-  }
+//  func fetchPlaces() {
+//    refHandle = ref.child("places").observe(DataEventType.childAdded, with: { [unowned self] (snapshot) in
+//
+//      if let dictionary = snapshot.value as? [String: Any] {
+//        var placeFirebase = PlaceFirebase()
+//        placeFirebase.address = dictionary["address"] as? String
+//        print("printing placeFirebase.address " + placeFirebase.address!)
+//        placeFirebase.lat = dictionary["lat"] as? String
+//        print("printing placeFirebase.lat " + placeFirebase.lat!)
+//        placeFirebase.lon = dictionary["lon"] as? String
+//        print("printing placeFirebase.lon " + placeFirebase.lon!)
+//        placeFirebase.name = dictionary["name"] as? String
+//        print("printing placeFirebase.name " + placeFirebase.name!)
+//        placeFirebase.phone = dictionary["phone"] as? String
+//        print("printing placeFirebase.phone " + placeFirebase.phone!)
+//        placeFirebase.placeID = dictionary["placeID"] as? String
+//        print("printing placeFirebase.placeID " + placeFirebase.placeID!)
+//
+//        placesList.append(placeFirebase)
+//
+//      }
+//    })
+//  }
   
   func loadPhotoFromNetwork(imageUrl: String) -> Void {
     let photoManager = PhotoManager()
@@ -208,7 +217,7 @@ class DealViewController: UIViewController {
     priceLabel.text = filteredDealsList[dealNumber].price
     styleLabel.text = filteredDealsList[dealNumber].style
     //    styleLabel.text = filteredDealsList[dealNumber].style?.joined(separator: ", ")
-    daysAvailableLabel.text = "Get it on " + (filteredDealsList[dealNumber].daysAvalable?.joined(separator: ", "))!
+    daysAvailableLabel.text = "Get it on " + (filteredDealsList[dealNumber].daysAvalable)!
     
     for placeFB in placesList {
       if placeFB.placeID == filteredDealsList[dealNumber].placeid {

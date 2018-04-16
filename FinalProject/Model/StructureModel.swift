@@ -10,7 +10,7 @@ import UIKit
 import RealmSwift
 
 struct DealFirebase {
-  var daysAvalable: [String]?
+  var daysAvalable: String?
   var dealID: String? //primary key
   var dealName: String?
   var img: String?
