@@ -50,6 +50,11 @@ class DealViewController: UIViewController {
   
   var placeCoordinateLatitude: String?
   var placeCoordinateLongitude: String?
+  
+  var tempDealFirebase = DealFirebase()
+  var tempPlaceFirebase = PlaceFirebase()
+  
+  
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -131,9 +136,11 @@ class DealViewController: UIViewController {
     var filteredDealsList = [DealFirebase]()
     
     switch selectedDealCategory {
+      
     case enumSelectedDealCategory.enumFoodDeals:
       applyFilter(&filteredDealsList, category: "Food")
       
+//      fun category currently not available
     case enumSelectedDealCategory.enumFunDeals:
       applyFilter(&filteredDealsList, category: "Fun")
 
@@ -142,7 +149,8 @@ class DealViewController: UIViewController {
 
     case enumSelectedDealCategory.enumDateDeals:
       applyFilter(&filteredDealsList, category: "Date")
-
+      
+//      group category currently not available
     case enumSelectedDealCategory.enumGroupDeals:
       applyFilter(&filteredDealsList, category: "Group")
 
@@ -155,6 +163,9 @@ class DealViewController: UIViewController {
     
     loadPhotoFromNetwork(imageUrl: filteredDealsList[dealNumber].img!)
     
+//    used for saving for later if the user chooses to
+    tempDealFirebase = filteredDealsList[dealNumber]
+    
     dealLabel.text = filteredDealsList[dealNumber].dealName
     priceLabel.text = filteredDealsList[dealNumber].price
     styleLabel.text = filteredDealsList[dealNumber].style
@@ -162,6 +173,9 @@ class DealViewController: UIViewController {
     
     for placeFB in placesList {
       if placeFB.placeID == filteredDealsList[dealNumber].placeid {
+        
+        tempPlaceFirebase = placeFB
+        
         addressLabel.text = placeFB.address
         placeNameLabel.text = placeFB.name
         phoneLabel.text = placeFB.phone
@@ -231,21 +245,38 @@ class DealViewController: UIViewController {
     
     if sender.isOn == true {
       print("fav switch is on")
-      guard let unwDealName = dealLabel.text else {
+      
+//      use data from temp Deal/Place Firebase objects for saving
+      guard let unwDealName = tempDealFirebase.dealName,
+        let unwDealImg = tempDealFirebase.img,
+        let unwDealPlaceID = tempDealFirebase.placeid,
+        let unwDealPrice = tempDealFirebase.price,
+        let unwDealStyle = tempDealFirebase.style,
+        let unwPlaceName = tempPlaceFirebase.name,
+        let unwPlaceAddress = tempPlaceFirebase.address,
+        let unwPlaceLat = tempPlaceFirebase.lat,
+        let unwPlaceLong = tempPlaceFirebase.lon,
+        let unwPlaceID = tempPlaceFirebase.placeID,
+        let unwPlacePhone = tempPlaceFirebase.phone
+      else {
+        print("cannot unwrap tempDealFirebase properties")
         return
       }
       
-      let deal = Deal()
-      deal.dealFaved = true
-      deal.dealName = unwDealName
-      deal.dealID = 100
-      deal.dealImageUrl = "http://whatever.com/whatever.jpg"
-      deal.placeID = 1000
-      deal.price = "$10"
-      deal.styleID = 4
-      deal.tags = "sightseeing"
+      let dealPlace = DealPlace()
+      dealPlace.dealFaved = true
+      dealPlace.dealName = unwDealName
+      dealPlace.dealImageUrl = unwDealImg
+      dealPlace.placeID = unwDealPlaceID
+      dealPlace.dealPrice = unwDealPrice
+      dealPlace.dealStyle = unwDealStyle
+      dealPlace.placeName = unwPlaceName
+      dealPlace.placePhone = unwPlacePhone
+      dealPlace.placeAddress = unwPlaceAddress
+      dealPlace.placeLat = unwPlaceLat
+      dealPlace.placeLong = unwPlaceLong
       
-      RealmManager.realmAdd(deal: deal)
+      RealmManager.realmAdd(deal: dealPlace)
       
     } else {
       print("fav switch is off")
@@ -253,11 +284,11 @@ class DealViewController: UIViewController {
         return
       }
       
-      let deal = Deal()
-      deal.dealFaved = false
-      deal.dealName = unwDealName
+      let dealPlace = DealPlace()
+      dealPlace.dealFaved = false
+      dealPlace.dealName = unwDealName
 
-      RealmManager.realmDelete(unwDealName, deal)
+      RealmManager.realmDelete(unwDealName, dealPlace)
       
     }
   }

@@ -28,16 +28,27 @@ struct PlaceFirebase {
   var address: String?
 }
 
-class Deal: Object {
-  @objc dynamic var dealID = 0 //primary key
+class DealPlace: Object {
+//  @objc dynamic var dealID = 0 //primary key
   @objc dynamic var dealName = ""
   @objc dynamic var dealImageUrl = ""
-  @objc dynamic var price = ""
-  @objc dynamic var tags = ""
-  @objc dynamic var placeID = 0
-  @objc dynamic var styleID = 0
+  @objc dynamic var dealPrice = ""
+//  @objc dynamic var tags = ""
+  @objc dynamic var placeID = ""
+  @objc dynamic var dealStyle = ""
   @objc dynamic var dealFaved = false
+  @objc dynamic var placeName = ""
+  @objc dynamic var placePhone = ""
+  @objc dynamic var placeAddress = ""
+  @objc dynamic var placeLat = ""
+  @objc dynamic var placeLong = ""
 
+//  let unwPlaceName = tempPlaceFirebase.name,
+//  let unwPlaceAddress = tempPlaceFirebase.address,
+//  let unwPlaceLat = tempPlaceFirebase.lat,
+//  let unwPlaceLong = tempPlaceFirebase.lon,
+//  let unwPlaceID = tempPlaceFirebase.placeID,
+//  let unwPlacePhone = tempPlaceFirebase.phone
 }
 
 struct Place {
