@@ -49,8 +49,8 @@ class DealViewController: UIViewController {
   
   var placeName: String?
   
-  var placeCoordinateLatitude: Double?
-  var placeCoordinateLongitude: Double?
+  var placeCoordinateLatitude: String?
+  var placeCoordinateLongitude: String?
   
   var ref: DatabaseReference!
   var refHandle: UInt!
@@ -196,8 +196,8 @@ class DealViewController: UIViewController {
           print("cannot unwrap lat long")
           return
         }
-        placeCoordinateLatitude = (unwLatitude as NSString).doubleValue
-        placeCoordinateLongitude = (unwLongitude as NSString).doubleValue
+        placeCoordinateLatitude = unwLatitude
+        placeCoordinateLongitude = unwLongitude
         
         guard let unwPlaceName = placeFB.name else {
           print("cannot unwrap place name")
@@ -320,8 +320,13 @@ class DealViewController: UIViewController {
 //        return
 //
 //      }
-      mapVC.placeCoordinate?.latitude = placeCoordinateLatitude!
-      mapVC.placeCoordinate?.longitude = placeCoordinateLongitude!
+      guard let unwPlaceCoordinateLatitude = placeCoordinateLatitude, let unwPlaceCoordinateLongitude = placeCoordinateLongitude else {
+        print("cannot unwrap lat long")
+        return
+      }
+      mapVC.placeCoordinateLatitude = (unwPlaceCoordinateLatitude as NSString).doubleValue
+      mapVC.placeCoordinateLongitude = (unwPlaceCoordinateLongitude as NSString).doubleValue
+      
       mapVC.placeName = placeName
     }
   }

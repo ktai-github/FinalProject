@@ -15,10 +15,8 @@ class MapViewController: UIViewController {
   
   var placeName: String?
   
-  var placeCoordinate: (
-    latitude: Double,
-    longitude: Double
-  )?
+  var placeCoordinateLatitude: Double = 0.0
+  var placeCoordinateLongitude: Double = 0.0
   
   let locationManager = CLLocationManager()
   let regionRadius: CLLocationDistance = 1000
@@ -26,13 +24,23 @@ class MapViewController: UIViewController {
   override func viewDidLoad() {
         super.viewDidLoad()
     
-    guard let unwPlaceCoordinate = placeCoordinate else {
-      print("cannot unwrap coordinate")
-      return
-    }
+//    guard let unwPlaceCoordinate = placeCoordinate else {
+//      print("cannot unwrap coordinate")
+//      return
+//    }
     
-    let initialLocation = CLLocation(latitude: unwPlaceCoordinate.latitude, longitude: unwPlaceCoordinate.longitude)
+    let initialLocation = CLLocation(latitude: placeCoordinateLatitude, longitude: placeCoordinateLongitude)
+    
     centerMapOnLocation(location: initialLocation)
+    
+    let initialLocation2D = CLLocationCoordinate2D(latitude: placeCoordinateLatitude, longitude: placeCoordinateLongitude)
+    
+    let anno = MKPointAnnotation()
+    anno.coordinate = initialLocation2D
+    anno.title = placeName
+    
+    mapView.addAnnotation(anno)
+    
 //    let coordinate = CLLocationCoordinate2DMake(placeCoordinate.latitude, placeCoordinate.longitude)
 //    let mapItem = MKMapItem(placemark: MKPlacemark(coordinate: coordinate, addressDictionary: nil))
     guard let unwPlaceName = placeName else {
