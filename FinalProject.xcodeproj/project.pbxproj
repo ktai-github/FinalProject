@@ -12,6 +12,7 @@
 		2CB6FA54207C2B8A007561D9 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB6FA53207C2B8A007561D9 /* MapViewController.swift */; };
 		2CB6FA60207D75DA007561D9 /* FavsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB6FA5F207D75DA007561D9 /* FavsViewController.swift */; };
 		2CB6FA62207D8191007561D9 /* FavsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB6FA61207D8191007561D9 /* FavsTableViewCell.swift */; };
+		2CD7F85920844B9D00FD36C5 /* PhotoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD7F85820844B9D00FD36C5 /* PhotoManager.swift */; };
 		2CEC0BDC2081700E00A6EE63 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CEC0BDB2081700E00A6EE63 /* RealmManager.swift */; };
 		2CEC0BDE20817C1900A6EE63 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CEC0BDD20817C1900A6EE63 /* GoogleService-Info.plist */; };
 		2CEC0BE02082822F00A6EE63 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CEC0BDF2082822F00A6EE63 /* FirebaseManager.swift */; };
@@ -31,6 +32,7 @@
 		2CB6FA53207C2B8A007561D9 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		2CB6FA5F207D75DA007561D9 /* FavsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavsViewController.swift; sourceTree = "<group>"; };
 		2CB6FA61207D8191007561D9 /* FavsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavsTableViewCell.swift; sourceTree = "<group>"; };
+		2CD7F85820844B9D00FD36C5 /* PhotoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoManager.swift; sourceTree = "<group>"; };
 		2CEC0BDB2081700E00A6EE63 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RealmManager.swift; path = FinalProject/Model/RealmManager.swift; sourceTree = SOURCE_ROOT; };
 		2CEC0BDD20817C1900A6EE63 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		2CEC0BDF2082822F00A6EE63 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FirebaseManager.swift; path = FinalProject/Model/FirebaseManager.swift; sourceTree = SOURCE_ROOT; };
@@ -94,6 +96,7 @@
 				2CF9B344207C1EE1008A3FDD /* StructureModel.swift */,
 				2CEC0BDB2081700E00A6EE63 /* RealmManager.swift */,
 				2CEC0BDF2082822F00A6EE63 /* FirebaseManager.swift */,
+				2CD7F85820844B9D00FD36C5 /* PhotoManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 			files = (
 				2CB6FA54207C2B8A007561D9 /* MapViewController.swift in Sources */,
 				2CEC0BDC2081700E00A6EE63 /* RealmManager.swift in Sources */,
+				2CD7F85920844B9D00FD36C5 /* PhotoManager.swift in Sources */,
 				2CB6FA4E207C2706007561D9 /* DealViewController.swift in Sources */,
 				2CEC0BE02082822F00A6EE63 /* FirebaseManager.swift in Sources */,
 				2CB6FA52207C287C007561D9 /* MenuTableViewController.swift in Sources */,

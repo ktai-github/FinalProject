@@ -44,12 +44,9 @@ class DealViewController: UIViewController {
   
   var selectedDealCategory: enumSelectedDealCategory = enumSelectedDealCategory.enumRandomDeals
   
-//  var dealsData = [Any]()
-//  var placesData = [Any]()
-  
   var ref: DatabaseReference!
   var refHandle: UInt!
-  
+
   var dealsList = [DealFirebase]()
   var placesList = [PlaceFirebase]()
 
@@ -57,9 +54,12 @@ class DealViewController: UIViewController {
         super.viewDidLoad()
       
       ref = Database.database().reference()
-      
+
       fetchDeals()
       fetchPlaces()
+//      FirebaseManager.defaultManager.fetchDeals()
+//      FirebaseManager.defaultManager.fetchPlaces()
+
 //      FirebaseManager.defaultManager.loadFromFirebase(node: "deals") { (actualSubnode: Any) in
 //        self.dealsData.append(actualSubnode)
 //        print(actualSubnode)
@@ -101,9 +101,10 @@ class DealViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+  
   func fetchDeals() {
-    refHandle = ref.child("deals").observe(DataEventType.childAdded, with: { (snapshot) in
-      
+    refHandle = ref.child("deals").observe(DataEventType.childAdded, with: { [unowned self] (snapshot) in
+
       if let dictionary = snapshot.value as? [String: Any] {
         var dealFirebase = DealFirebase()
         dealFirebase.dealName = dictionary["dealName"] as? String
@@ -120,14 +121,14 @@ class DealViewController: UIViewController {
         print("printing dealFirebase.daysAvalable " + dealFirebase.daysAvalable!.joined(separator: ", "))
 
         self.dealsList.append(dealFirebase)
-        
+
       }
     })
   }
-  
+
   func fetchPlaces() {
-    refHandle = ref.child("places").observe(DataEventType.childAdded, with: { (snapshot) in
-      
+    refHandle = ref.child("places").observe(DataEventType.childAdded, with: { [unowned self] (snapshot) in
+
       if let dictionary = snapshot.value as? [String: Any] {
         var placeFirebase = PlaceFirebase()
         placeFirebase.address = dictionary["address"] as? String
@@ -142,13 +143,23 @@ class DealViewController: UIViewController {
         print("printing placeFirebase.phone " + placeFirebase.phone!)
         placeFirebase.placeID = dictionary["placeID"] as? String
         print("printing placeFirebase.placeID " + placeFirebase.placeID!)
-        
+
         self.placesList.append(placeFirebase)
-        
+
       }
     })
   }
   
+  func loadPhotoFromNetwork(imageUrl: String) -> Void {
+    let photoManager = PhotoManager()
+    photoManager.photoNetworkRequest(url: imageUrl) { (image: UIImage) in
+      
+      DispatchQueue.main.async {
+        self.imageView.image = image
+      }
+    }
+    
+  }
 //  @objc func notificationReceived(_ notification: Notification) {
 //    guard let unwNotificationObj = notification.object else {
 //      print("selected deal category error")
@@ -163,6 +174,8 @@ class DealViewController: UIViewController {
   func loadDetails() -> () {
     
     let dealNumber = Int(arc4random_uniform(UInt32(dealsList.count)))
+    
+    loadPhotoFromNetwork(imageUrl: dealsList[dealNumber].img!)
     
     dealLabel.text = dealsList[dealNumber].dealName
     priceLabel.text = dealsList[dealNumber].price
@@ -192,16 +205,16 @@ class DealViewController: UIViewController {
   
   @IBAction func nextDealButton(_ sender: Any) {
     print(selectedDealCategory)
-//    print(dealsData)
-//    print(placesData)
-//    print("printed dealsdata count = " + String(describing: dealsData.count))
-//    print("printed placesdata count = " + String(describing: placesData.count))
+    
     print("count of deals " + String(describing: dealsList.count))
     print("count of places " + String(describing: placesList.count))
 
     if selectedDealCategory == enumSelectedDealCategory.enumMyDeals {
       print("my deals")
     }
+    
+    loadDetails()
+
     self.view.layoutIfNeeded()
   }
   
@@ -222,8 +235,6 @@ class DealViewController: UIViewController {
     activityViewController.popoverPresentationController?.sourceView = self.view
     self.present(activityViewController, animated: true, completion: nil)
   }
-  
-  
   
   @IBAction func favSwitch(_ sender: UISwitch) {
     
