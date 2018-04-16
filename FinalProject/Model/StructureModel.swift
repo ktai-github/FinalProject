@@ -11,7 +11,7 @@ import RealmSwift
 
 //var favsArray = ["deal1", "deal2", "deal3"]
 
-struct DealJson {
+struct DealFirebase {
   var daysAvalable: [String]?
   var dealID: String? //primary key
   var dealName: String?

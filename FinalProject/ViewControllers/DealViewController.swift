@@ -38,8 +38,8 @@ class DealViewController: UIViewController {
   @IBOutlet weak var styleLabel: UILabel!
   @IBOutlet weak var priceLabel: UILabel!
   @IBOutlet weak var addressLabel: UILabel!
-  @IBOutlet weak var descriptionLabel: UILabel!
-  @IBOutlet weak var tagsLabel: UILabel!
+  @IBOutlet weak var daysAvailable: UILabel!
+  
   
   var selectedDealCategory: enumSelectedDealCategory = enumSelectedDealCategory.enumRandomDeals
   
@@ -48,13 +48,15 @@ class DealViewController: UIViewController {
   
   var ref: DatabaseReference!
   var refHandle: UInt!
-  var dealsList = [DealJson]()
+  var dealsList = [DealFirebase]()
   
     override func viewDidLoad() {
         super.viewDidLoad()
       
       ref = Database.database().reference()
+      
       fetchDeals()
+      
 //      FirebaseManager.defaultManager.loadFromFirebase(node: "deals") { (actualSubnode: Any) in
 //        self.dealsData.append(actualSubnode)
 //        print(actualSubnode)
@@ -100,24 +102,26 @@ class DealViewController: UIViewController {
     refHandle = ref.child("deals").observe(DataEventType.childAdded, with: { (snapshot) in
       
       if let dictionary = snapshot.value as? [String: Any] {
-        var dealJson = DealJson()
-        dealJson.dealName = dictionary["dealName"] as? String
-        print("printing dealjson.dealname " + dealJson.dealName!)
-//        dealJson.dealID = dictionary["dealID"] as? String
-//        print("printing dealjson.dealID " + dealJson.dealID!)
-        dealJson.img = dictionary["img"] as? String
-        print("printing dealjson.img " + dealJson.img!)
-        dealJson.placeid = dictionary["placeid"] as? String
-        print("printing dealjson.placeid " + dealJson.placeid!)
-        dealJson.price = dictionary["price"] as? String
-        print("printing dealjson.price " + dealJson.price!)
+        var dealFirebase = DealFirebase()
+        dealFirebase.dealName = dictionary["dealName"] as? String
+        print("printing dealFirebase.dealname " + dealFirebase.dealName!)
+        dealFirebase.img = dictionary["img"] as? String
+        print("printing dealFirebase.img " + dealFirebase.img!)
+        dealFirebase.placeid = dictionary["placeid"] as? String
+        print("printing dealFirebase.placeid " + dealFirebase.placeid!)
+        dealFirebase.price = dictionary["price"] as? String
+        print("printing dealFirebase.price " + dealFirebase.price!)
+        dealFirebase.style = dictionary["style"] as? [String]
+        print("printing dealFirebase.style " + dealFirebase.style!.joined(separator: ", "))
+        dealFirebase.daysAvalable = dictionary["daysAvalable"] as? [String]
+        print("printing dealFirebase.daysAvalable " + dealFirebase.daysAvalable!.joined(separator: ", "))
 
-        self.dealsList.append(dealJson)
+        self.dealsList.append(dealFirebase)
         
       }
-      
     })
   }
+  
   
   
 //  @objc func notificationReceived(_ notification: Notification) {
@@ -131,13 +135,23 @@ class DealViewController: UIViewController {
 //    print(selectedDealCategory + " notification received")
 //  }
   
+  func loadDetails() -> () {
+    dealLabel.text = dealsList[0].dealName
+    priceLabel.text = dealsList[0].price
+    styleLabel.text = dealsList[0].style?.joined(separator: ", ")
+    daysAvailable.text = "Get it on " + (dealsList[0].daysAvalable?.joined(separator: ", "))!
+    
+  }
+  
   @IBAction func unwindToDealVC(segue:UIStoryboardSegue) {}
   
   @IBAction func swipeLeftGestRec(_ sender: UISwipeGestureRecognizer) {
     print("swiped left")
+    loadDetails()
   }
   @IBAction func swipeRightGestRec(_ sender: UISwipeGestureRecognizer) {
     print("swiped right")
+    loadDetails()
   }
   
   @IBAction func nextDealButton(_ sender: Any) {
@@ -147,7 +161,7 @@ class DealViewController: UIViewController {
 //    print("printed dealsdata count = " + String(describing: dealsData.count))
 //    print("printed placesdata count = " + String(describing: placesData.count))
     print("count of deals " + String(describing: dealsList.count))
-    dealLabel.text = dealsList[0].dealName
+
     if selectedDealCategory == enumSelectedDealCategory.enumMyDeals {
       print("my deals")
     }
