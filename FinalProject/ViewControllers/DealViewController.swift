@@ -25,6 +25,9 @@ enum enumSelectedDealCategory {
   case enumMyDeals
 }
 
+var dealsList = [DealFirebase]()
+var placesList = [PlaceFirebase]()
+
 class DealViewController: UIViewController {
 
   @IBOutlet var swipeLeftGestRec: UISwipeGestureRecognizer!
@@ -44,11 +47,13 @@ class DealViewController: UIViewController {
   
   var selectedDealCategory: enumSelectedDealCategory = enumSelectedDealCategory.enumRandomDeals
   
+  var placeName: String?
+  
+  var placeCoordinateLatitude: Double?
+  var placeCoordinateLongitude: Double?
+  
   var ref: DatabaseReference!
   var refHandle: UInt!
-
-  var dealsList = [DealFirebase]()
-  var placesList = [PlaceFirebase]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -120,7 +125,7 @@ class DealViewController: UIViewController {
         dealFirebase.daysAvalable = dictionary["daysAvalable"] as? [String]
         print("printing dealFirebase.daysAvalable " + dealFirebase.daysAvalable!.joined(separator: ", "))
 
-        self.dealsList.append(dealFirebase)
+        dealsList.append(dealFirebase)
 
       }
     })
@@ -144,7 +149,7 @@ class DealViewController: UIViewController {
         placeFirebase.placeID = dictionary["placeID"] as? String
         print("printing placeFirebase.placeID " + placeFirebase.placeID!)
 
-        self.placesList.append(placeFirebase)
+        placesList.append(placeFirebase)
 
       }
     })
@@ -187,6 +192,18 @@ class DealViewController: UIViewController {
         addressLabel.text = placeFB.address
         placeNameLabel.text = placeFB.name
         phoneLabel.text = placeFB.phone
+        guard let unwLatitude = placeFB.lat, let unwLongitude = placeFB.lon else {
+          print("cannot unwrap lat long")
+          return
+        }
+        placeCoordinateLatitude = (unwLatitude as NSString).doubleValue
+        placeCoordinateLongitude = (unwLongitude as NSString).doubleValue
+        
+        guard let unwPlaceName = placeFB.name else {
+          print("cannot unwrap place name")
+          return
+        }
+        placeName = unwPlaceName
       }
     }
     
@@ -292,5 +309,20 @@ class DealViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    // Get the new view controller using segue.destinationViewController.
+    // Pass the selected object to the new view controller.
+    if segue.identifier == "segueToMapView" {
+      
+      let mapVC = segue.destination as! MapViewController
+//      guard let unwPlaceCoordinate = self.placeCoordinate else {
+//        print("place coordinate not unwrapped")
+//        return
+//
+//      }
+      mapVC.placeCoordinate?.latitude = placeCoordinateLatitude!
+      mapVC.placeCoordinate?.longitude = placeCoordinateLongitude!
+      mapVC.placeName = placeName
+    }
+  }
 }

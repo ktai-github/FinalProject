@@ -122,6 +122,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ghb-CD-XE7"/>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="QWh-rg-iBj" id="Ssx-9o-v7Z"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MmO-uC-Zv1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -363,7 +366,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 For 1 Sightseeing" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OOH-2X-YuS">
-                                <rect key="frame" x="16" y="226" width="288" height="20.5"/>
+                                <rect key="frame" x="16" y="226.5" width="288" height="20.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -438,6 +441,13 @@
                                     <action selector="favSwitch:" destination="THJ-yi-499" eventType="valueChanged" id="XNe-hy-mAz"/>
                                 </connections>
                             </switch>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="63Q-8k-TU7">
+                                <rect key="frame" x="232" y="456" width="72" height="30"/>
+                                <state key="normal" title="Show Map"/>
+                                <connections>
+                                    <segue destination="8Sl-3g-vIZ" kind="show" identifier="segueToMapView" id="NDR-mh-Ua7"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -452,12 +462,15 @@
                             <constraint firstItem="YfX-ug-9Ts" firstAttribute="centerY" secondItem="eus-vl-Ktb" secondAttribute="centerY" id="Neb-Jq-gwy"/>
                             <constraint firstItem="YfX-ug-9Ts" firstAttribute="height" secondItem="eus-vl-Ktb" secondAttribute="height" id="P9C-qv-IcL"/>
                             <constraint firstItem="tRy-BU-sy8" firstAttribute="top" secondItem="eus-vl-Ktb" secondAttribute="bottom" constant="8" id="QeA-Xs-lYq"/>
+                            <constraint firstItem="PUs-d8-scq" firstAttribute="trailing" secondItem="63Q-8k-TU7" secondAttribute="trailing" constant="16" id="RS3-ac-Ump"/>
                             <constraint firstItem="nrw-h9-m6W" firstAttribute="top" secondItem="eus-vl-Ktb" secondAttribute="bottom" constant="156" id="UGC-0I-XNI"/>
                             <constraint firstItem="YfX-ug-9Ts" firstAttribute="width" secondItem="eus-vl-Ktb" secondAttribute="width" id="Vdk-sA-H03"/>
                             <constraint firstItem="eNS-97-DCK" firstAttribute="top" secondItem="PUs-d8-scq" secondAttribute="top" constant="16" id="Ywt-d5-yGD"/>
                             <constraint firstItem="YfX-ug-9Ts" firstAttribute="centerX" secondItem="eus-vl-Ktb" secondAttribute="centerX" id="bJH-Lh-FfL"/>
+                            <constraint firstItem="nrw-h9-m6W" firstAttribute="top" relation="greaterThanOrEqual" secondItem="63Q-8k-TU7" secondAttribute="bottom" constant="5" id="cf0-SD-j8v"/>
                             <constraint firstItem="OOH-2X-YuS" firstAttribute="centerX" secondItem="YfX-ug-9Ts" secondAttribute="centerX" id="e9g-Dc-H98"/>
                             <constraint firstItem="eNS-97-DCK" firstAttribute="leading" secondItem="PUs-d8-scq" secondAttribute="leading" constant="16" id="gKa-pY-ycb"/>
+                            <constraint firstItem="63Q-8k-TU7" firstAttribute="top" secondItem="tRy-BU-sy8" secondAttribute="bottom" constant="7" id="gui-bW-FeP"/>
                             <constraint firstItem="PUs-d8-scq" firstAttribute="trailing" secondItem="nrw-h9-m6W" secondAttribute="trailing" constant="16" id="nJw-1L-mvD"/>
                             <constraint firstItem="PUs-d8-scq" firstAttribute="bottom" secondItem="nrw-h9-m6W" secondAttribute="bottom" constant="16" id="nhB-d1-cdF"/>
                             <constraint firstItem="eus-vl-Ktb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="PUs-d8-scq" secondAttribute="leading" constant="16" id="o6b-M2-z9I"/>
@@ -529,4 +542,7 @@
         <image name="Lighthouse-night" width="1600" height="1200"/>
         <image name="menu" width="22" height="22"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="NDR-mh-Ua7"/>
+    </inferredMetricsTieBreakers>
 </document>
