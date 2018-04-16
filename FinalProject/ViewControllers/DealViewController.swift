@@ -62,6 +62,8 @@ class DealViewController: UIViewController {
 
       fetchDeals()
       fetchPlaces()
+      
+      
 //      FirebaseManager.defaultManager.fetchDeals()
 //      FirebaseManager.defaultManager.fetchPlaces()
 
@@ -94,11 +96,14 @@ class DealViewController: UIViewController {
   }
   
   override func viewWillAppear(_ animated: Bool) {
+    favSwitch.isHidden = false
+
     if selectedDealCategory == enumSelectedDealCategory.enumMyDeals {
       favSwitch.isHidden = true
-    } else {
-      favSwitch.isHidden = false
+    } else if selectedDealCategory == enumSelectedDealCategory.enumFunDeals {
+      
     }
+    
     self.view.layoutIfNeeded()
   }
   
@@ -120,8 +125,10 @@ class DealViewController: UIViewController {
         print("printing dealFirebase.placeid " + dealFirebase.placeid!)
         dealFirebase.price = dictionary["price"] as? String
         print("printing dealFirebase.price " + dealFirebase.price!)
-        dealFirebase.style = dictionary["style"] as? [String]
-        print("printing dealFirebase.style " + dealFirebase.style!.joined(separator: ", "))
+        let styleArray = dictionary["style"] as? [String]
+        dealFirebase.style = styleArray?.joined(separator: ", ")
+        print("printing dealFirebase.style " + dealFirebase.style!)
+//        print("printing dealFirebase.style " + dealFirebase.style!.joined(separator: ", "))
         dealFirebase.daysAvalable = dictionary["daysAvalable"] as? [String]
         print("printing dealFirebase.daysAvalable " + dealFirebase.daysAvalable!.joined(separator: ", "))
 
@@ -178,17 +185,33 @@ class DealViewController: UIViewController {
   
   func loadDetails() -> () {
     
-    let dealNumber = Int(arc4random_uniform(UInt32(dealsList.count)))
+    var filteredDealsList = [DealFirebase]()
     
-    loadPhotoFromNetwork(imageUrl: dealsList[dealNumber].img!)
+    if selectedDealCategory == enumSelectedDealCategory.enumFoodDeals {
+      for deal in dealsList {
+        if (deal.style?.contains("Food"))! {
+          filteredDealsList.append(deal)
+        }
+      }
+      print("filted food deals only")
+    } else {
+//      dummy filter
+      filteredDealsList = dealsList
+      
+    }
     
-    dealLabel.text = dealsList[dealNumber].dealName
-    priceLabel.text = dealsList[dealNumber].price
-    styleLabel.text = dealsList[dealNumber].style?.joined(separator: ", ")
-    daysAvailableLabel.text = "Get it on " + (dealsList[dealNumber].daysAvalable?.joined(separator: ", "))!
+    let dealNumber = Int(arc4random_uniform(UInt32(filteredDealsList.count)))
+    
+    loadPhotoFromNetwork(imageUrl: filteredDealsList[dealNumber].img!)
+    
+    dealLabel.text = filteredDealsList[dealNumber].dealName
+    priceLabel.text = filteredDealsList[dealNumber].price
+    styleLabel.text = filteredDealsList[dealNumber].style
+    //    styleLabel.text = filteredDealsList[dealNumber].style?.joined(separator: ", ")
+    daysAvailableLabel.text = "Get it on " + (filteredDealsList[dealNumber].daysAvalable?.joined(separator: ", "))!
     
     for placeFB in placesList {
-      if placeFB.placeID == dealsList[dealNumber].placeid {
+      if placeFB.placeID == filteredDealsList[dealNumber].placeid {
         addressLabel.text = placeFB.address
         placeNameLabel.text = placeFB.name
         phoneLabel.text = placeFB.phone
@@ -206,6 +229,36 @@ class DealViewController: UIViewController {
         placeName = unwPlaceName
       }
     }
+    
+//    let dealNumber = Int(arc4random_uniform(UInt32(dealsList.count)))
+//
+//    loadPhotoFromNetwork(imageUrl: dealsList[dealNumber].img!)
+//
+//    dealLabel.text = dealsList[dealNumber].dealName
+//    priceLabel.text = dealsList[dealNumber].price
+//    styleLabel.text = dealsList[dealNumber].style
+////    styleLabel.text = dealsList[dealNumber].style?.joined(separator: ", ")
+//    daysAvailableLabel.text = "Get it on " + (dealsList[dealNumber].daysAvalable?.joined(separator: ", "))!
+//
+//    for placeFB in placesList {
+//      if placeFB.placeID == dealsList[dealNumber].placeid {
+//        addressLabel.text = placeFB.address
+//        placeNameLabel.text = placeFB.name
+//        phoneLabel.text = placeFB.phone
+//        guard let unwLatitude = placeFB.lat, let unwLongitude = placeFB.lon else {
+//          print("cannot unwrap lat long")
+//          return
+//        }
+//        placeCoordinateLatitude = unwLatitude
+//        placeCoordinateLongitude = unwLongitude
+//
+//        guard let unwPlaceName = placeFB.name else {
+//          print("cannot unwrap place name")
+//          return
+//        }
+//        placeName = unwPlaceName
+//      }
+//    }
     
   }
   

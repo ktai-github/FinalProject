@@ -16,7 +16,7 @@ struct DealFirebase {
   var img: String?
   var price: String?
   var placeid: String?
-  var style: [String]?
+  var style: String?
 }
 
 struct PlaceFirebase {
