@@ -38,25 +38,28 @@ class DealViewController: UIViewController {
   @IBOutlet weak var styleLabel: UILabel!
   @IBOutlet weak var priceLabel: UILabel!
   @IBOutlet weak var addressLabel: UILabel!
-  @IBOutlet weak var daysAvailable: UILabel!
+  @IBOutlet weak var phoneLabel: UILabel!
+  @IBOutlet weak var daysAvailableLabel: UILabel!
   
   
   var selectedDealCategory: enumSelectedDealCategory = enumSelectedDealCategory.enumRandomDeals
   
-  var dealsData = [Any]()
-  var placesData = [Any]()
+//  var dealsData = [Any]()
+//  var placesData = [Any]()
   
   var ref: DatabaseReference!
   var refHandle: UInt!
-  var dealsList = [DealFirebase]()
   
+  var dealsList = [DealFirebase]()
+  var placesList = [PlaceFirebase]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
       
       ref = Database.database().reference()
       
       fetchDeals()
-      
+      fetchPlaces()
 //      FirebaseManager.defaultManager.loadFromFirebase(node: "deals") { (actualSubnode: Any) in
 //        self.dealsData.append(actualSubnode)
 //        print(actualSubnode)
@@ -122,7 +125,29 @@ class DealViewController: UIViewController {
     })
   }
   
-  
+  func fetchPlaces() {
+    refHandle = ref.child("places").observe(DataEventType.childAdded, with: { (snapshot) in
+      
+      if let dictionary = snapshot.value as? [String: Any] {
+        var placeFirebase = PlaceFirebase()
+        placeFirebase.address = dictionary["address"] as? String
+        print("printing placeFirebase.address " + placeFirebase.address!)
+        placeFirebase.lat = dictionary["lat"] as? String
+        print("printing placeFirebase.lat " + placeFirebase.lat!)
+        placeFirebase.lon = dictionary["lon"] as? String
+        print("printing placeFirebase.lon " + placeFirebase.lon!)
+        placeFirebase.name = dictionary["name"] as? String
+        print("printing placeFirebase.name " + placeFirebase.name!)
+        placeFirebase.phone = dictionary["phone"] as? String
+        print("printing placeFirebase.phone " + placeFirebase.phone!)
+        placeFirebase.placeID = dictionary["placeID"] as? String
+        print("printing placeFirebase.placeID " + placeFirebase.placeID!)
+        
+        self.placesList.append(placeFirebase)
+        
+      }
+    })
+  }
   
 //  @objc func notificationReceived(_ notification: Notification) {
 //    guard let unwNotificationObj = notification.object else {
@@ -136,10 +161,21 @@ class DealViewController: UIViewController {
 //  }
   
   func loadDetails() -> () {
-    dealLabel.text = dealsList[0].dealName
-    priceLabel.text = dealsList[0].price
-    styleLabel.text = dealsList[0].style?.joined(separator: ", ")
-    daysAvailable.text = "Get it on " + (dealsList[0].daysAvalable?.joined(separator: ", "))!
+    
+    let dealNumber = Int(arc4random_uniform(UInt32(dealsList.count)))
+    
+    dealLabel.text = dealsList[dealNumber].dealName
+    priceLabel.text = dealsList[dealNumber].price
+    styleLabel.text = dealsList[dealNumber].style?.joined(separator: ", ")
+    daysAvailableLabel.text = "Get it on " + (dealsList[dealNumber].daysAvalable?.joined(separator: ", "))!
+    
+    for placeFB in placesList {
+      if placeFB.placeID == dealsList[dealNumber].placeid {
+        addressLabel.text = placeFB.address
+        placeNameLabel.text = placeFB.name
+        phoneLabel.text = placeFB.phone
+      }
+    }
     
   }
   
@@ -161,6 +197,7 @@ class DealViewController: UIViewController {
 //    print("printed dealsdata count = " + String(describing: dealsData.count))
 //    print("printed placesdata count = " + String(describing: placesData.count))
     print("count of deals " + String(describing: dealsList.count))
+    print("count of places " + String(describing: placesList.count))
 
     if selectedDealCategory == enumSelectedDealCategory.enumMyDeals {
       print("my deals")

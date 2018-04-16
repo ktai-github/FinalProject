@@ -383,10 +383,10 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="tRy-BU-sy8" userLabel="Deal Text">
-                                <rect key="frame" x="16" y="374" width="288" height="54.5"/>
+                                <rect key="frame" x="16" y="374" width="288" height="74.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="6Cc-RY-SF5" userLabel="Style Price">
-                                        <rect key="frame" x="0.0" y="0.0" width="99.5" height="14.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="86.5" height="14.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Style" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sUy-lj-GaL">
                                                 <rect key="frame" x="0.0" y="0.0" width="28.5" height="14.5"/>
@@ -394,16 +394,16 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qhK-sN-2se">
-                                                <rect key="frame" x="78.5" y="0.0" width="21" height="14.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qhK-sN-2se">
+                                                <rect key="frame" x="78.5" y="0.0" width="8" height="14.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100 Marine Drive" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ynz-6I-SVG">
-                                        <rect key="frame" x="0.0" y="19.5" width="95.5" height="15"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ynz-6I-SVG">
+                                        <rect key="frame" x="0.0" y="19.5" width="46.5" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="15" id="RE8-8M-vDY"/>
                                         </constraints>
@@ -411,8 +411,17 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iJ9-1C-WVG">
+                                        <rect key="frame" x="0.0" y="39.5" width="36" height="15"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="15" id="fI1-0T-JT9"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Days Available: " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oDh-Ne-Nl8">
-                                        <rect key="frame" x="0.0" y="39.5" width="88.5" height="15"/>
+                                        <rect key="frame" x="0.0" y="59.5" width="88.5" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="15" id="RSV-hi-Hxp"/>
                                         </constraints>
@@ -471,10 +480,11 @@
                     <connections>
                         <outlet property="addressLabel" destination="ynz-6I-SVG" id="8XD-RR-Rfu"/>
                         <outlet property="blackMaskView" destination="YfX-ug-9Ts" id="Frc-2c-vyC"/>
-                        <outlet property="daysAvailable" destination="oDh-Ne-Nl8" id="CUi-PD-PG5"/>
+                        <outlet property="daysAvailableLabel" destination="oDh-Ne-Nl8" id="hBN-Yt-OXe"/>
                         <outlet property="dealLabel" destination="OOH-2X-YuS" id="Qmp-y4-43z"/>
                         <outlet property="favSwitch" destination="Gy1-pK-W1j" id="2AA-uo-Ltl"/>
                         <outlet property="imageView" destination="eus-vl-Ktb" id="fUs-ah-4B7"/>
+                        <outlet property="phoneLabel" destination="iJ9-1C-WVG" id="wd1-5L-tCl"/>
                         <outlet property="placeNameLabel" destination="eNS-97-DCK" id="kuq-mi-4yo"/>
                         <outlet property="priceLabel" destination="qhK-sN-2se" id="tEv-TR-CaW"/>
                         <outlet property="styleLabel" destination="sUy-lj-GaL" id="gi3-Nm-BWy"/>

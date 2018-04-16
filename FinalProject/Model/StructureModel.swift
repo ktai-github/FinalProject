@@ -9,24 +9,23 @@
 import UIKit
 import RealmSwift
 
-//var favsArray = ["deal1", "deal2", "deal3"]
-
 struct DealFirebase {
   var daysAvalable: [String]?
   var dealID: String? //primary key
   var dealName: String?
   var img: String?
   var price: String?
-//  var tags: [String]?
   var placeid: String?
   var style: [String]?
-//  var dealFaved: Bool
+}
 
-//  init(dealID: Int, dealName: String) {
-//    self.dealID = dealID
-//    self.dealName = dealName
-//    self.dealFaved = false
-//  }
+struct PlaceFirebase {
+  var placeID: String? //primary key
+  var name: String?
+  var phone: String?
+  var lat: String?
+  var lon: String?
+  var address: String?
 }
 
 class Deal: Object {
