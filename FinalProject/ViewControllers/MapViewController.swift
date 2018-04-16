@@ -24,11 +24,6 @@ class MapViewController: UIViewController {
   override func viewDidLoad() {
         super.viewDidLoad()
     
-//    guard let unwPlaceCoordinate = placeCoordinate else {
-//      print("cannot unwrap coordinate")
-//      return
-//    }
-    
     let initialLocation = CLLocation(latitude: placeCoordinateLatitude, longitude: placeCoordinateLongitude)
     
     centerMapOnLocation(location: initialLocation)
@@ -41,15 +36,11 @@ class MapViewController: UIViewController {
     
     mapView.addAnnotation(anno)
     
-//    let coordinate = CLLocationCoordinate2DMake(placeCoordinate.latitude, placeCoordinate.longitude)
-//    let mapItem = MKMapItem(placemark: MKPlacemark(coordinate: coordinate, addressDictionary: nil))
     guard let unwPlaceName = placeName else {
       print("cannot unwrap place")
       return
     }
-//    mapItem.name = unwPlaceName
-//    mapItem.openInMaps(launchOptions: [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving])
-        // Do any additional setup after loading the view.
+    // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {

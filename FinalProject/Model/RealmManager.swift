@@ -26,12 +26,6 @@ class RealmManager: NSObject {
   }
   
   static func realmDelete(_ unwDealName: String, _ deal: Deal) {
-    //    deal.dealID = 100
-    //    deal.dealImageUrl = "http://whatever.com/whatever.jpg"
-    //    deal.placeID = 1000
-    //    deal.price = "$10"
-    //    deal.styleID = 4
-    //    deal.tags = "sightseeing"
     
     let realm = try! Realm()
     let deals = realm.objects(Deal.self).filter("dealName = '\(unwDealName)'").first

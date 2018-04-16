@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import FirebaseDatabase
+//import FirebaseDatabase
 //import RealmSwift
 
 // notification for the category of deal selected in the menu
@@ -44,26 +44,15 @@ class DealViewController: UIViewController {
   @IBOutlet weak var phoneLabel: UILabel!
   @IBOutlet weak var daysAvailableLabel: UILabel!
   
-  
   var selectedDealCategory: enumSelectedDealCategory = enumSelectedDealCategory.enumRandomDeals
   
   var placeName: String?
   
   var placeCoordinateLatitude: String?
   var placeCoordinateLongitude: String?
-  
-//  var ref: DatabaseReference!
-//  var refHandle: UInt!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-      
-//      ref = Database.database().reference()
-
-//      fetchDeals()
-//      fetchPlaces()
-      
-      
       
       FirebaseManager.defaultManager.fetchDeals {
         
@@ -74,20 +63,6 @@ class DealViewController: UIViewController {
           self.loadDetails()
         }
       }
-
-
-//      FirebaseManager.defaultManager.loadFromFirebase(node: "deals") { (actualSubnode: Any) in
-//        self.dealsData.append(actualSubnode)
-//        print(actualSubnode)
-//        print("added actualsubnode")
-//      }
-//
-//      FirebaseManager.defaultManager.loadFromFirebase(node: "places") { (actualSubnode: Any) in
-//        self.placesData.append(actualSubnode)
-//        print(actualSubnode)
-//        print("added actualsubnode")
-//      }
-      
 
 //      recognize swiping left and right
       swipeRightGestRec.direction = UISwipeGestureRecognizerDirection.right
@@ -120,56 +95,6 @@ class DealViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
   
-//  func fetchDeals() {
-//    refHandle = ref.child("deals").observe(DataEventType.childAdded, with: { [unowned self] (snapshot) in
-//
-//      if let dictionary = snapshot.value as? [String: Any] {
-//        var dealFirebase = DealFirebase()
-//        dealFirebase.dealName = dictionary["dealName"] as? String
-//        print("printing dealFirebase.dealname " + dealFirebase.dealName!)
-//        dealFirebase.img = dictionary["img"] as? String
-//        print("printing dealFirebase.img " + dealFirebase.img!)
-//        dealFirebase.placeid = dictionary["placeid"] as? String
-//        print("printing dealFirebase.placeid " + dealFirebase.placeid!)
-//        dealFirebase.price = dictionary["price"] as? String
-//        print("printing dealFirebase.price " + dealFirebase.price!)
-//        let styleArray = dictionary["style"] as? [String]
-//        dealFirebase.style = styleArray?.joined(separator: ", ")
-//        print("printing dealFirebase.style " + dealFirebase.style!)
-////        print("printing dealFirebase.style " + dealFirebase.style!.joined(separator: ", "))
-//        dealFirebase.daysAvalable = dictionary["daysAvalable"] as? [String]
-//        print("printing dealFirebase.daysAvalable " + dealFirebase.daysAvalable!.joined(separator: ", "))
-//
-//        dealsList.append(dealFirebase)
-//
-//      }
-//    })
-//  }
-
-//  func fetchPlaces() {
-//    refHandle = ref.child("places").observe(DataEventType.childAdded, with: { [unowned self] (snapshot) in
-//
-//      if let dictionary = snapshot.value as? [String: Any] {
-//        var placeFirebase = PlaceFirebase()
-//        placeFirebase.address = dictionary["address"] as? String
-//        print("printing placeFirebase.address " + placeFirebase.address!)
-//        placeFirebase.lat = dictionary["lat"] as? String
-//        print("printing placeFirebase.lat " + placeFirebase.lat!)
-//        placeFirebase.lon = dictionary["lon"] as? String
-//        print("printing placeFirebase.lon " + placeFirebase.lon!)
-//        placeFirebase.name = dictionary["name"] as? String
-//        print("printing placeFirebase.name " + placeFirebase.name!)
-//        placeFirebase.phone = dictionary["phone"] as? String
-//        print("printing placeFirebase.phone " + placeFirebase.phone!)
-//        placeFirebase.placeID = dictionary["placeID"] as? String
-//        print("printing placeFirebase.placeID " + placeFirebase.placeID!)
-//
-//        placesList.append(placeFirebase)
-//
-//      }
-//    })
-//  }
-  
   func loadPhotoFromNetwork(imageUrl: String) -> Void {
     let photoManager = PhotoManager()
     photoManager.photoNetworkRequest(url: imageUrl) { (image: UIImage) in
@@ -191,54 +116,39 @@ class DealViewController: UIViewController {
 //    print(selectedDealCategory + " notification received")
 //  }
   
+  //MARK: Load Details on Screen
+  fileprivate func applyFilter(_ filteredDealsList: inout [DealFirebase], category: String) {
+    for deal in dealsList {
+      if (deal.style?.contains(category))! {
+        filteredDealsList.append(deal)
+      }
+    }
+    print("filtered \(category) deals only")
+  }
+  
   func loadDetails() -> () {
     
     var filteredDealsList = [DealFirebase]()
     
-    if selectedDealCategory == enumSelectedDealCategory.enumFoodDeals {
-      for deal in dealsList {
-        if (deal.style?.contains("Food"))! {
-          filteredDealsList.append(deal)
-        }
-      }
-      print("filtered food deals only")
+    switch selectedDealCategory {
+    case enumSelectedDealCategory.enumFoodDeals:
+      applyFilter(&filteredDealsList, category: "Food")
       
-    } else if selectedDealCategory == enumSelectedDealCategory.enumFunDeals {
-      for deal in dealsList {
-        if (deal.style?.contains("Fun"))! {
-          filteredDealsList.append(deal)
-        }
-      }
-      print("filtered fun deals only")
-      
-    } else if selectedDealCategory == enumSelectedDealCategory.enumDateDeals {
-      for deal in dealsList {
-        if (deal.style?.contains("Date"))! {
-          filteredDealsList.append(deal)
-        }
-      }
-      print("filtered date deals only")
-      
-    } else if selectedDealCategory == enumSelectedDealCategory.enumGroupDeals {
-      for deal in dealsList {
-        if (deal.style?.contains("Group"))! {
-          filteredDealsList.append(deal)
-        }
-      }
-      print("filtered group deals only")
-      
-    } else if selectedDealCategory == enumSelectedDealCategory.enumDrinkDeals {
-      for deal in dealsList {
-        if (deal.style?.contains("Drinks"))! {
-          filteredDealsList.append(deal)
-        }
-      }
-      print("filtered drink deals only")
-      
-    } else {
-//      dummy filter
+    case enumSelectedDealCategory.enumFunDeals:
+      applyFilter(&filteredDealsList, category: "Fun")
+
+    case enumSelectedDealCategory.enumDrinkDeals:
+      applyFilter(&filteredDealsList, category: "Drinks")
+
+    case enumSelectedDealCategory.enumDateDeals:
+      applyFilter(&filteredDealsList, category: "Date")
+
+    case enumSelectedDealCategory.enumGroupDeals:
+      applyFilter(&filteredDealsList, category: "Group")
+
+    default:
+      //      dummy filter
       filteredDealsList = dealsList
-      
     }
     
     let dealNumber = Int(arc4random_uniform(UInt32(filteredDealsList.count)))
@@ -248,7 +158,6 @@ class DealViewController: UIViewController {
     dealLabel.text = filteredDealsList[dealNumber].dealName
     priceLabel.text = filteredDealsList[dealNumber].price
     styleLabel.text = filteredDealsList[dealNumber].style
-    //    styleLabel.text = filteredDealsList[dealNumber].style?.joined(separator: ", ")
     daysAvailableLabel.text = "Get it on " + (filteredDealsList[dealNumber].daysAvalable)!
     
     for placeFB in placesList {
@@ -270,36 +179,6 @@ class DealViewController: UIViewController {
         placeName = unwPlaceName
       }
     }
-    
-//    let dealNumber = Int(arc4random_uniform(UInt32(dealsList.count)))
-//
-//    loadPhotoFromNetwork(imageUrl: dealsList[dealNumber].img!)
-//
-//    dealLabel.text = dealsList[dealNumber].dealName
-//    priceLabel.text = dealsList[dealNumber].price
-//    styleLabel.text = dealsList[dealNumber].style
-////    styleLabel.text = dealsList[dealNumber].style?.joined(separator: ", ")
-//    daysAvailableLabel.text = "Get it on " + (dealsList[dealNumber].daysAvalable?.joined(separator: ", "))!
-//
-//    for placeFB in placesList {
-//      if placeFB.placeID == dealsList[dealNumber].placeid {
-//        addressLabel.text = placeFB.address
-//        placeNameLabel.text = placeFB.name
-//        phoneLabel.text = placeFB.phone
-//        guard let unwLatitude = placeFB.lat, let unwLongitude = placeFB.lon else {
-//          print("cannot unwrap lat long")
-//          return
-//        }
-//        placeCoordinateLatitude = unwLatitude
-//        placeCoordinateLongitude = unwLongitude
-//
-//        guard let unwPlaceName = placeFB.name else {
-//          print("cannot unwrap place name")
-//          return
-//        }
-//        placeName = unwPlaceName
-//      }
-//    }
     
   }
   
@@ -347,6 +226,7 @@ class DealViewController: UIViewController {
     self.present(activityViewController, animated: true, completion: nil)
   }
   
+  //MARK: Favourite switch
   @IBAction func favSwitch(_ sender: UISwitch) {
     
     if sender.isOn == true {
@@ -382,10 +262,6 @@ class DealViewController: UIViewController {
     }
   }
   
-
-    
-
-  
 //  deinit {
 //
 ////    removing observer from notification
@@ -409,11 +285,7 @@ class DealViewController: UIViewController {
     if segue.identifier == "segueToMapView" {
       
       let mapVC = segue.destination as! MapViewController
-//      guard let unwPlaceCoordinate = self.placeCoordinate else {
-//        print("place coordinate not unwrapped")
-//        return
-//
-//      }
+      
       guard let unwPlaceCoordinateLatitude = placeCoordinateLatitude, let unwPlaceCoordinateLongitude = placeCoordinateLongitude else {
         print("cannot unwrap lat long")
         return
