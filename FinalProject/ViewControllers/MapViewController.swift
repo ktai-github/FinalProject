@@ -21,27 +21,63 @@ class MapViewController: UIViewController {
   let locationManager = CLLocationManager()
   let regionRadius: CLLocationDistance = 1000
   
+  var selectedDealCategory = enumSelectedDealCategory.enumRandomDeals
+  
   override func viewDidLoad() {
         super.viewDidLoad()
+
+//    let favDeals = RealmManager.realmQueryAllRecords()
+
+//    print("lat: " + favDeals[0].placeLat)
+//    print("long: " + favDeals[0].placeLong)
+//    print("menu item selected: " + String(describing: selectedDealCategory))
     
-    let initialLocation = CLLocation(latitude: placeCoordinateLatitude, longitude: placeCoordinateLongitude)
+//    mapVC.placeCoordinateLatitude = (unwPlaceCoordinateLatitude as NSString).doubleValue
+//    mapVC.placeCoordinateLongitude = (unwPlaceCoordinateLongitude as NSString).doubleValue
+//
+//    mapVC.placeName = placeName
+
+    if selectedDealCategory == enumSelectedDealCategory.enumMyDeals {
+      
+      let favDeals = RealmManager.realmQueryAllRecords()
+      
+      for i in 0..<favDeals.count {
+        
+        let tempCoordinateLocation = CLLocation(latitude: (favDeals[i].placeLat as NSString).doubleValue , longitude: (favDeals[i].placeLong as NSString).doubleValue)
+        
+        centerMapOnLocation(location: tempCoordinateLocation)
+        
+        let tempCoordinateLocation2D = CLLocationCoordinate2D(latitude: (favDeals[i].placeLat as NSString).doubleValue , longitude: (favDeals[i].placeLong as NSString).doubleValue)
+
+        let anno = MKPointAnnotation()
+        anno.coordinate = tempCoordinateLocation2D
+        anno.title = favDeals[i].placeName
+        
+        mapView.addAnnotation(anno)
+        print("added: \(tempCoordinateLocation2D.latitude)")
+        print("added: \(tempCoordinateLocation2D.longitude)")
+      }
+    } else {
     
-    centerMapOnLocation(location: initialLocation)
+      let initialLocation = CLLocation(latitude: placeCoordinateLatitude, longitude: placeCoordinateLongitude)
+
+      centerMapOnLocation(location: initialLocation)
+      
+      let initialLocation2D = CLLocationCoordinate2D(latitude: placeCoordinateLatitude, longitude: placeCoordinateLongitude)
+      
+      let anno = MKPointAnnotation()
+      anno.coordinate = initialLocation2D
+      anno.title = placeName
+      
+      mapView.addAnnotation(anno)
     
-    let initialLocation2D = CLLocationCoordinate2D(latitude: placeCoordinateLatitude, longitude: placeCoordinateLongitude)
-    
-    let anno = MKPointAnnotation()
-    anno.coordinate = initialLocation2D
-    anno.title = placeName
-    
-    mapView.addAnnotation(anno)
-    
-    guard let unwPlaceName = placeName else {
-      print("cannot unwrap place")
-      return
-    }
+//    guard let unwPlaceName = placeName else {
+//      print("cannot unwrap place")
+//      return
+//    }
     // Do any additional setup after loading the view.
     }
+  }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

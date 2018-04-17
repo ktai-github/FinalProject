@@ -87,6 +87,7 @@ class MenuTableViewController: UITableViewController {
 
     case 4:
       print("my deals selected")
+      userSelectedCategory = enumSelectedDealCategory.enumMyDeals
 //      storyboard segue to my deals vc
       
     default:
@@ -166,6 +167,7 @@ class MenuTableViewController: UITableViewController {
       dealVC.selectedDealCategory = userSelectedCategory
       
     }
+      
   }
 
 }

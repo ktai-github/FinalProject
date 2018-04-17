@@ -14,6 +14,8 @@ class FavsViewController: UIViewController, UITableViewDelegate, UITableViewData
   @IBOutlet weak var favsTableView: UITableView!
 
   var tempDealPlace = DealPlace()
+  var deals = RealmManager.realmQueryAllRecords()
+  
   
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +53,7 @@ class FavsViewController: UIViewController, UITableViewDelegate, UITableViewData
       return cell
     }
     
-    let deals = RealmManager.realmQueryAllRecords()
+//    deals = RealmManager.realmQueryAllRecords()
     cell.dealLabel.text = deals[indexPath.row].dealName
     let photoManager = PhotoManager()
     photoManager.photoNetworkRequest(url:  deals[indexPath.row].dealImageUrl) { (image: UIImage) in
@@ -98,7 +100,7 @@ class FavsViewController: UIViewController, UITableViewDelegate, UITableViewData
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    let deals = RealmManager.realmQueryAllRecords()
+//    let deals = RealmManager.realmQueryAllRecords()
     tempDealPlace = deals[indexPath.row]
     print(tempDealPlace.dealName + " at " + tempDealPlace.placeName + " on " + tempDealPlace.dealDaysAvailable + " stored temporarily")
     performSegue(withIdentifier: "unwindSegueToDealVC", sender: self)
@@ -117,6 +119,11 @@ class FavsViewController: UIViewController, UITableViewDelegate, UITableViewData
         let dealVC = segue.destination as! DealViewController
         dealVC.selectedDealCategory = enumSelectedDealCategory.enumMyDeals
         dealVC.tempDealPlace = tempDealPlace
+        
+      } else if segue.identifier == "segueFromMyDealsToMapView" {
+        
+        let mapVC = segue.destination as! MapViewController
+        mapVC.selectedDealCategory = enumSelectedDealCategory.enumMyDeals
       }
     }
   

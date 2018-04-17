@@ -80,7 +80,7 @@
                     <navigationItem key="navigationItem" title="My Deals" id="vQr-ox-gAS">
                         <barButtonItem key="rightBarButtonItem" title="Map" id="e3e-84-dph">
                             <connections>
-                                <segue destination="8Sl-3g-vIZ" kind="show" id="CjW-Dw-yfa"/>
+                                <segue destination="8Sl-3g-vIZ" kind="show" identifier="segueFromMyDealsToMapView" id="CjW-Dw-yfa"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -500,6 +500,6 @@
         <image name="menu" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="NDR-mh-Ua7"/>
+        <segue reference="CjW-Dw-yfa"/>
     </inferredMetricsTieBreakers>
 </document>
