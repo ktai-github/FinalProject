@@ -115,10 +115,7 @@ class MenuTableViewController: UITableViewController {
       self.present(clearAlert, animated: true, completion: nil)
     }
     
-
   }
-  
-  
   
     /*
     // Override to support conditional editing of the table view.

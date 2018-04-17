@@ -26,26 +26,16 @@ class MapViewController: UIViewController {
   override func viewDidLoad() {
         super.viewDidLoad()
 
-//    let favDeals = RealmManager.realmQueryAllRecords()
-
-//    print("lat: " + favDeals[0].placeLat)
-//    print("long: " + favDeals[0].placeLong)
-//    print("menu item selected: " + String(describing: selectedDealCategory))
-    
-//    mapVC.placeCoordinateLatitude = (unwPlaceCoordinateLatitude as NSString).doubleValue
-//    mapVC.placeCoordinateLongitude = (unwPlaceCoordinateLongitude as NSString).doubleValue
-//
-//    mapVC.placeName = placeName
-
+//    access map vc from clicking my deals on menu table vc
     if selectedDealCategory == enumSelectedDealCategory.enumMyDeals {
       
       let favDeals = RealmManager.realmQueryAllRecords()
       
+//      let tempCoordinateLocation = CLLocation(latitude: (favDeals[0].placeLat as NSString).doubleValue , longitude: (favDeals[0].placeLong as NSString).doubleValue)
+      let tempCoordinateLocation = CLLocation(latitude: 49.283854 , longitude: -123.108070)
+      centerMapOnLocation(location: tempCoordinateLocation)
+      
       for i in 0..<favDeals.count {
-        
-        let tempCoordinateLocation = CLLocation(latitude: (favDeals[i].placeLat as NSString).doubleValue , longitude: (favDeals[i].placeLong as NSString).doubleValue)
-        
-        centerMapOnLocation(location: tempCoordinateLocation)
         
         let tempCoordinateLocation2D = CLLocationCoordinate2D(latitude: (favDeals[i].placeLat as NSString).doubleValue , longitude: (favDeals[i].placeLong as NSString).doubleValue)
 
@@ -54,9 +44,10 @@ class MapViewController: UIViewController {
         anno.title = favDeals[i].placeName
         
         mapView.addAnnotation(anno)
-        print("added: \(tempCoordinateLocation2D.latitude)")
-        print("added: \(tempCoordinateLocation2D.longitude)")
+        print("added: \(String(describing: anno.title))")
       }
+    
+//    access map vc from clicking map on deal vc
     } else {
     
       let initialLocation = CLLocation(latitude: placeCoordinateLatitude, longitude: placeCoordinateLongitude)
@@ -70,11 +61,7 @@ class MapViewController: UIViewController {
       anno.title = placeName
       
       mapView.addAnnotation(anno)
-    
-//    guard let unwPlaceName = placeName else {
-//      print("cannot unwrap place")
-//      return
-//    }
+      
     // Do any additional setup after loading the view.
     }
   }
