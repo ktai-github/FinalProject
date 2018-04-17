@@ -51,6 +51,7 @@ class MenuTableViewController: UITableViewController {
 //        return cell
 //    }
   
+//  navigate to deal vc with the category that was selected for filtering deals
   func userSelected(category: enumSelectedDealCategory) {
     userSelectedCategory = category
 //    NotificationCenter.default.post(name: Notification.Name.deal,
@@ -99,7 +100,8 @@ class MenuTableViewController: UITableViewController {
       clearAlert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "OK"),
                                          style: .default,
                                          handler: { _ in print("clicked ok")
-
+      
+//      delete all favs from realm
       let realm = try! Realm()
         try! realm.write {
           realm.deleteAll()

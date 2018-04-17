@@ -35,6 +35,8 @@ class MapViewController: UIViewController {
       let tempCoordinateLocation = CLLocation(latitude: 49.283854 , longitude: -123.108070)
       centerMapOnLocation(location: tempCoordinateLocation)
       
+//      create anno with name and coordinate for each fav deal and add to the map
+//      index integer seems to be needed to access properties in a for loop
       for i in 0..<favDeals.count {
         
         let tempCoordinateLocation2D = CLLocationCoordinate2D(latitude: (favDeals[i].placeLat as NSString).doubleValue , longitude: (favDeals[i].placeLong as NSString).doubleValue)
@@ -56,6 +58,7 @@ class MapViewController: UIViewController {
       
       let initialLocation2D = CLLocationCoordinate2D(latitude: placeCoordinateLatitude, longitude: placeCoordinateLongitude)
       
+      //      create anno with name and coordinate and add to the map
       let anno = MKPointAnnotation()
       anno.coordinate = initialLocation2D
       anno.title = placeName

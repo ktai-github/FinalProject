@@ -173,6 +173,7 @@ class DealViewController: UIViewController {
       applyFilter(&filteredDealsList, category: "Group")
 
     default:
+      
       //      dummy filter
       filteredDealsList = dealsList
     }
@@ -181,7 +182,7 @@ class DealViewController: UIViewController {
     
     loadPhotoFromNetwork(imageUrl: filteredDealsList[dealNumber].img!)
     
-//    used for saving for later if the user chooses to
+//    potentially to be used to save deal for later if the user chooses to
     tempDealFirebase = filteredDealsList[dealNumber]
     
     dealLabel.text = filteredDealsList[dealNumber].dealName
@@ -192,6 +193,7 @@ class DealViewController: UIViewController {
     for placeFB in placesList {
       if placeFB.placeID == filteredDealsList[dealNumber].placeid {
         
+        //    potentially to be used to save deal for later if the user chooses to
         tempPlaceFirebase = placeFB
         
         addressLabel.text = placeFB.address
@@ -201,6 +203,8 @@ class DealViewController: UIViewController {
           print("cannot unwrap lat long")
           return
         }
+        
+//        potentially to be used for mapview if user chooses to see on map
         placeCoordinateLatitude = unwLatitude
         placeCoordinateLongitude = unwLongitude
         
@@ -309,7 +313,10 @@ class DealViewController: UIViewController {
       RealmManager.realmAdd(deal: dealPlace)
       
     } else {
+      
       print("fav switch is off")
+      
+//      delete from realm if user turn switch off
       guard let unwDealName = dealLabel.text else {
         return
       }

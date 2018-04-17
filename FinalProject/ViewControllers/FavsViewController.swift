@@ -16,7 +16,6 @@ class FavsViewController: UIViewController, UITableViewDelegate, UITableViewData
   var tempDealPlace = DealPlace()
   var deals = RealmManager.realmQueryAllRecords()
   
-  
     override func viewDidLoad() {
         super.viewDidLoad()
       self.favsTableView.dataSource = self
@@ -42,18 +41,17 @@ class FavsViewController: UIViewController, UITableViewDelegate, UITableViewData
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    let deals = RealmManager.realmQueryAllRecords()
     return deals.count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    
     guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? FavsTableViewCell else {
       print("guard let cell error")
       let cell = FavsTableViewCell(style: .default, reuseIdentifier: "Cell")
       return cell
     }
     
-//    deals = RealmManager.realmQueryAllRecords()
     cell.dealLabel.text = deals[indexPath.row].dealName
     let photoManager = PhotoManager()
     photoManager.photoNetworkRequest(url:  deals[indexPath.row].dealImageUrl) { (image: UIImage) in
@@ -66,7 +64,7 @@ class FavsViewController: UIViewController, UITableViewDelegate, UITableViewData
   }
   
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    return self.view.bounds.height / 3 //return height size whichever you want
+    return self.view.bounds.height / 3 //return row height that is depending on the device screen size
   }
   
   func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -76,6 +74,7 @@ class FavsViewController: UIViewController, UITableViewDelegate, UITableViewData
   
   
   func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    
     let dealPlace = DealPlace()
     let cell = tableView.cellForRow(at: indexPath) as? FavsTableViewCell
     guard let unwDealName = cell?.dealLabel.text else {
@@ -83,9 +82,11 @@ class FavsViewController: UIViewController, UITableViewDelegate, UITableViewData
       return
     }
     
+//    get deal name from table row selected by user
     dealPlace.dealName = unwDealName
     dealPlace.dealFaved = false
     
+//    delete in realm and delete in table view
     RealmManager.realmDelete(unwDealName, dealPlace)
 
     tableView.beginUpdates()
@@ -100,7 +101,8 @@ class FavsViewController: UIViewController, UITableViewDelegate, UITableViewData
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//    let deals = RealmManager.realmQueryAllRecords()
+
+//    segue with selected deal
     tempDealPlace = deals[indexPath.row]
     print(tempDealPlace.dealName + " at " + tempDealPlace.placeName + " on " + tempDealPlace.dealDaysAvailable + " stored temporarily")
     performSegue(withIdentifier: "unwindSegueToDealVC", sender: self)
