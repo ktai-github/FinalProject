@@ -30,6 +30,7 @@ var placesList = [PlaceFirebase]()
 
 class DealViewController: UIViewController {
 
+  @IBOutlet weak var nextButton: UIButton!
   @IBOutlet var swipeLeftGestRec: UISwipeGestureRecognizer!
   @IBOutlet var swipeRightGestRec: UISwipeGestureRecognizer!
   
@@ -86,13 +87,28 @@ class DealViewController: UIViewController {
   
   override func viewWillAppear(_ animated: Bool) {
     favSwitch.isHidden = false
-
+    nextButton.isHidden = false
+    
     if selectedDealCategory == enumSelectedDealCategory.enumMyDeals {
       favSwitch.isHidden = true
+      nextButton.isHidden = true
+      
       print("loaded dealvc with My Deals category selected")
       print(tempDealPlace.dealName + " at " + tempDealPlace.placeName + " available in dealvc")
-//      let dealPlaces =
-//      placeNameLabel.text =
+      
+      loadPhotoFromNetwork(imageUrl: tempDealPlace.dealImageUrl)
+      
+      placeNameLabel.text = tempDealPlace.placeName
+      daysAvailableLabel.text = tempDealPlace.dealDaysAvailable
+      dealLabel.text = tempDealPlace.dealName
+      styleLabel.text = tempDealPlace.dealStyle
+      priceLabel.text = tempDealPlace.dealPrice
+      addressLabel.text = tempDealPlace.placeAddress
+      phoneLabel.text = tempDealPlace.placePhone
+      
+      placeCoordinateLatitude = tempDealPlace.placeLat
+      placeCoordinateLongitude = tempDealPlace.placeLong
+      placeName = tempDealPlace.placeName
     }
     self.view.layoutIfNeeded()
   }
@@ -202,14 +218,18 @@ class DealViewController: UIViewController {
   
   @IBAction func swipeLeftGestRec(_ sender: UISwipeGestureRecognizer) {
     print("swiped left")
+    favSwitch.isOn = false
     loadDetails()
   }
   @IBAction func swipeRightGestRec(_ sender: UISwipeGestureRecognizer) {
     print("swiped right")
+    favSwitch.isOn = false
     loadDetails()
   }
   
   @IBAction func nextDealButton(_ sender: Any) {
+    favSwitch.isOn = false
+    
     print(selectedDealCategory)
     
     print("count of deals " + String(describing: dealsList.count))
@@ -254,6 +274,7 @@ class DealViewController: UIViewController {
         let unwDealPlaceID = tempDealFirebase.placeid,
         let unwDealPrice = tempDealFirebase.price,
         let unwDealStyle = tempDealFirebase.style,
+        let unwDealDaysAvailable = tempDealFirebase.daysAvalable,
         let unwPlaceName = tempPlaceFirebase.name,
         let unwPlaceAddress = tempPlaceFirebase.address,
         let unwPlaceLat = tempPlaceFirebase.lat,
@@ -272,6 +293,7 @@ class DealViewController: UIViewController {
       dealPlace.placeID = unwDealPlaceID
       dealPlace.dealPrice = unwDealPrice
       dealPlace.dealStyle = unwDealStyle
+      dealPlace.dealDaysAvailable = unwDealDaysAvailable
       dealPlace.placeName = unwPlaceName
       dealPlace.placePhone = unwPlacePhone
       dealPlace.placeAddress = unwPlaceAddress

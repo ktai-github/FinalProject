@@ -90,12 +90,17 @@ class FavsViewController: UIViewController, UITableViewDelegate, UITableViewData
     tableView.deleteRows(at: [indexPath], with: .automatic)
     tableView.endUpdates()
     print("deleted row")
+    
+//    BUG: user view a deal in dealvc that is already a fav
+//    and then immediate go to fav list and view the same deal
+//    go to the favvc and delete that deal
+//    attempting back out to the dealvc might crash the app
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     let deals = RealmManager.realmQueryAllRecords()
     tempDealPlace = deals[indexPath.row]
-    print(tempDealPlace.dealName + " at " + tempDealPlace.placeName + " stored for later")
+    print(tempDealPlace.dealName + " at " + tempDealPlace.placeName + " on " + tempDealPlace.dealDaysAvailable + " stored temporarily")
     performSegue(withIdentifier: "unwindSegueToDealVC", sender: self)
 
   }

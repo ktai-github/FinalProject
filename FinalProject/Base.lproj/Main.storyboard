@@ -453,6 +453,7 @@
                         <outlet property="dealLabel" destination="OOH-2X-YuS" id="Qmp-y4-43z"/>
                         <outlet property="favSwitch" destination="Gy1-pK-W1j" id="2AA-uo-Ltl"/>
                         <outlet property="imageView" destination="eus-vl-Ktb" id="fUs-ah-4B7"/>
+                        <outlet property="nextButton" destination="nrw-h9-m6W" id="Udl-J3-qNn"/>
                         <outlet property="phoneLabel" destination="iJ9-1C-WVG" id="wd1-5L-tCl"/>
                         <outlet property="placeNameLabel" destination="eNS-97-DCK" id="kuq-mi-4yo"/>
                         <outlet property="priceLabel" destination="qhK-sN-2se" id="tEv-TR-CaW"/>
@@ -499,6 +500,6 @@
         <image name="menu" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="CjW-Dw-yfa"/>
+        <segue reference="NDR-mh-Ua7"/>
     </inferredMetricsTieBreakers>
 </document>

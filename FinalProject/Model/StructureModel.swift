@@ -29,11 +29,12 @@ struct PlaceFirebase {
 }
 
 class DealPlace: Object {
-//  @objc dynamic var dealID = 0 //primary key
+  //  @objc dynamic var dealID = 0 //primary key
   @objc dynamic var dealName = ""
   @objc dynamic var dealImageUrl = ""
   @objc dynamic var dealPrice = ""
-//  @objc dynamic var tags = ""
+  @objc dynamic var dealDaysAvailable = ""
+  //  @objc dynamic var tags = ""
   @objc dynamic var placeID = ""
   @objc dynamic var dealStyle = ""
   @objc dynamic var dealFaved = false
@@ -42,13 +43,7 @@ class DealPlace: Object {
   @objc dynamic var placeAddress = ""
   @objc dynamic var placeLat = ""
   @objc dynamic var placeLong = ""
-
-//  let unwPlaceName = tempPlaceFirebase.name,
-//  let unwPlaceAddress = tempPlaceFirebase.address,
-//  let unwPlaceLat = tempPlaceFirebase.lat,
-//  let unwPlaceLong = tempPlaceFirebase.lon,
-//  let unwPlaceID = tempPlaceFirebase.placeID,
-//  let unwPlacePhone = tempPlaceFirebase.phone
+  
 }
 
 struct Place {
