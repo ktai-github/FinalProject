@@ -77,15 +77,15 @@ class MenuTableViewController: UITableViewController {
       print("date deals selected")
       userSelected(category: enumSelectedDealCategory.enumDateDeals)
 
-    case 4:
-      print("fun deals selected")
-      userSelected(category: enumSelectedDealCategory.enumFunDeals)
+//    case 4:
+//      print("fun deals selected")
+//      userSelected(category: enumSelectedDealCategory.enumFunDeals)
 
-    case 5:
-      print("group deals selected")
-      userSelected(category: enumSelectedDealCategory.enumGroupDeals)
-    // BUG: NO GROUP DEALS ON FIREBAS, WILL CRASH!
-    case 6:
+//    case 5:
+//      print("group deals selected")
+//      userSelected(category: enumSelectedDealCategory.enumGroupDeals)
+
+    case 4:
       print("my deals selected")
 //      storyboard segue to my deals vc
       

@@ -26,6 +26,13 @@ class FavsViewController: UIViewController, UITableViewDelegate, UITableViewData
         // Dispose of any resources that can be recreated.
     }
   
+//  func loadPhotoFromNetwork(imageUrl: String) -> Void {
+//
+//
+//
+//
+//  }
+
   func numberOfSectionsInTableView(tableView: UITableView) -> Int{
     return 1
   }
@@ -44,6 +51,12 @@ class FavsViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     let deals = RealmManager.realmQueryAllRecords()
     cell.dealLabel.text = deals[indexPath.row].dealName
+    let photoManager = PhotoManager()
+    photoManager.photoNetworkRequest(url:  deals[indexPath.row].dealImageUrl) { (image: UIImage) in
+      DispatchQueue.main.async {
+        cell.dealImageView.image = image
+      }
+    }
     return cell
   }
   
@@ -58,17 +71,17 @@ class FavsViewController: UIViewController, UITableViewDelegate, UITableViewData
   
   
   func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-    let deal = Deal()
+    let dealPlace = DealPlace()
     let cell = tableView.cellForRow(at: indexPath) as? FavsTableViewCell
     guard let unwDealName = cell?.dealLabel.text else {
       print("no deal label")
       return
     }
     
-    deal.dealName = unwDealName
-    deal.dealFaved = false
+    dealPlace.dealName = unwDealName
+    dealPlace.dealFaved = false
     
-    RealmManager.realmDelete(unwDealName, deal)
+    RealmManager.realmDelete(unwDealName, dealPlace)
 
     tableView.beginUpdates()
     tableView.deleteRows(at: [indexPath], with: .automatic)

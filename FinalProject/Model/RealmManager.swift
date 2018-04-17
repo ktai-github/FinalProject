@@ -11,13 +11,13 @@ import RealmSwift
 
 class RealmManager: NSObject {
 
-  static func realmQueryAllRecords() -> (Results<Deal>) {
+  static func realmQueryAllRecords() -> (Results<DealPlace>) {
     let realm = try! Realm()
-    let deals = try! realm.objects(Deal.self)
+    let deals = try! realm.objects(DealPlace.self)
     return deals
   }
   
-  static func realmAdd(deal: Deal) {
+  static func realmAdd(deal: DealPlace) {
     let realm = try! Realm()
     try! realm.write {
       realm.add(deal)
@@ -25,10 +25,10 @@ class RealmManager: NSObject {
     }
   }
   
-  static func realmDelete(_ unwDealName: String, _ deal: Deal) {
+  static func realmDelete(_ unwDealName: String, _ deal: DealPlace) {
     
     let realm = try! Realm()
-    let deals = realm.objects(Deal.self).filter("dealName = '\(unwDealName)'").first
+    let deals = realm.objects(DealPlace.self).filter("dealName = '\(unwDealName)'").first
     
     try! realm.write {
       realm.delete(deals!)

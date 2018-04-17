@@ -259,7 +259,7 @@ class DealViewController: UIViewController {
         let unwPlaceID = tempPlaceFirebase.placeID,
         let unwPlacePhone = tempPlaceFirebase.phone
       else {
-        print("cannot unwrap tempDealFirebase properties")
+        print("cannot unwrap tempDealFirebase or tempPlaceFirebase properties")
         return
       }
       
