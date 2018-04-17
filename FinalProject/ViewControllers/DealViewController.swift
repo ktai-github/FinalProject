@@ -54,21 +54,21 @@ class DealViewController: UIViewController {
   var tempDealFirebase = DealFirebase()
   var tempPlaceFirebase = PlaceFirebase()
   
-  
+  var tempDealPlace = DealPlace()
 
     override func viewDidLoad() {
         super.viewDidLoad()
       
-      FirebaseManager.defaultManager.fetchDeals {
-        
-        print("fetched deals")
-      }
-      FirebaseManager.defaultManager.fetchPlaces {
-        DispatchQueue.main.async {
-          self.loadDetails()
+        FirebaseManager.defaultManager.fetchDeals {
+          
+          print("fetched deals")
         }
-      }
-
+        FirebaseManager.defaultManager.fetchPlaces {
+          DispatchQueue.main.async {
+            self.loadDetails()
+          }
+        }
+      
 //      recognize swiping left and right
       swipeRightGestRec.direction = UISwipeGestureRecognizerDirection.right
       swipeLeftGestRec.direction = UISwipeGestureRecognizerDirection.left
@@ -89,8 +89,10 @@ class DealViewController: UIViewController {
 
     if selectedDealCategory == enumSelectedDealCategory.enumMyDeals {
       favSwitch.isHidden = true
-    } else if selectedDealCategory == enumSelectedDealCategory.enumFunDeals {
-      
+      print("loaded dealvc with My Deals category selected")
+      print(tempDealPlace.dealName + " at " + tempDealPlace.placeName + " available in dealvc")
+//      let dealPlaces =
+//      placeNameLabel.text =
     }
     self.view.layoutIfNeeded()
   }
@@ -245,8 +247,8 @@ class DealViewController: UIViewController {
     
     if sender.isOn == true {
       print("fav switch is on")
-      
-//      use data from temp Deal/Place Firebase objects for saving
+
+      //      use data from temp Deal/Place Firebase objects for saving
       guard let unwDealName = tempDealFirebase.dealName,
         let unwDealImg = tempDealFirebase.img,
         let unwDealPlaceID = tempDealFirebase.placeid,

@@ -13,6 +13,8 @@ class FavsViewController: UIViewController, UITableViewDelegate, UITableViewData
   
   @IBOutlet weak var favsTableView: UITableView!
 
+  var tempDealPlace = DealPlace()
+  
     override func viewDidLoad() {
         super.viewDidLoad()
       self.favsTableView.dataSource = self
@@ -57,6 +59,7 @@ class FavsViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.dealImageView.image = image
       }
     }
+
     return cell
   }
   
@@ -90,7 +93,9 @@ class FavsViewController: UIViewController, UITableViewDelegate, UITableViewData
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//    MenuTableViewController().userSelected(category: enumSelectedDealCategory.enumMyDeals)
+    let deals = RealmManager.realmQueryAllRecords()
+    tempDealPlace = deals[indexPath.row]
+    print(tempDealPlace.dealName + " at " + tempDealPlace.placeName + " stored for later")
     performSegue(withIdentifier: "unwindSegueToDealVC", sender: self)
 
   }
@@ -106,7 +111,7 @@ class FavsViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         let dealVC = segue.destination as! DealViewController
         dealVC.selectedDealCategory = enumSelectedDealCategory.enumMyDeals
-        
+        dealVC.tempDealPlace = tempDealPlace
       }
     }
   
