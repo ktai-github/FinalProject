@@ -99,7 +99,7 @@ class DealViewController: UIViewController {
       loadPhotoFromNetwork(imageUrl: tempDealPlace.dealImageUrl)
       
       placeNameLabel.text = tempDealPlace.placeName
-      daysAvailableLabel.text = tempDealPlace.dealDaysAvailable
+      daysAvailableLabel.text = "Get it on " + tempDealPlace.dealDaysAvailable
       dealLabel.text = tempDealPlace.dealName
       styleLabel.text = tempDealPlace.dealStyle
       priceLabel.text = tempDealPlace.dealPrice
