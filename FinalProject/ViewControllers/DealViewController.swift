@@ -219,12 +219,18 @@ class DealViewController: UIViewController {
   @IBAction func swipeLeftGestRec(_ sender: UISwipeGestureRecognizer) {
     print("swiped left")
     favSwitch.isOn = false
-    loadDetails()
+    
+    if selectedDealCategory != enumSelectedDealCategory.enumMyDeals {
+      loadDetails()
+    }
   }
   @IBAction func swipeRightGestRec(_ sender: UISwipeGestureRecognizer) {
     print("swiped right")
     favSwitch.isOn = false
-    loadDetails()
+    
+    if selectedDealCategory != enumSelectedDealCategory.enumMyDeals {
+      loadDetails()
+    }
   }
   
   @IBAction func nextDealButton(_ sender: Any) {
@@ -264,7 +270,7 @@ class DealViewController: UIViewController {
   
   //MARK: Favourite switch
   @IBAction func favSwitch(_ sender: UISwitch) {
-    
+    //BUG: In one case, saving the same deal twice saves a different deal the second time
     if sender.isOn == true {
       print("fav switch is on")
 
