@@ -33,6 +33,8 @@ class DealViewController: UIViewController {
   @IBOutlet weak var nextButton: UIButton!
   @IBOutlet var swipeLeftGestRec: UISwipeGestureRecognizer!
   @IBOutlet var swipeRightGestRec: UISwipeGestureRecognizer!
+  @IBOutlet var swipeLeftVisualEffect: UISwipeGestureRecognizer!
+  @IBOutlet var swipeRightVisualEffect: UISwipeGestureRecognizer!
   
   @IBOutlet weak var favSwitch: UISwitch!
 //  @IBOutlet weak var blackMaskView: UIView!
@@ -234,7 +236,10 @@ class DealViewController: UIViewController {
     
   }
   
+  //DO NOT DELETE!!
   @IBAction func unwindToDealVC(segue:UIStoryboardSegue) {}
+  
+  
   
   @IBAction func swipeLeftGestRec(_ sender: UISwipeGestureRecognizer) {
     print("swiped left")

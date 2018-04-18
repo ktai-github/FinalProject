@@ -473,11 +473,15 @@
                         <outlet property="priceLabel" destination="qhK-sN-2se" id="tEv-TR-CaW"/>
                         <outlet property="styleLabel" destination="sUy-lj-GaL" id="gi3-Nm-BWy"/>
                         <outlet property="swipeLeftGestRec" destination="eNx-eK-Fhg" id="zW0-Qy-GJq"/>
+                        <outlet property="swipeLeftVisualEffect" destination="Kja-Vi-Sas" id="Qvg-17-ZGu"/>
                         <outlet property="swipeRightGestRec" destination="ZQx-1Q-QOI" id="4Bh-N4-Nsy"/>
+                        <outlet property="swipeRightVisualEffect" destination="JYV-fB-R0b" id="rkm-Co-NWk"/>
                         <outlet property="visualEffectView" destination="OPr-Mi-WfI" id="0Nr-HD-Doe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7s2-wZ-G3A" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="Kja-Vi-Sas"/>
+                <swipeGestureRecognizer direction="right" id="JYV-fB-R0b"/>
                 <swipeGestureRecognizer direction="right" id="eNx-eK-Fhg">
                     <connections>
                         <action selector="swipeLeftGestRec:" destination="THJ-yi-499" id="RdZ-W1-jwI"/>
