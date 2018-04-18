@@ -59,7 +59,7 @@ class DealViewController: UIViewController {
   
   var tempDealPlace = DealPlace()
 
-  var isFrontVisible = true
+//  var isFrontVisible = true
   
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -240,21 +240,32 @@ class DealViewController: UIViewController {
     print("swiped left")
     favSwitch.isOn = false
     
-    if selectedDealCategory != enumSelectedDealCategory.enumMyDeals {
-      loadDetails()
-    }
+//    if selectedDealCategory != enumSelectedDealCategory.enumMyDeals {
+//      loadDetails()
+//    }
+    UIView.transition(with: cardView, duration: 1.5, options: .transitionFlipFromRight, animations: nil, completion: nil)
+    self.visualEffectView.isHidden = false
+    self.placeNameLabel.isHidden = false
+    //          self.blackMaskView.isHidden = true
+    self.dealLabel.isHidden = false
+    self.styleLabel.isHidden = false
+    self.priceLabel.isHidden = false
+    self.addressLabel.isHidden = false
+    self.phoneLabel.isHidden = false
+    self.daysAvailableLabel.isHidden = false
+    self.favSwitch.isHidden = false
   }
   @IBAction func swipeRightGestRec(_ sender: UISwipeGestureRecognizer) {
     print("swiped right")
     favSwitch.isOn = false
     
-    if selectedDealCategory != enumSelectedDealCategory.enumMyDeals {
+//    if selectedDealCategory != enumSelectedDealCategory.enumMyDeals {
 //      loadDetails()
 //      let option: UIViewAnimationOptions = .transitionFlipFromLeft
       
-      if (isFrontVisible) {
-        isFrontVisible = false
-        
+//      if (isFrontVisible) {
+//        isFrontVisible = false
+    
 // multiple spins
 //      UIView.transition(with: cardView, duration: 0.75, options: [.transitionFlipFromLeft,.repeat], animations: nil, completion: nil)
 //
@@ -262,34 +273,35 @@ class DealViewController: UIViewController {
 //      DispatchQueue.main.asyncAfter(deadline: delayTime) {
 //        self.cardView.layer.removeAllAnimations()
 //      }
-        UIView.transition(with: cardView, duration: 1.5, options: .transitionFlipFromLeft, animations: nil) { (NULL) in
-          self.visualEffectView.isHidden = false
-          self.placeNameLabel.isHidden = false
+//        UIView.transition(with: cardView, duration: 1.5, options: .transitionFlipFromLeft, animations: nil) { (NULL) in
+    UIView.transition(with: cardView, duration: 1.5, options: .transitionFlipFromLeft, animations: nil, completion: nil)
+    self.visualEffectView.isHidden = false
+    self.placeNameLabel.isHidden = false
 //          self.blackMaskView.isHidden = true
-          self.dealLabel.isHidden = false
-          self.styleLabel.isHidden = false
-          self.priceLabel.isHidden = false
-          self.addressLabel.isHidden = false
-          self.phoneLabel.isHidden = false
-          self.daysAvailableLabel.isHidden = false
-          self.favSwitch.isHidden = false
-        }
-      } else {
-        isFrontVisible = true
-        
-        self.visualEffectView.isHidden = true
-        self.placeNameLabel.isHidden = true
-//        self.blackMaskView.isHidden = false
-        self.dealLabel.isHidden = true
-        self.styleLabel.isHidden = true
-        self.priceLabel.isHidden = true
-        self.addressLabel.isHidden = true
-        self.phoneLabel.isHidden = true
-        self.daysAvailableLabel.isHidden = true
-        self.favSwitch.isHidden = true
+    self.dealLabel.isHidden = false
+    self.styleLabel.isHidden = false
+    self.priceLabel.isHidden = false
+    self.addressLabel.isHidden = false
+    self.phoneLabel.isHidden = false
+    self.daysAvailableLabel.isHidden = false
+    self.favSwitch.isHidden = false
+//        }
+//      } else {
+//        isFrontVisible = true
+    
+//        self.visualEffectView.isHidden = true
+//        self.placeNameLabel.isHidden = true
+////        self.blackMaskView.isHidden = false
+//        self.dealLabel.isHidden = true
+//        self.styleLabel.isHidden = true
+//        self.priceLabel.isHidden = true
+//        self.addressLabel.isHidden = true
+//        self.phoneLabel.isHidden = true
+//        self.daysAvailableLabel.isHidden = true
+//        self.favSwitch.isHidden = true
 
-      }
-    }
+//      }
+//    }
     
     
   }
