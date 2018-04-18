@@ -88,6 +88,11 @@ class DealViewController: UIViewController {
       swipeLeftVisualEffect.direction = UISwipeGestureRecognizerDirection.left
       visualEffectView.addGestureRecognizer(swipeLeftVisualEffect)
       visualEffectView.addGestureRecognizer(swipeRightVisualEffect)
+      
+      swipeDownGestRec.direction = UISwipeGestureRecognizerDirection.down
+      swipeDownVisualEffect.direction = UISwipeGestureRecognizerDirection.down
+      imageView.addGestureRecognizer(swipeDownGestRec)
+      visualEffectView.addGestureRecognizer(swipeDownVisualEffect)
         // Do any additional setup after loading the view.
 
     //      notification for the category of deal selected in the menu
@@ -248,11 +253,81 @@ class DealViewController: UIViewController {
   @IBAction func swipedDownGestRec(_ sender: UISwipeGestureRecognizer) {
     favSwitch.isOn = true
     
+    print("fav switch is on")
+    
+    //      use data from temp Deal/Place Firebase objects for saving
+    guard let unwDealName = tempDealFirebase.dealName,
+      let unwDealImg = tempDealFirebase.img,
+      let unwDealPlaceID = tempDealFirebase.placeid,
+      let unwDealPrice = tempDealFirebase.price,
+      let unwDealStyle = tempDealFirebase.style,
+      let unwDealDaysAvailable = tempDealFirebase.daysAvalable,
+      let unwPlaceName = tempPlaceFirebase.name,
+      let unwPlaceAddress = tempPlaceFirebase.address,
+      let unwPlaceLat = tempPlaceFirebase.lat,
+      let unwPlaceLong = tempPlaceFirebase.lon,
+      let unwPlaceID = tempPlaceFirebase.placeID,
+      let unwPlacePhone = tempPlaceFirebase.phone
+      else {
+        print("cannot unwrap tempDealFirebase or tempPlaceFirebase properties")
+        return
+    }
+    
+    let dealPlace = DealPlace()
+    dealPlace.dealFaved = true
+    dealPlace.dealName = unwDealName
+    dealPlace.dealImageUrl = unwDealImg
+    dealPlace.placeID = unwDealPlaceID
+    dealPlace.dealPrice = unwDealPrice
+    dealPlace.dealStyle = unwDealStyle
+    dealPlace.dealDaysAvailable = unwDealDaysAvailable
+    dealPlace.placeName = unwPlaceName
+    dealPlace.placePhone = unwPlacePhone
+    dealPlace.placeAddress = unwPlaceAddress
+    dealPlace.placeLat = unwPlaceLat
+    dealPlace.placeLong = unwPlaceLong
+    
+    RealmManager.realmAdd(deal: dealPlace)
   }
   
   @IBAction func swipedDownVisualEffect(_ sender: UISwipeGestureRecognizer) {
     favSwitch.isOn = true
-
+    
+    print("fav switch is on")
+    
+    //      use data from temp Deal/Place Firebase objects for saving
+    guard let unwDealName = tempDealFirebase.dealName,
+      let unwDealImg = tempDealFirebase.img,
+      let unwDealPlaceID = tempDealFirebase.placeid,
+      let unwDealPrice = tempDealFirebase.price,
+      let unwDealStyle = tempDealFirebase.style,
+      let unwDealDaysAvailable = tempDealFirebase.daysAvalable,
+      let unwPlaceName = tempPlaceFirebase.name,
+      let unwPlaceAddress = tempPlaceFirebase.address,
+      let unwPlaceLat = tempPlaceFirebase.lat,
+      let unwPlaceLong = tempPlaceFirebase.lon,
+      let unwPlaceID = tempPlaceFirebase.placeID,
+      let unwPlacePhone = tempPlaceFirebase.phone
+      else {
+        print("cannot unwrap tempDealFirebase or tempPlaceFirebase properties")
+        return
+    }
+    
+    let dealPlace = DealPlace()
+    dealPlace.dealFaved = true
+    dealPlace.dealName = unwDealName
+    dealPlace.dealImageUrl = unwDealImg
+    dealPlace.placeID = unwDealPlaceID
+    dealPlace.dealPrice = unwDealPrice
+    dealPlace.dealStyle = unwDealStyle
+    dealPlace.dealDaysAvailable = unwDealDaysAvailable
+    dealPlace.placeName = unwPlaceName
+    dealPlace.placePhone = unwPlacePhone
+    dealPlace.placeAddress = unwPlaceAddress
+    dealPlace.placeLat = unwPlaceLat
+    dealPlace.placeLong = unwPlaceLong
+    
+    RealmManager.realmAdd(deal: dealPlace)
   }
   
   
