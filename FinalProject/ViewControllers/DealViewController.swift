@@ -35,7 +35,7 @@ class DealViewController: UIViewController {
   @IBOutlet var swipeRightGestRec: UISwipeGestureRecognizer!
   
   @IBOutlet weak var favSwitch: UISwitch!
-  @IBOutlet weak var blackMaskView: UIView!
+//  @IBOutlet weak var blackMaskView: UIView!
   @IBOutlet weak var dealLabel: UILabel!
   @IBOutlet weak var placeNameLabel: UILabel!
   @IBOutlet weak var imageView: UIImageView!
@@ -44,6 +44,8 @@ class DealViewController: UIViewController {
   @IBOutlet weak var addressLabel: UILabel!
   @IBOutlet weak var phoneLabel: UILabel!
   @IBOutlet weak var daysAvailableLabel: UILabel!
+  @IBOutlet weak var cardView: UIView!
+  @IBOutlet weak var visualEffectView: UIVisualEffectView!
   
   var selectedDealCategory: enumSelectedDealCategory = enumSelectedDealCategory.enumRandomDeals
   
@@ -57,6 +59,8 @@ class DealViewController: UIViewController {
   
   var tempDealPlace = DealPlace()
 
+  var isFrontVisible = true
+  
     override func viewDidLoad() {
         super.viewDidLoad()
       
@@ -73,9 +77,10 @@ class DealViewController: UIViewController {
 //      recognize swiping left and right
       swipeRightGestRec.direction = UISwipeGestureRecognizerDirection.right
       swipeLeftGestRec.direction = UISwipeGestureRecognizerDirection.left
-      blackMaskView.addGestureRecognizer(swipeRightGestRec)
-      blackMaskView.addGestureRecognizer(swipeLeftGestRec)
-      
+      imageView.addGestureRecognizer(swipeRightGestRec)
+      imageView.addGestureRecognizer(swipeLeftGestRec)
+//      visualEffectView.addGestureRecognizer(swipeRightGestRec)
+//      visualEffectView.addGestureRecognizer(swipeLeftGestRec)
         // Do any additional setup after loading the view.
 
     //      notification for the category of deal selected in the menu
@@ -88,6 +93,17 @@ class DealViewController: UIViewController {
   override func viewWillAppear(_ animated: Bool) {
     favSwitch.isHidden = false
     nextButton.isHidden = false
+    
+    self.visualEffectView.isHidden = true
+    self.placeNameLabel.isHidden = true
+//    self.blackMaskView.isHidden = false
+    self.dealLabel.isHidden = true
+    self.styleLabel.isHidden = true
+    self.priceLabel.isHidden = true
+    self.addressLabel.isHidden = true
+    self.phoneLabel.isHidden = true
+    self.daysAvailableLabel.isHidden = true
+    self.favSwitch.isHidden = true
     
     if selectedDealCategory == enumSelectedDealCategory.enumMyDeals {
       favSwitch.isHidden = true
@@ -233,8 +249,49 @@ class DealViewController: UIViewController {
     favSwitch.isOn = false
     
     if selectedDealCategory != enumSelectedDealCategory.enumMyDeals {
-      loadDetails()
+//      loadDetails()
+//      let option: UIViewAnimationOptions = .transitionFlipFromLeft
+      
+      if (isFrontVisible) {
+        isFrontVisible = false
+        
+// multiple spins
+//      UIView.transition(with: cardView, duration: 0.75, options: [.transitionFlipFromLeft,.repeat], animations: nil, completion: nil)
+//
+//      let delayTime = DispatchTime.now() + 1.4
+//      DispatchQueue.main.asyncAfter(deadline: delayTime) {
+//        self.cardView.layer.removeAllAnimations()
+//      }
+        UIView.transition(with: cardView, duration: 1.5, options: .transitionFlipFromLeft, animations: nil) { (NULL) in
+          self.visualEffectView.isHidden = false
+          self.placeNameLabel.isHidden = false
+//          self.blackMaskView.isHidden = true
+          self.dealLabel.isHidden = false
+          self.styleLabel.isHidden = false
+          self.priceLabel.isHidden = false
+          self.addressLabel.isHidden = false
+          self.phoneLabel.isHidden = false
+          self.daysAvailableLabel.isHidden = false
+          self.favSwitch.isHidden = false
+        }
+      } else {
+        isFrontVisible = true
+        
+        self.visualEffectView.isHidden = true
+        self.placeNameLabel.isHidden = true
+//        self.blackMaskView.isHidden = false
+        self.dealLabel.isHidden = true
+        self.styleLabel.isHidden = true
+        self.priceLabel.isHidden = true
+        self.addressLabel.isHidden = true
+        self.phoneLabel.isHidden = true
+        self.daysAvailableLabel.isHidden = true
+        self.favSwitch.isHidden = true
+
+      }
     }
+    
+    
   }
   
   @IBAction func nextDealButton(_ sender: Any) {
