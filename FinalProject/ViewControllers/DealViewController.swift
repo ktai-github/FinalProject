@@ -255,6 +255,18 @@ class DealViewController: UIViewController {
     
     print("fav switch is on")
     
+//    UIView.transition(with: cardView, duration: 1.5, options: .transitionCurlDown, animations: nil) { (true) in
+//      self.nextButton.sendActions(for: .touchUpInside)
+//
+//    }
+    
+    UIView.animate(withDuration: 1.5, animations: {
+      self.cardView.frame = CGRect(x: self.cardView.frame.origin.x, y: self.cardView.frame.origin.y + 1000.0, width: self.cardView.frame.size.width, height: self.cardView.frame.size.height)
+    }) { (true) in
+      self.nextButton.sendActions(for: .touchUpInside)
+
+    }
+
     //      use data from temp Deal/Place Firebase objects for saving
     guard let unwDealName = tempDealFirebase.dealName,
       let unwDealImg = tempDealFirebase.img,
@@ -294,6 +306,18 @@ class DealViewController: UIViewController {
     favSwitch.isOn = true
     
     print("fav switch is on")
+
+    //    UIView.transition(with: cardView, duration: 1.5, options: .transitionCurlDown, animations: nil) { (true) in
+    //      self.nextButton.sendActions(for: .touchUpInside)
+    //
+    //    }
+    
+    UIView.animate(withDuration: 1.5, animations: {
+      self.cardView.frame = CGRect(x: self.cardView.frame.origin.x, y: self.cardView.frame.origin.y + 1000.0, width: self.cardView.frame.size.width, height: self.cardView.frame.size.height)
+    }) { (true) in
+      self.nextButton.sendActions(for: .touchUpInside)
+      
+    }
     
     //      use data from temp Deal/Place Firebase objects for saving
     guard let unwDealName = tempDealFirebase.dealName,
@@ -312,7 +336,7 @@ class DealViewController: UIViewController {
         print("cannot unwrap tempDealFirebase or tempPlaceFirebase properties")
         return
     }
-    
+
     let dealPlace = DealPlace()
     dealPlace.dealFaved = true
     dealPlace.dealName = unwDealName
@@ -326,7 +350,7 @@ class DealViewController: UIViewController {
     dealPlace.placeAddress = unwPlaceAddress
     dealPlace.placeLat = unwPlaceLat
     dealPlace.placeLong = unwPlaceLong
-    
+
     RealmManager.realmAdd(deal: dealPlace)
   }
   
