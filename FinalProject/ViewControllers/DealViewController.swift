@@ -200,7 +200,7 @@ class DealViewController: UIViewController {
     
 //    potentially to be used to save deal for later if the user chooses to
     tempDealFirebase = filteredDealsList[dealNumber]
-    
+//    dealLabel.isHidden = false
     dealLabel.text = filteredDealsList[dealNumber].dealName
     priceLabel.text = filteredDealsList[dealNumber].price
     styleLabel.text = filteredDealsList[dealNumber].style
