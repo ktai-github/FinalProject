@@ -35,6 +35,8 @@ class DealViewController: UIViewController {
   @IBOutlet var swipeRightGestRec: UISwipeGestureRecognizer!
   @IBOutlet var swipeLeftVisualEffect: UISwipeGestureRecognizer!
   @IBOutlet var swipeRightVisualEffect: UISwipeGestureRecognizer!
+  @IBOutlet var swipeDownGestRec: UISwipeGestureRecognizer!
+  @IBOutlet var swipeDownVisualEffect: UISwipeGestureRecognizer!
   
   @IBOutlet weak var favSwitch: UISwitch!
 //  @IBOutlet weak var blackMaskView: UIView!
@@ -241,6 +243,18 @@ class DealViewController: UIViewController {
   
   //DO NOT DELETE!!
   @IBAction func unwindToDealVC(segue:UIStoryboardSegue) {}
+  
+  //MARK: Swipe functionality
+  @IBAction func swipedDownGestRec(_ sender: UISwipeGestureRecognizer) {
+    favSwitch.isOn = true
+    
+  }
+  
+  @IBAction func swipedDownVisualEffect(_ sender: UISwipeGestureRecognizer) {
+    favSwitch.isOn = true
+
+  }
+  
   
 //  swiped left on the backside of the card
   @IBAction func swipedLeftVisualEffect(_ sender: UISwipeGestureRecognizer) {

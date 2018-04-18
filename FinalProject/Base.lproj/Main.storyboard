@@ -477,6 +477,8 @@
                         <outlet property="placeNameLabel" destination="eNS-97-DCK" id="kuq-mi-4yo"/>
                         <outlet property="priceLabel" destination="qhK-sN-2se" id="tEv-TR-CaW"/>
                         <outlet property="styleLabel" destination="sUy-lj-GaL" id="gi3-Nm-BWy"/>
+                        <outlet property="swipeDownGestRec" destination="Ylf-xW-Py1" id="h9W-Z5-C6o"/>
+                        <outlet property="swipeDownVisualEffect" destination="djh-nC-1o1" id="Qas-fr-oiq"/>
                         <outlet property="swipeLeftGestRec" destination="eNx-eK-Fhg" id="zW0-Qy-GJq"/>
                         <outlet property="swipeLeftVisualEffect" destination="Kja-Vi-Sas" id="Qvg-17-ZGu"/>
                         <outlet property="swipeRightGestRec" destination="ZQx-1Q-QOI" id="4Bh-N4-Nsy"/>
@@ -485,6 +487,16 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7s2-wZ-G3A" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="Ylf-xW-Py1">
+                    <connections>
+                        <action selector="swipedDownGestRec:" destination="THJ-yi-499" id="Brd-6q-kK6"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="djh-nC-1o1">
+                    <connections>
+                        <action selector="swipedDownVisualEffect:" destination="THJ-yi-499" id="7ky-fE-5Mz"/>
+                    </connections>
+                </swipeGestureRecognizer>
                 <swipeGestureRecognizer direction="right" id="Kja-Vi-Sas">
                     <connections>
                         <action selector="swipedLeftVisualEffect:" destination="THJ-yi-499" id="OMZ-tD-vON"/>
