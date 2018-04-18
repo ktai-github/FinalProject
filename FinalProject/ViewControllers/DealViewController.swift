@@ -251,107 +251,115 @@ class DealViewController: UIViewController {
   
   //MARK: Swipe functionality
   @IBAction func swipedDownGestRec(_ sender: UISwipeGestureRecognizer) {
-    favSwitch.isOn = true
     
-    print("fav switch is on")
+    if selectedDealCategory != enumSelectedDealCategory.enumMyDeals {
     
-//    UIView.transition(with: cardView, duration: 1.5, options: .transitionCurlDown, animations: nil) { (true) in
-//      self.nextButton.sendActions(for: .touchUpInside)
-//
-//    }
+      favSwitch.isOn = true
     
-    UIView.animate(withDuration: 1.5, animations: {
-      self.cardView.frame = CGRect(x: self.cardView.frame.origin.x, y: self.cardView.frame.origin.y + 1000.0, width: self.cardView.frame.size.width, height: self.cardView.frame.size.height)
-    }) { (true) in
-      self.nextButton.sendActions(for: .touchUpInside)
+      print("fav switch is on")
+    
+  //    UIView.transition(with: cardView, duration: 1.5, options: .transitionCurlDown, animations: nil) { (true) in
+  //      self.nextButton.sendActions(for: .touchUpInside)
+  //
+  //    }
+    
+      UIView.animate(withDuration: 1.5, animations: {
+        self.cardView.frame = CGRect(x: self.cardView.frame.origin.x, y: self.cardView.frame.origin.y + 1000.0, width: self.cardView.frame.size.width, height: self.cardView.frame.size.height)
+      }) { (true) in
+        self.nextButton.sendActions(for: .touchUpInside)
 
-    }
+      }
 
-    //      use data from temp Deal/Place Firebase objects for saving
-    guard let unwDealName = tempDealFirebase.dealName,
-      let unwDealImg = tempDealFirebase.img,
-      let unwDealPlaceID = tempDealFirebase.placeid,
-      let unwDealPrice = tempDealFirebase.price,
-      let unwDealStyle = tempDealFirebase.style,
-      let unwDealDaysAvailable = tempDealFirebase.daysAvalable,
-      let unwPlaceName = tempPlaceFirebase.name,
-      let unwPlaceAddress = tempPlaceFirebase.address,
-      let unwPlaceLat = tempPlaceFirebase.lat,
-      let unwPlaceLong = tempPlaceFirebase.lon,
-      let unwPlaceID = tempPlaceFirebase.placeID,
-      let unwPlacePhone = tempPlaceFirebase.phone
-      else {
-        print("cannot unwrap tempDealFirebase or tempPlaceFirebase properties")
-        return
+      //      use data from temp Deal/Place Firebase objects for saving
+      guard let unwDealName = tempDealFirebase.dealName,
+        let unwDealImg = tempDealFirebase.img,
+        let unwDealPlaceID = tempDealFirebase.placeid,
+        let unwDealPrice = tempDealFirebase.price,
+        let unwDealStyle = tempDealFirebase.style,
+        let unwDealDaysAvailable = tempDealFirebase.daysAvalable,
+        let unwPlaceName = tempPlaceFirebase.name,
+        let unwPlaceAddress = tempPlaceFirebase.address,
+        let unwPlaceLat = tempPlaceFirebase.lat,
+        let unwPlaceLong = tempPlaceFirebase.lon,
+        let unwPlaceID = tempPlaceFirebase.placeID,
+        let unwPlacePhone = tempPlaceFirebase.phone
+        else {
+          print("cannot unwrap tempDealFirebase or tempPlaceFirebase properties")
+          return
+      }
+    
+      let dealPlace = DealPlace()
+      dealPlace.dealFaved = true
+      dealPlace.dealName = unwDealName
+      dealPlace.dealImageUrl = unwDealImg
+      dealPlace.placeID = unwDealPlaceID
+      dealPlace.dealPrice = unwDealPrice
+      dealPlace.dealStyle = unwDealStyle
+      dealPlace.dealDaysAvailable = unwDealDaysAvailable
+      dealPlace.placeName = unwPlaceName
+      dealPlace.placePhone = unwPlacePhone
+      dealPlace.placeAddress = unwPlaceAddress
+      dealPlace.placeLat = unwPlaceLat
+      dealPlace.placeLong = unwPlaceLong
+    
+      RealmManager.realmAdd(deal: dealPlace)
     }
-    
-    let dealPlace = DealPlace()
-    dealPlace.dealFaved = true
-    dealPlace.dealName = unwDealName
-    dealPlace.dealImageUrl = unwDealImg
-    dealPlace.placeID = unwDealPlaceID
-    dealPlace.dealPrice = unwDealPrice
-    dealPlace.dealStyle = unwDealStyle
-    dealPlace.dealDaysAvailable = unwDealDaysAvailable
-    dealPlace.placeName = unwPlaceName
-    dealPlace.placePhone = unwPlacePhone
-    dealPlace.placeAddress = unwPlaceAddress
-    dealPlace.placeLat = unwPlaceLat
-    dealPlace.placeLong = unwPlaceLong
-    
-    RealmManager.realmAdd(deal: dealPlace)
   }
   
   @IBAction func swipedDownVisualEffect(_ sender: UISwipeGestureRecognizer) {
-    favSwitch.isOn = true
     
-    print("fav switch is on")
+    if selectedDealCategory != enumSelectedDealCategory.enumMyDeals {
+    
+      favSwitch.isOn = true
+    
+      print("fav switch is on")
 
-    //    UIView.transition(with: cardView, duration: 1.5, options: .transitionCurlDown, animations: nil) { (true) in
-    //      self.nextButton.sendActions(for: .touchUpInside)
-    //
-    //    }
+      //    UIView.transition(with: cardView, duration: 1.5, options: .transitionCurlDown, animations: nil) { (true) in
+      //      self.nextButton.sendActions(for: .touchUpInside)
+      //
+      //    }
     
-    UIView.animate(withDuration: 1.5, animations: {
-      self.cardView.frame = CGRect(x: self.cardView.frame.origin.x, y: self.cardView.frame.origin.y + 1000.0, width: self.cardView.frame.size.width, height: self.cardView.frame.size.height)
-    }) { (true) in
-      self.nextButton.sendActions(for: .touchUpInside)
-      
+      UIView.animate(withDuration: 1.5, animations: {
+        self.cardView.frame = CGRect(x: self.cardView.frame.origin.x, y: self.cardView.frame.origin.y + 1000.0, width: self.cardView.frame.size.width, height: self.cardView.frame.size.height)
+      }) { (true) in
+        self.nextButton.sendActions(for: .touchUpInside)
+        
+      }
+    
+      //      use data from temp Deal/Place Firebase objects for saving
+      guard let unwDealName = tempDealFirebase.dealName,
+        let unwDealImg = tempDealFirebase.img,
+        let unwDealPlaceID = tempDealFirebase.placeid,
+        let unwDealPrice = tempDealFirebase.price,
+        let unwDealStyle = tempDealFirebase.style,
+        let unwDealDaysAvailable = tempDealFirebase.daysAvalable,
+        let unwPlaceName = tempPlaceFirebase.name,
+        let unwPlaceAddress = tempPlaceFirebase.address,
+        let unwPlaceLat = tempPlaceFirebase.lat,
+        let unwPlaceLong = tempPlaceFirebase.lon,
+        let unwPlaceID = tempPlaceFirebase.placeID,
+        let unwPlacePhone = tempPlaceFirebase.phone
+        else {
+          print("cannot unwrap tempDealFirebase or tempPlaceFirebase properties")
+          return
+      }
+
+      let dealPlace = DealPlace()
+      dealPlace.dealFaved = true
+      dealPlace.dealName = unwDealName
+      dealPlace.dealImageUrl = unwDealImg
+      dealPlace.placeID = unwDealPlaceID
+      dealPlace.dealPrice = unwDealPrice
+      dealPlace.dealStyle = unwDealStyle
+      dealPlace.dealDaysAvailable = unwDealDaysAvailable
+      dealPlace.placeName = unwPlaceName
+      dealPlace.placePhone = unwPlacePhone
+      dealPlace.placeAddress = unwPlaceAddress
+      dealPlace.placeLat = unwPlaceLat
+      dealPlace.placeLong = unwPlaceLong
+
+      RealmManager.realmAdd(deal: dealPlace)
     }
-    
-    //      use data from temp Deal/Place Firebase objects for saving
-    guard let unwDealName = tempDealFirebase.dealName,
-      let unwDealImg = tempDealFirebase.img,
-      let unwDealPlaceID = tempDealFirebase.placeid,
-      let unwDealPrice = tempDealFirebase.price,
-      let unwDealStyle = tempDealFirebase.style,
-      let unwDealDaysAvailable = tempDealFirebase.daysAvalable,
-      let unwPlaceName = tempPlaceFirebase.name,
-      let unwPlaceAddress = tempPlaceFirebase.address,
-      let unwPlaceLat = tempPlaceFirebase.lat,
-      let unwPlaceLong = tempPlaceFirebase.lon,
-      let unwPlaceID = tempPlaceFirebase.placeID,
-      let unwPlacePhone = tempPlaceFirebase.phone
-      else {
-        print("cannot unwrap tempDealFirebase or tempPlaceFirebase properties")
-        return
-    }
-
-    let dealPlace = DealPlace()
-    dealPlace.dealFaved = true
-    dealPlace.dealName = unwDealName
-    dealPlace.dealImageUrl = unwDealImg
-    dealPlace.placeID = unwDealPlaceID
-    dealPlace.dealPrice = unwDealPrice
-    dealPlace.dealStyle = unwDealStyle
-    dealPlace.dealDaysAvailable = unwDealDaysAvailable
-    dealPlace.placeName = unwPlaceName
-    dealPlace.placePhone = unwPlacePhone
-    dealPlace.placeAddress = unwPlaceAddress
-    dealPlace.placeLat = unwPlaceLat
-    dealPlace.placeLong = unwPlaceLong
-
-    RealmManager.realmAdd(deal: dealPlace)
   }
   
   
