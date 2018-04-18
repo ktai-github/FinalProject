@@ -103,7 +103,7 @@ class DealViewController: UIViewController {
   }
   
   override func viewWillAppear(_ animated: Bool) {
-    favSwitch.isHidden = false
+    favSwitch.isHidden = true
     nextButton.isHidden = false
     
     self.visualEffectView.isHidden = true
@@ -417,7 +417,7 @@ class DealViewController: UIViewController {
     
     if selectedDealCategory != enumSelectedDealCategory.enumMyDeals {
 
-      self.favSwitch.isHidden = false
+      self.favSwitch.isHidden = true
     }
   }
   @IBAction func swipeRightGestRec(_ sender: UISwipeGestureRecognizer) {
@@ -452,7 +452,7 @@ class DealViewController: UIViewController {
     
     if selectedDealCategory != enumSelectedDealCategory.enumMyDeals {
       
-      self.favSwitch.isHidden = false
+      self.favSwitch.isHidden = true
     }
 
 //        }
