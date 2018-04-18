@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C10227E208804BD00C72AD0 /* Arvo-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C1022782087FF8300C72AD0 /* Arvo-Bold.ttf */; };
+		2C10227F208804BD00C72AD0 /* Arvo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C10227D2087FF8300C72AD0 /* Arvo-Regular.ttf */; };
+		2C102280208804BD00C72AD0 /* Raleway-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C10227A2087FF8300C72AD0 /* Raleway-Bold.ttf */; };
+		2C102281208804BD00C72AD0 /* Raleway-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C10227B2087FF8300C72AD0 /* Raleway-Medium.ttf */; };
+		2C102282208804BD00C72AD0 /* Raleway-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C1022792087FF8300C72AD0 /* Raleway-Regular.ttf */; };
+		2C102283208804BD00C72AD0 /* Raleway-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C10227C2087FF8300C72AD0 /* Raleway-SemiBold.ttf */; };
 		2CB6FA4E207C2706007561D9 /* DealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB6FA4D207C2706007561D9 /* DealViewController.swift */; };
 		2CB6FA52207C287C007561D9 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB6FA51207C287C007561D9 /* MenuTableViewController.swift */; };
 		2CB6FA54207C2B8A007561D9 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB6FA53207C2B8A007561D9 /* MapViewController.swift */; };
@@ -27,6 +33,12 @@
 
 /* Begin PBXFileReference section */
 		108D419CB9E044D5038AD530 /* Pods-FinalProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinalProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-FinalProject/Pods-FinalProject.release.xcconfig"; sourceTree = "<group>"; };
+		2C1022782087FF8300C72AD0 /* Arvo-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Arvo-Bold.ttf"; sourceTree = "<group>"; };
+		2C1022792087FF8300C72AD0 /* Raleway-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Regular.ttf"; sourceTree = "<group>"; };
+		2C10227A2087FF8300C72AD0 /* Raleway-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Bold.ttf"; sourceTree = "<group>"; };
+		2C10227B2087FF8300C72AD0 /* Raleway-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Medium.ttf"; sourceTree = "<group>"; };
+		2C10227C2087FF8300C72AD0 /* Raleway-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-SemiBold.ttf"; sourceTree = "<group>"; };
+		2C10227D2087FF8300C72AD0 /* Arvo-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Arvo-Regular.ttf"; sourceTree = "<group>"; };
 		2CB6FA4D207C2706007561D9 /* DealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealViewController.swift; sourceTree = "<group>"; };
 		2CB6FA51207C287C007561D9 /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 		2CB6FA53207C2B8A007561D9 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -79,6 +91,19 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		2C1022772087FF8300C72AD0 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				2C1022782087FF8300C72AD0 /* Arvo-Bold.ttf */,
+				2C10227D2087FF8300C72AD0 /* Arvo-Regular.ttf */,
+				2C10227A2087FF8300C72AD0 /* Raleway-Bold.ttf */,
+				2C10227B2087FF8300C72AD0 /* Raleway-Medium.ttf */,
+				2C1022792087FF8300C72AD0 /* Raleway-Regular.ttf */,
+				2C10227C2087FF8300C72AD0 /* Raleway-SemiBold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		2CB6FA5D207C2C51007561D9 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -128,6 +153,7 @@
 				2CB6FA61207D8191007561D9 /* FavsTableViewCell.swift */,
 				2CF9B332207A8996008A3FDD /* AppDelegate.swift */,
 				2CF9B339207A8996008A3FDD /* Assets.xcassets */,
+				2C1022772087FF8300C72AD0 /* Fonts */,
 				2CF9B33B207A8996008A3FDD /* LaunchScreen.storyboard */,
 				2CF9B33E207A8996008A3FDD /* Info.plist */,
 				2CEC0BDD20817C1900A6EE63 /* GoogleService-Info.plist */,
@@ -201,6 +227,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C10227E208804BD00C72AD0 /* Arvo-Bold.ttf in Resources */,
+				2C10227F208804BD00C72AD0 /* Arvo-Regular.ttf in Resources */,
+				2C102280208804BD00C72AD0 /* Raleway-Bold.ttf in Resources */,
+				2C102281208804BD00C72AD0 /* Raleway-Medium.ttf in Resources */,
+				2C102282208804BD00C72AD0 /* Raleway-Regular.ttf in Resources */,
+				2C102283208804BD00C72AD0 /* Raleway-SemiBold.ttf in Resources */,
 				2CF9B33D207A8996008A3FDD /* LaunchScreen.storyboard in Resources */,
 				2CEC0BDE20817C1900A6EE63 /* GoogleService-Info.plist in Resources */,
 				2CF9B33A207A8996008A3FDD /* Assets.xcassets in Resources */,
