@@ -281,7 +281,6 @@ class DealViewController: UIViewController {
     print("swiped left")
     favSwitch.isOn = false
     
-//    if selectedDealCategory != enumSelectedDealCategory.enumMyDeals {
 //      loadDetails()
 //    }
     UIView.transition(with: cardView, duration: 1.5, options: .transitionFlipFromRight, animations: nil, completion: nil)
@@ -294,7 +293,11 @@ class DealViewController: UIViewController {
     self.addressLabel.isHidden = false
     self.phoneLabel.isHidden = false
     self.daysAvailableLabel.isHidden = false
-    self.favSwitch.isHidden = false
+    
+    if selectedDealCategory != enumSelectedDealCategory.enumMyDeals {
+
+      self.favSwitch.isHidden = false
+    }
   }
   @IBAction func swipeRightGestRec(_ sender: UISwipeGestureRecognizer) {
     print("swiped right")
@@ -325,7 +328,12 @@ class DealViewController: UIViewController {
     self.addressLabel.isHidden = false
     self.phoneLabel.isHidden = false
     self.daysAvailableLabel.isHidden = false
-    self.favSwitch.isHidden = false
+    
+    if selectedDealCategory != enumSelectedDealCategory.enumMyDeals {
+      
+      self.favSwitch.isHidden = false
+    }
+
 //        }
 //      } else {
 //        isFrontVisible = true
