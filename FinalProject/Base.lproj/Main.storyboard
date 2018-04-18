@@ -480,8 +480,16 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7s2-wZ-G3A" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="right" id="Kja-Vi-Sas"/>
-                <swipeGestureRecognizer direction="right" id="JYV-fB-R0b"/>
+                <swipeGestureRecognizer direction="right" id="Kja-Vi-Sas">
+                    <connections>
+                        <action selector="swipedLeftVisualEffect:" destination="THJ-yi-499" id="OMZ-tD-vON"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="JYV-fB-R0b">
+                    <connections>
+                        <action selector="swipedRightVisualEffect:" destination="THJ-yi-499" id="JMT-ax-ESx"/>
+                    </connections>
+                </swipeGestureRecognizer>
                 <swipeGestureRecognizer direction="right" id="eNx-eK-Fhg">
                     <connections>
                         <action selector="swipeLeftGestRec:" destination="THJ-yi-499" id="RdZ-W1-jwI"/>

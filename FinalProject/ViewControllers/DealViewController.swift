@@ -81,8 +81,11 @@ class DealViewController: UIViewController {
       swipeLeftGestRec.direction = UISwipeGestureRecognizerDirection.left
       imageView.addGestureRecognizer(swipeRightGestRec)
       imageView.addGestureRecognizer(swipeLeftGestRec)
-//      visualEffectView.addGestureRecognizer(swipeRightGestRec)
-//      visualEffectView.addGestureRecognizer(swipeLeftGestRec)
+      
+      swipeRightVisualEffect.direction = UISwipeGestureRecognizerDirection.right
+      swipeLeftVisualEffect.direction = UISwipeGestureRecognizerDirection.left
+      visualEffectView.addGestureRecognizer(swipeLeftVisualEffect)
+      visualEffectView.addGestureRecognizer(swipeRightVisualEffect)
         // Do any additional setup after loading the view.
 
     //      notification for the category of deal selected in the menu
@@ -239,7 +242,40 @@ class DealViewController: UIViewController {
   //DO NOT DELETE!!
   @IBAction func unwindToDealVC(segue:UIStoryboardSegue) {}
   
+//  swiped left on the backside of the card
+  @IBAction func swipedLeftVisualEffect(_ sender: UISwipeGestureRecognizer) {
+//    visualEffectView.isHidden = true
+    
+    UIView.transition(with: cardView, duration: 1.5, options: .transitionFlipFromRight, animations: nil, completion: nil)
+    self.visualEffectView.isHidden = true
+    self.placeNameLabel.isHidden = true
+    //          self.blackMaskView.isHidden = true
+    self.dealLabel.isHidden = true
+    self.styleLabel.isHidden = true
+    self.priceLabel.isHidden = true
+    self.addressLabel.isHidden = true
+    self.phoneLabel.isHidden = true
+    self.daysAvailableLabel.isHidden = true
+    self.favSwitch.isHidden = true
+
+  }
   
+//  swiped right on the backside of the card
+  @IBAction func swipedRightVisualEffect(_ sender: UISwipeGestureRecognizer) {
+//    visualEffectView.isHidden = true
+    
+    UIView.transition(with: cardView, duration: 1.5, options: .transitionFlipFromLeft, animations: nil, completion: nil)
+    self.visualEffectView.isHidden = true
+    self.placeNameLabel.isHidden = true
+    //          self.blackMaskView.isHidden = true
+    self.dealLabel.isHidden = true
+    self.styleLabel.isHidden = true
+    self.priceLabel.isHidden = true
+    self.addressLabel.isHidden = true
+    self.phoneLabel.isHidden = true
+    self.daysAvailableLabel.isHidden = true
+    self.favSwitch.isHidden = true
+  }
   
   @IBAction func swipeLeftGestRec(_ sender: UISwipeGestureRecognizer) {
     print("swiped left")
