@@ -103,24 +103,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="DjB-dE-leS">
-                                <rect key="frame" x="0.0" y="64" width="320" height="56"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="QWh-rg-iBj">
-                                <rect key="frame" x="0.0" y="120" width="320" height="448"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <color key="tintColor" red="0.57303921568627447" green="0.0" blue="0.047058823529411764" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="DjB-dE-leS" secondAttribute="trailing" id="DO1-OY-MYm"/>
-                            <constraint firstItem="DjB-dE-leS" firstAttribute="leading" secondItem="QWh-rg-iBj" secondAttribute="leading" id="IfJ-a9-lBd"/>
-                            <constraint firstItem="DjB-dE-leS" firstAttribute="trailing" secondItem="QWh-rg-iBj" secondAttribute="trailing" id="V9X-kh-aoN"/>
+                            <constraint firstItem="QWh-rg-iBj" firstAttribute="leading" secondItem="GYH-To-irM" secondAttribute="leading" id="C9x-54-lAP"/>
+                            <constraint firstItem="QWh-rg-iBj" firstAttribute="top" secondItem="Ghb-CD-XE7" secondAttribute="top" id="FNc-pR-dSP"/>
+                            <constraint firstAttribute="trailing" secondItem="QWh-rg-iBj" secondAttribute="trailing" id="Pdf-Ek-R6E"/>
                             <constraint firstItem="QWh-rg-iBj" firstAttribute="bottom" secondItem="Ghb-CD-XE7" secondAttribute="bottom" id="b5y-o6-YNW"/>
-                            <constraint firstItem="DjB-dE-leS" firstAttribute="leading" secondItem="GYH-To-irM" secondAttribute="leading" id="eIR-1F-DB9"/>
-                            <constraint firstItem="DjB-dE-leS" firstAttribute="top" secondItem="Ghb-CD-XE7" secondAttribute="top" id="vNB-7H-vPF"/>
-                            <constraint firstItem="QWh-rg-iBj" firstAttribute="top" secondItem="DjB-dE-leS" secondAttribute="bottom" id="xaA-ys-s7W"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ghb-CD-XE7"/>
                     </view>
