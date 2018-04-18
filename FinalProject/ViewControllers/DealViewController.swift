@@ -127,7 +127,7 @@ class DealViewController: UIViewController {
       loadPhotoFromNetwork(imageUrl: tempDealPlace.dealImageUrl)
       
       placeNameLabel.text = tempDealPlace.placeName
-      daysAvailableLabel.text = "Get it on " + tempDealPlace.dealDaysAvailable
+      daysAvailableLabel.text = tempDealPlace.dealDaysAvailable
       dealLabel.text = tempDealPlace.dealName
       styleLabel.text = tempDealPlace.dealStyle
       priceLabel.text = tempDealPlace.dealPrice
@@ -216,7 +216,7 @@ class DealViewController: UIViewController {
     dealLabel.text = filteredDealsList[dealNumber].dealName
     priceLabel.text = filteredDealsList[dealNumber].price
     styleLabel.text = filteredDealsList[dealNumber].style
-    daysAvailableLabel.text = "Get it on " + (filteredDealsList[dealNumber].daysAvalable)!
+    daysAvailableLabel.text = filteredDealsList[dealNumber].daysAvalable
     
     for placeFB in placesList {
       if placeFB.placeID == filteredDealsList[dealNumber].placeid {
