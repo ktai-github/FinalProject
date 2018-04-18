@@ -297,7 +297,7 @@
             </objects>
             <point key="canvasLocation" x="5569.5652173913049" y="116.57608695652175"/>
         </scene>
-        <!--Deal-->
+        <!--Gastown Eats-->
         <scene sceneID="LHY-Hq-314">
             <objects>
                 <viewController storyboardIdentifier="Deal" id="THJ-yi-499" customClass="DealViewController" customModule="FinalProject" customModuleProvider="target" sceneMemberID="viewController">
@@ -305,6 +305,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yQn-xH-tyz">
+                                <rect key="frame" x="0.0" y="522" width="320" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.57647058819999997" green="0.0" blue="0.070588235289999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nrw-h9-m6W">
                                 <rect key="frame" x="0.0" y="522" width="320" height="46"/>
                                 <color key="backgroundColor" red="0.57647058823529407" green="0.0" blue="0.070588235294117646" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -446,7 +451,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PUs-d8-scq"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Deal" id="i9O-Mj-6va">
+                    <navigationItem key="navigationItem" title="Gastown Eats" id="i9O-Mj-6va">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="menu" id="gh8-sU-b7A" userLabel="Menu">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
@@ -512,7 +517,7 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="barTintColor" red="0.57303921570000005" green="0.0" blue="0.047058823530000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.57647058819999997" green="0.0" blue="0.070588235289999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
@@ -532,6 +537,6 @@
         <image name="menu" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="CjW-Dw-yfa"/>
+        <segue reference="NDR-mh-Ua7"/>
     </inferredMetricsTieBreakers>
 </document>
