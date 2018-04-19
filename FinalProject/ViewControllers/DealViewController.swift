@@ -62,7 +62,8 @@ class DealViewController: UIViewController {
   var tempPlaceFirebase = PlaceFirebase()
   
   var tempDealPlace = DealPlace()
-
+//  var tempDealID = 0
+  
 //  var isFrontVisible = true
   
     override func viewDidLoad() {
@@ -205,8 +206,14 @@ class DealViewController: UIViewController {
       //      dummy filter
       filteredDealsList = dealsList
     }
+    var dealNumber: Int
     
-    let dealNumber = Int(arc4random_uniform(UInt32(filteredDealsList.count)))
+//    if tempDealID != 0 {
+//      dealNumber = tempDealID
+//    } else {
+    
+      dealNumber = Int(arc4random_uniform(UInt32(filteredDealsList.count)))
+//    }
     
     loadPhotoFromNetwork(imageUrl: filteredDealsList[dealNumber].img!)
     

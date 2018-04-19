@@ -375,7 +375,6 @@
                                         </constraints>
                                         <connections>
                                             <outlet property="imageView" destination="xF8-UJ-Frf" id="inw-rD-YcA"/>
-                                            <segue destination="THJ-yi-499" kind="show" id="REV-PS-Cr9"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -715,7 +714,6 @@
         <image name="menu" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="pXL-vK-L8d"/>
         <segue reference="CjW-Dw-yfa"/>
     </inferredMetricsTieBreakers>
 </document>

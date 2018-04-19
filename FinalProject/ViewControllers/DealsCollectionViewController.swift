@@ -20,6 +20,7 @@ class DealsCollectionViewController: UIViewController, UICollectionViewDelegate,
 //  var dealsList = [DealFirebase]()
 
   let photoManager = PhotoManager()
+//  var tempDealID = 0
   
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return dealsList.count
@@ -28,7 +29,7 @@ class DealsCollectionViewController: UIViewController, UICollectionViewDelegate,
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let dealsCollectionViewCell: DealsCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "Item", for: indexPath) as! DealsCollectionViewCell
     let deal = dealsList[indexPath.row]
-    
+//    tempDealID = indexPath.row
     photoManager.photoNetworkRequest(url: deal.img!) { (image: UIImage) in
       
       DispatchQueue.main.async {
@@ -39,10 +40,10 @@ class DealsCollectionViewController: UIViewController, UICollectionViewDelegate,
 
   }
   
-  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    performSegue(withIdentifier: "unwindSegueFromCollectionToDealVC", sender: self)
-
-  }
+//  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//    performSegue(withIdentifier: "unwindSegueFromCollectionToDealVC", sender: self)
+//
+//  }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -164,16 +165,16 @@ class DealsCollectionViewController: UIViewController, UICollectionViewDelegate,
         // Pass the selected object to the new view controller.
     }
     */
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
-    if segue.identifier == "unwindSegueFromCollectionToDealVC" {
-      
-      let dealVC = segue.destination as! DealViewController
-//      dealVC.selectedDealCategory = userSelectedCategory
-      
-    }
-    
-  }
+//  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//    // Get the new view controller using segue.destinationViewController.
+//    // Pass the selected object to the new view controller.
+//    if segue.identifier == "unwindSegueFromCollectionToDealVC" {
+//
+//      let dealVC = segue.destination as! DealViewController
+////      dealVC.selectedDealCategory = userSelectedCategory
+////      dealVC.tempDealID = tempDealID
+//    }
+//    
+//  }
 
 }
