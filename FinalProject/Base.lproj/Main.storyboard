@@ -336,6 +336,121 @@
             </objects>
             <point key="canvasLocation" x="5569.5652173913049" y="116.57608695652175"/>
         </scene>
+        <!--Menu Button View Controller-->
+        <scene sceneID="N6H-72-XyK">
+            <objects>
+                <viewController id="si5-cd-3BL" customClass="MenuButtonViewController" customModule="FinalProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="059-8R-Uah">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="IRr-qI-OXy">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                            </imageView>
+                            <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zBf-6i-YkE">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <button contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c66-z8-B4b">
+                                <rect key="frame" x="10" y="70" width="187" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Random Deals">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="randomDealsTapped:" destination="si5-cd-3BL" eventType="touchUpInside" id="zPV-d4-egC"/>
+                                    <segue destination="dZB-GT-5ua" kind="unwind" unwindAction="unwindToDealVCWithSegue:" id="dQl-rz-W9i"/>
+                                </connections>
+                            </button>
+                            <button contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fh4-A7-rQc">
+                                <rect key="frame" x="10" y="120" width="145" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Food Deals">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="foodDealsTapped:" destination="si5-cd-3BL" eventType="touchUpInside" id="JBA-f0-Vb5"/>
+                                </connections>
+                            </button>
+                            <button contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JYh-Gl-i8j">
+                                <rect key="frame" x="10" y="170" width="148" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Drink Deals">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="drinkDealsTapped:" destination="si5-cd-3BL" eventType="touchUpInside" id="kws-fO-fcz"/>
+                                </connections>
+                            </button>
+                            <button contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v8o-0Y-Of2">
+                                <rect key="frame" x="10" y="220" width="141" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Date Deals">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="dateDealsTapped:" destination="si5-cd-3BL" eventType="touchUpInside" id="JGc-zO-9Zs"/>
+                                </connections>
+                            </button>
+                            <button contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5OI-Uj-fVE">
+                                <rect key="frame" x="10" y="270" width="112" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="All Deals">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="allDealsTapped:" destination="si5-cd-3BL" eventType="touchUpInside" id="pwj-Re-SgT"/>
+                                    <segue destination="Ial-8D-BS2" kind="show" id="D7W-sr-RUj"/>
+                                </connections>
+                            </button>
+                            <button contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GGl-Wa-bTe">
+                                <rect key="frame" x="10" y="320" width="120" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="My Deals">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="myDealsTapped:" destination="si5-cd-3BL" eventType="touchUpInside" id="Tea-Jr-75e"/>
+                                    <segue destination="LlK-wJ-LjG" kind="show" id="MhV-d4-0NV"/>
+                                </connections>
+                            </button>
+                            <button contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XB9-bY-rPv">
+                                <rect key="frame" x="10" y="370" width="195" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Clear My Deals">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="clearMyDealsTapped:" destination="si5-cd-3BL" eventType="touchUpInside" id="lrf-4u-ifd"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="IRr-qI-OXy" firstAttribute="height" secondItem="gv5-eh-zkI" secondAttribute="height" id="83u-mf-J0K"/>
+                            <constraint firstItem="IRr-qI-OXy" firstAttribute="width" secondItem="059-8R-Uah" secondAttribute="width" id="9DH-9k-eSg"/>
+                            <constraint firstItem="zBf-6i-YkE" firstAttribute="width" secondItem="IRr-qI-OXy" secondAttribute="width" id="XG7-MA-8hd"/>
+                            <constraint firstItem="zBf-6i-YkE" firstAttribute="centerY" secondItem="IRr-qI-OXy" secondAttribute="centerY" id="ayb-gj-dgq"/>
+                            <constraint firstItem="zBf-6i-YkE" firstAttribute="height" secondItem="IRr-qI-OXy" secondAttribute="height" id="dcZ-qW-r1v"/>
+                            <constraint firstItem="IRr-qI-OXy" firstAttribute="centerY" secondItem="gv5-eh-zkI" secondAttribute="centerY" id="sXT-wv-HKH"/>
+                            <constraint firstItem="IRr-qI-OXy" firstAttribute="centerX" secondItem="gv5-eh-zkI" secondAttribute="centerX" id="tj9-9y-3OB"/>
+                            <constraint firstItem="zBf-6i-YkE" firstAttribute="centerX" secondItem="IRr-qI-OXy" secondAttribute="centerX" id="zli-GH-tRe"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="gv5-eh-zkI"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rfp-Ic-8gl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="dZB-GT-5ua" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="5569" y="883"/>
+        </scene>
         <!--Deals Collection View Controller-->
         <scene sceneID="pU4-3D-H12">
             <objects>
@@ -620,7 +735,7 @@
                         <barButtonItem key="leftBarButtonItem" title="Item" image="menu" id="gh8-sU-b7A" userLabel="Menu">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <segue destination="ErU-zg-YPj" kind="show" id="aAn-pz-Lxm"/>
+                                <segue destination="si5-cd-3BL" kind="show" id="91a-GM-5Da"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="action" id="ura-Rn-RFy">
@@ -710,10 +825,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Background" width="205" height="476"/>
         <image name="Lighthouse-night" width="1600" height="1200"/>
         <image name="menu" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="D7W-sr-RUj"/>
         <segue reference="CjW-Dw-yfa"/>
+        <segue reference="MhV-d4-0NV"/>
     </inferredMetricsTieBreakers>
 </document>
