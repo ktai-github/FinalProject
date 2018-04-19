@@ -8,16 +8,6 @@
 
 import UIKit
 
-//enum enumSelectedDealCategory {
-//  case enumRandomDeals
-//  case enumFoodDeals
-//  case enumDrinkDeals
-//  case enumDateDeals
-//  case enumFunDeals
-//  case enumGroupDeals
-//  case enumMyDeals
-//}
-
 class DealsCollectionViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
   
   @IBOutlet weak var collectionView: UICollectionView!
@@ -27,7 +17,7 @@ class DealsCollectionViewController: UIViewController, UICollectionViewDelegate,
   var tempDealFirebase = DealFirebase()
   var tempPlaceFirebase = PlaceFirebase()
   
-  var dealsList = [DealFirebase]()
+//  var dealsList = [DealFirebase]()
 
   let photoManager = PhotoManager()
   
@@ -50,16 +40,19 @@ class DealsCollectionViewController: UIViewController, UICollectionViewDelegate,
   }
   
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    <#code#>
+    performSegue(withIdentifier: "unwindSegueFromCollectionToDealVC", sender: self)
+
   }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-      FirebaseManager.defaultManager.fetchDeals {
-        
-        print("fetched deals")
-      }
+      collectionView.delegate = self
+      collectionView.dataSource = self
+      
+//      FirebaseManager.defaultManager.fetchDeals {
+//
+//        print("fetched deals")
+//      }
 //      FirebaseManager.defaultManager.fetchPlaces {
 ////        DispatchQueue.main.async {
 ////          self.loadDetails()
@@ -171,5 +164,16 @@ class DealsCollectionViewController: UIViewController, UICollectionViewDelegate,
         // Pass the selected object to the new view controller.
     }
     */
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    // Get the new view controller using segue.destinationViewController.
+    // Pass the selected object to the new view controller.
+    if segue.identifier == "unwindSegueFromCollectionToDealVC" {
+      
+      let dealVC = segue.destination as! DealViewController
+//      dealVC.selectedDealCategory = userSelectedCategory
+      
+    }
+    
+  }
 
 }

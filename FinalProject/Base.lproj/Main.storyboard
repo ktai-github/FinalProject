@@ -35,7 +35,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ufn-jn-2OY">
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="300" id="Pla-hs-LJr" customClass="FavsTableViewCell" customModule="FinalProject" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="300"/>
@@ -146,7 +146,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="4EY-Bl-tNL">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <sections>
                             <tableViewSection id="mer-0z-EAD">
                                 <cells>
@@ -160,7 +160,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Random Deals" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Owc-Pl-CkM">
                                                     <rect key="frame" x="16" y="11" width="288" height="21.5"/>
                                                     <fontDescription key="fontDescription" name="Raleway-SemiBold" family="Raleway" pointSize="20"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="textColor" red="0.57647058819999997" green="0.0" blue="0.070588235289999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -171,7 +171,7 @@
                                                 <constraint firstItem="Owc-Pl-CkM" firstAttribute="top" secondItem="L7t-Ht-fQ4" secondAttribute="top" constant="11" id="oZL-XR-1uJ"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="QUi-dO-PhO" userLabel="Food Deals Table View Cell">
                                         <rect key="frame" x="0.0" y="44" width="320" height="44"/>
@@ -183,7 +183,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Food Deals" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DOn-Ds-T62">
                                                     <rect key="frame" x="16" y="11" width="288" height="21.5"/>
                                                     <fontDescription key="fontDescription" name="Raleway-SemiBold" family="Raleway" pointSize="20"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="textColor" red="0.57647058819999997" green="0.0" blue="0.070588235289999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -194,7 +194,7 @@
                                                 <constraint firstItem="DOn-Ds-T62" firstAttribute="top" secondItem="cmj-hi-nxn" secondAttribute="top" constant="11" id="yRP-wr-Y8u"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="SgM-xO-mAY">
                                         <rect key="frame" x="0.0" y="88" width="320" height="44"/>
@@ -206,7 +206,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drink Deals" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yZJ-vZ-K1b">
                                                     <rect key="frame" x="16" y="11" width="288" height="21.5"/>
                                                     <fontDescription key="fontDescription" name="Raleway-SemiBold" family="Raleway" pointSize="20"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="textColor" red="0.57647058819999997" green="0.0" blue="0.070588235289999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -217,7 +217,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="yZJ-vZ-K1b" secondAttribute="trailing" constant="16" id="x3K-lm-KUk"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="0hv-WX-Zot" userLabel="Date Deals Table View Cell">
                                         <rect key="frame" x="0.0" y="132" width="320" height="44"/>
@@ -229,7 +229,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date Deals" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sQD-Hr-Naf">
                                                     <rect key="frame" x="16" y="11" width="288" height="21.5"/>
                                                     <fontDescription key="fontDescription" name="Raleway-SemiBold" family="Raleway" pointSize="20"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="textColor" red="0.57647058819999997" green="0.0" blue="0.070588235289999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -240,59 +240,10 @@
                                                 <constraint firstAttribute="trailing" secondItem="sQD-Hr-Naf" secondAttribute="trailing" constant="16" id="X0c-Dy-ECY"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="AZw-n4-kDK" userLabel="My Deals Table View Cell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="bP0-RQ-w83" userLabel="All Deals Table View Cell">
                                         <rect key="frame" x="0.0" y="176" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AZw-n4-kDK" id="DFA-yH-MWh">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Deals" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mr7-Am-yDW">
-                                                    <rect key="frame" x="16" y="11" width="288" height="21.5"/>
-                                                    <fontDescription key="fontDescription" name="Raleway-SemiBold" family="Raleway" pointSize="20"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="Mr7-Am-yDW" secondAttribute="bottom" constant="11" id="D6s-Uy-h1j"/>
-                                                <constraint firstItem="Mr7-Am-yDW" firstAttribute="top" secondItem="DFA-yH-MWh" secondAttribute="top" constant="11" id="Wjs-zq-Cvz"/>
-                                                <constraint firstItem="Mr7-Am-yDW" firstAttribute="leading" secondItem="DFA-yH-MWh" secondAttribute="leading" constant="16" id="nBz-st-PVF"/>
-                                                <constraint firstAttribute="trailing" secondItem="Mr7-Am-yDW" secondAttribute="trailing" constant="16" id="p1G-ew-ZUA"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <connections>
-                                            <segue destination="LlK-wJ-LjG" kind="show" id="8rw-oc-GHZ"/>
-                                        </connections>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="weW-pd-iIv" userLabel="Reset My Deals Table View Cell">
-                                        <rect key="frame" x="0.0" y="220" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="weW-pd-iIv" id="JGB-XG-zne">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clear My Deals" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PzK-jQ-p0k">
-                                                    <rect key="frame" x="16" y="11" width="288" height="21.5"/>
-                                                    <fontDescription key="fontDescription" name="Raleway-SemiBold" family="Raleway" pointSize="20"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="PzK-jQ-p0k" firstAttribute="leading" secondItem="JGB-XG-zne" secondAttribute="leading" constant="16" id="ExR-Wi-qGI"/>
-                                                <constraint firstAttribute="bottom" secondItem="PzK-jQ-p0k" secondAttribute="bottom" constant="11" id="Z9N-Ja-oV4"/>
-                                                <constraint firstAttribute="trailing" secondItem="PzK-jQ-p0k" secondAttribute="trailing" constant="16" id="dDU-vr-1EN"/>
-                                                <constraint firstItem="PzK-jQ-p0k" firstAttribute="top" secondItem="JGB-XG-zne" secondAttribute="top" constant="11" id="tc5-Zi-8XQ"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="bP0-RQ-w83" userLabel="My Deals Table View Cell">
-                                        <rect key="frame" x="0.0" y="264" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bP0-RQ-w83" id="FGj-I8-o34">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
@@ -301,7 +252,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All Deals" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eju-Z0-GxW">
                                                     <rect key="frame" x="16" y="11" width="288" height="21.5"/>
                                                     <fontDescription key="fontDescription" name="Raleway-SemiBold" family="Raleway" pointSize="20"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="textColor" red="0.57647058819999997" green="0.0" blue="0.070588235289999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -312,10 +263,59 @@
                                                 <constraint firstItem="Eju-Z0-GxW" firstAttribute="leading" secondItem="FGj-I8-o34" secondAttribute="leading" constant="16" id="z1h-Dq-NIo"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <segue destination="Ial-8D-BS2" kind="show" id="0Km-Fv-EcZ"/>
                                         </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="AZw-n4-kDK" userLabel="My Deals Table View Cell">
+                                        <rect key="frame" x="0.0" y="220" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AZw-n4-kDK" id="DFA-yH-MWh">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Deals" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mr7-Am-yDW">
+                                                    <rect key="frame" x="16" y="11" width="288" height="21.5"/>
+                                                    <fontDescription key="fontDescription" name="Raleway-SemiBold" family="Raleway" pointSize="20"/>
+                                                    <color key="textColor" red="0.57647058819999997" green="0.0" blue="0.070588235289999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="Mr7-Am-yDW" secondAttribute="bottom" constant="11" id="D6s-Uy-h1j"/>
+                                                <constraint firstItem="Mr7-Am-yDW" firstAttribute="top" secondItem="DFA-yH-MWh" secondAttribute="top" constant="11" id="Wjs-zq-Cvz"/>
+                                                <constraint firstItem="Mr7-Am-yDW" firstAttribute="leading" secondItem="DFA-yH-MWh" secondAttribute="leading" constant="16" id="nBz-st-PVF"/>
+                                                <constraint firstAttribute="trailing" secondItem="Mr7-Am-yDW" secondAttribute="trailing" constant="16" id="p1G-ew-ZUA"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <segue destination="LlK-wJ-LjG" kind="show" id="8rw-oc-GHZ"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="weW-pd-iIv" userLabel="Reset My Deals Table View Cell">
+                                        <rect key="frame" x="0.0" y="264" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="weW-pd-iIv" id="JGB-XG-zne">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clear My Deals" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PzK-jQ-p0k">
+                                                    <rect key="frame" x="16" y="11" width="288" height="21.5"/>
+                                                    <fontDescription key="fontDescription" name="Raleway-SemiBold" family="Raleway" pointSize="20"/>
+                                                    <color key="textColor" red="0.57647058819999997" green="0.0" blue="0.070588235289999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="PzK-jQ-p0k" firstAttribute="leading" secondItem="JGB-XG-zne" secondAttribute="leading" constant="16" id="ExR-Wi-qGI"/>
+                                                <constraint firstAttribute="bottom" secondItem="PzK-jQ-p0k" secondAttribute="bottom" constant="11" id="Z9N-Ja-oV4"/>
+                                                <constraint firstAttribute="trailing" secondItem="PzK-jQ-p0k" secondAttribute="trailing" constant="16" id="dDU-vr-1EN"/>
+                                                <constraint firstItem="PzK-jQ-p0k" firstAttribute="top" secondItem="JGB-XG-zne" secondAttribute="top" constant="11" id="tc5-Zi-8XQ"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -375,6 +375,7 @@
                                         </constraints>
                                         <connections>
                                             <outlet property="imageView" destination="xF8-UJ-Frf" id="inw-rD-YcA"/>
+                                            <segue destination="THJ-yi-499" kind="show" id="REV-PS-Cr9"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -714,6 +715,7 @@
         <image name="menu" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gWw-iU-UW0"/>
+        <segue reference="pXL-vK-L8d"/>
+        <segue reference="CjW-Dw-yfa"/>
     </inferredMetricsTieBreakers>
 </document>

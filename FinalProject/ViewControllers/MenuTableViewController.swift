@@ -78,15 +78,15 @@ class MenuTableViewController: UITableViewController {
       print("date deals selected")
       userSelected(category: enumSelectedDealCategory.enumDateDeals)
 
-//    case 4:
-//      print("fun deals selected")
-//      userSelected(category: enumSelectedDealCategory.enumFunDeals)
+    case 4:
+      print("all deals selected")
+//      storyboard segue to my collection view vc
 
 //    case 5:
 //      print("group deals selected")
 //      userSelected(category: enumSelectedDealCategory.enumGroupDeals)
 
-    case 4:
+    case 5:
       print("my deals selected")
       userSelectedCategory = enumSelectedDealCategory.enumMyDeals
 //      storyboard segue to my deals vc
