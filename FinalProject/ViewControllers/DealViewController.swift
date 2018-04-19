@@ -39,7 +39,7 @@ class DealViewController: UIViewController {
   @IBOutlet var swipeDownVisualEffect: UISwipeGestureRecognizer!
   
   @IBOutlet weak var favSwitch: UISwitch!
-//  @IBOutlet weak var blackMaskView: UIView!
+  @IBOutlet weak var blackMaskView: UIView!
   @IBOutlet weak var dealLabel: UILabel!
   @IBOutlet weak var placeNameLabel: UILabel!
   @IBOutlet weak var imageView: UIImageView!
@@ -49,7 +49,7 @@ class DealViewController: UIViewController {
   @IBOutlet weak var phoneLabel: UILabel!
   @IBOutlet weak var daysAvailableLabel: UILabel!
   @IBOutlet weak var cardView: UIView!
-  @IBOutlet weak var visualEffectView: UIVisualEffectView!
+//  @IBOutlet weak var visualEffectView: UIVisualEffectView!
   
   var selectedDealCategory: enumSelectedDealCategory = enumSelectedDealCategory.enumRandomDeals
   
@@ -86,13 +86,13 @@ class DealViewController: UIViewController {
       
       swipeRightVisualEffect.direction = UISwipeGestureRecognizerDirection.right
       swipeLeftVisualEffect.direction = UISwipeGestureRecognizerDirection.left
-      visualEffectView.addGestureRecognizer(swipeLeftVisualEffect)
-      visualEffectView.addGestureRecognizer(swipeRightVisualEffect)
+      blackMaskView.addGestureRecognizer(swipeLeftVisualEffect)
+      blackMaskView.addGestureRecognizer(swipeRightVisualEffect)
       
       swipeDownGestRec.direction = UISwipeGestureRecognizerDirection.down
       swipeDownVisualEffect.direction = UISwipeGestureRecognizerDirection.down
       imageView.addGestureRecognizer(swipeDownGestRec)
-      visualEffectView.addGestureRecognizer(swipeDownVisualEffect)
+      blackMaskView.addGestureRecognizer(swipeDownVisualEffect)
         // Do any additional setup after loading the view.
 
     //      notification for the category of deal selected in the menu
@@ -106,7 +106,7 @@ class DealViewController: UIViewController {
     favSwitch.isHidden = true
     nextButton.isHidden = false
     
-    self.visualEffectView.isHidden = true
+    self.blackMaskView.isHidden = true
     self.placeNameLabel.isHidden = true
 //    self.blackMaskView.isHidden = false
     self.dealLabel.isHidden = true
@@ -368,7 +368,7 @@ class DealViewController: UIViewController {
 //    visualEffectView.isHidden = true
     
     UIView.transition(with: cardView, duration: 1.5, options: .transitionFlipFromRight, animations: nil, completion: nil)
-    self.visualEffectView.isHidden = true
+    self.blackMaskView.isHidden = true
     self.placeNameLabel.isHidden = true
     //          self.blackMaskView.isHidden = true
     self.dealLabel.isHidden = true
@@ -386,7 +386,7 @@ class DealViewController: UIViewController {
 //    visualEffectView.isHidden = true
     
     UIView.transition(with: cardView, duration: 1.5, options: .transitionFlipFromLeft, animations: nil, completion: nil)
-    self.visualEffectView.isHidden = true
+    self.blackMaskView.isHidden = true
     self.placeNameLabel.isHidden = true
     //          self.blackMaskView.isHidden = true
     self.dealLabel.isHidden = true
@@ -405,7 +405,7 @@ class DealViewController: UIViewController {
 //      loadDetails()
 //    }
     UIView.transition(with: cardView, duration: 1.5, options: .transitionFlipFromRight, animations: nil, completion: nil)
-    self.visualEffectView.isHidden = false
+    self.blackMaskView.isHidden = false
     self.placeNameLabel.isHidden = false
     //          self.blackMaskView.isHidden = true
     self.dealLabel.isHidden = false
@@ -440,7 +440,7 @@ class DealViewController: UIViewController {
 //      }
 //        UIView.transition(with: cardView, duration: 1.5, options: .transitionFlipFromLeft, animations: nil) { (NULL) in
     UIView.transition(with: cardView, duration: 1.5, options: .transitionFlipFromLeft, animations: nil, completion: nil)
-    self.visualEffectView.isHidden = false
+    self.blackMaskView.isHidden = false
     self.placeNameLabel.isHidden = false
 //          self.blackMaskView.isHidden = true
     self.dealLabel.isHidden = false
