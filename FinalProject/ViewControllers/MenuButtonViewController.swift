@@ -58,12 +58,17 @@ class MenuButtonViewController: UIViewController {
     userSelected(category: enumSelectedDealCategory.enumDateDeals)
 
   }
-//
-//  @IBAction func allDealsTapped(_ sender: UIButton) {
-//  }
-//
-//  @IBAction func myDealsTapped(_ sender: UIButton) {
-//  }
+
+  @IBAction func allDealsTapped(_ sender: UIButton) {
+    print("all deals selected")
+    //segue in storyboard
+  }
+  
+
+  @IBAction func myDealsTapped(_ sender: UIButton) {
+    print("my deals selected")
+    //segue in storyboard
+  }
   
   @IBAction func clearMyDealsTapped(_ sender: UIButton) {
     print("clear my deals selected")
