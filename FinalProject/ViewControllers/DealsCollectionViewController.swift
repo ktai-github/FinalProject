@@ -40,6 +40,11 @@ class DealsCollectionViewController: UIViewController, UICollectionViewDelegate,
 
   }
   
+//  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//    return CGSize(width: self.collectionView.frame.height / 15, height: self.collectionView.frame.height / 15)
+//    
+//  }
+
 //  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 //    performSegue(withIdentifier: "unwindSegueFromCollectionToDealVC", sender: self)
 //
@@ -49,7 +54,7 @@ class DealsCollectionViewController: UIViewController, UICollectionViewDelegate,
         super.viewDidLoad()
       collectionView.delegate = self
       collectionView.dataSource = self
-      
+//      collectionView.layout
 //      FirebaseManager.defaultManager.fetchDeals {
 //
 //        print("fetched deals")
