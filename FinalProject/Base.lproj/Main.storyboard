@@ -360,7 +360,7 @@
                                 </state>
                                 <connections>
                                     <action selector="randomDealsTapped:" destination="si5-cd-3BL" eventType="touchUpInside" id="zPV-d4-egC"/>
-                                    <segue destination="dZB-GT-5ua" kind="unwind" unwindAction="unwindToDealVCWithSegue:" id="dQl-rz-W9i"/>
+                                    <segue destination="dZB-GT-5ua" kind="unwind" identifier="unwindSegueFromMenuToDealVC" unwindAction="unwindToDealVCWithSegue:" id="dQl-rz-W9i"/>
                                 </connections>
                             </button>
                             <button contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fh4-A7-rQc">
