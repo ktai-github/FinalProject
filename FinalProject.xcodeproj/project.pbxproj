@@ -113,10 +113,10 @@
 		2CB6FA5D207C2C51007561D9 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				2CB6FA51207C287C007561D9 /* MenuTableViewController.swift */,
 				2C016E9520891B77007A2F6C /* MenuButtonViewController.swift */,
 				2C10228420882A3F00C72AD0 /* DealsCollectionViewController.swift */,
 				2CB6FA4D207C2706007561D9 /* DealViewController.swift */,
-				2CB6FA51207C287C007561D9 /* MenuTableViewController.swift */,
 				2CB6FA53207C2B8A007561D9 /* MapViewController.swift */,
 				2CB6FA5F207D75DA007561D9 /* FavsViewController.swift */,
 			);

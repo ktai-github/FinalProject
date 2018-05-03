@@ -50,6 +50,8 @@ class DealViewController: UIViewController {
   @IBOutlet weak var daysAvailableLabel: UILabel!
   @IBOutlet weak var cardView: UIView!
 //  @IBOutlet weak var visualEffectView: UIVisualEffectView!
+  @IBOutlet weak var showMapButton: UIButton!
+  @IBOutlet weak var stackView: UIStackView!
   
   var selectedDealCategory: enumSelectedDealCategory = enumSelectedDealCategory.enumRandomDeals
   
@@ -117,6 +119,8 @@ class DealViewController: UIViewController {
     self.phoneLabel.isHidden = true
     self.daysAvailableLabel.isHidden = true
     self.favSwitch.isHidden = true
+    self.showMapButton.isHidden = true
+    self.stackView.isHidden = true
     
     if selectedDealCategory == enumSelectedDealCategory.enumMyDeals {
       favSwitch.isHidden = true
@@ -385,6 +389,8 @@ class DealViewController: UIViewController {
     self.phoneLabel.isHidden = true
     self.daysAvailableLabel.isHidden = true
     self.favSwitch.isHidden = true
+    self.showMapButton.isHidden = true
+    self.stackView.isHidden = true
 
   }
   
@@ -403,6 +409,9 @@ class DealViewController: UIViewController {
     self.phoneLabel.isHidden = true
     self.daysAvailableLabel.isHidden = true
     self.favSwitch.isHidden = true
+    self.showMapButton.isHidden = true
+    self.stackView.isHidden = true
+
   }
   
   @IBAction func swipeLeftGestRec(_ sender: UISwipeGestureRecognizer) {
@@ -421,6 +430,9 @@ class DealViewController: UIViewController {
     self.addressLabel.isHidden = false
     self.phoneLabel.isHidden = false
     self.daysAvailableLabel.isHidden = false
+    self.showMapButton.isHidden = false
+    self.stackView.isHidden = false
+
     
     if selectedDealCategory != enumSelectedDealCategory.enumMyDeals {
 
@@ -456,6 +468,9 @@ class DealViewController: UIViewController {
     self.addressLabel.isHidden = false
     self.phoneLabel.isHidden = false
     self.daysAvailableLabel.isHidden = false
+    self.showMapButton.isHidden = false
+    self.stackView.isHidden = false
+
     
     if selectedDealCategory != enumSelectedDealCategory.enumMyDeals {
       

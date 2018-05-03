@@ -11,6 +11,7 @@ import RealmSwift
 
 class RealmManager: NSObject {
 
+//  for simplicity, deals and places nodes from firebase are combined into one record DealPlace in realm data persistence
   static func realmQueryAllRecords() -> (Results<DealPlace>) {
     let realm = try! Realm()
     let deals = try! realm.objects(DealPlace.self)

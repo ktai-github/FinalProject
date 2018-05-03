@@ -1,5 +1,5 @@
 //
-//  MenuTableViewController.swift
+//  MenuTableViewController.swift (DEPRECATED)
 //  FinalProject
 //
 //  Created by KevinT on 2018-04-09.
