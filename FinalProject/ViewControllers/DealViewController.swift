@@ -53,6 +53,7 @@ class DealViewController: UIViewController {
   @IBOutlet weak var showMapButton: UIButton!
   @IBOutlet weak var stackView: UIStackView!
   @IBOutlet weak var swipeView: UIView!
+  @IBOutlet weak var instructionsLabel: UILabel!
   
   var selectedDealCategory: enumSelectedDealCategory = enumSelectedDealCategory.enumRandomDeals
   
@@ -159,6 +160,7 @@ class DealViewController: UIViewController {
       
       DispatchQueue.main.async {
         self.imageView.image = image
+        self.instructionsLabel.isHidden = true
       }
     }
     
