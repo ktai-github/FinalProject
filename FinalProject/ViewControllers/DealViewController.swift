@@ -52,6 +52,7 @@ class DealViewController: UIViewController {
 //  @IBOutlet weak var visualEffectView: UIVisualEffectView!
   @IBOutlet weak var showMapButton: UIButton!
   @IBOutlet weak var stackView: UIStackView!
+  @IBOutlet weak var swipeView: UIView!
   
   var selectedDealCategory: enumSelectedDealCategory = enumSelectedDealCategory.enumRandomDeals
   
@@ -89,13 +90,13 @@ class DealViewController: UIViewController {
       
       swipeRightVisualEffect.direction = UISwipeGestureRecognizerDirection.right
       swipeLeftVisualEffect.direction = UISwipeGestureRecognizerDirection.left
-      blackMaskView.addGestureRecognizer(swipeLeftVisualEffect)
-      blackMaskView.addGestureRecognizer(swipeRightVisualEffect)
+      swipeView.addGestureRecognizer(swipeLeftVisualEffect)
+      swipeView.addGestureRecognizer(swipeRightVisualEffect)
       
       swipeDownGestRec.direction = UISwipeGestureRecognizerDirection.down
       swipeDownVisualEffect.direction = UISwipeGestureRecognizerDirection.down
       imageView.addGestureRecognizer(swipeDownGestRec)
-      blackMaskView.addGestureRecognizer(swipeDownVisualEffect)
+      swipeView.addGestureRecognizer(swipeDownVisualEffect)
         // Do any additional setup after loading the view.
 
     //      notification for the category of deal selected in the menu
@@ -121,6 +122,7 @@ class DealViewController: UIViewController {
     self.favSwitch.isHidden = true
     self.showMapButton.isHidden = true
     self.stackView.isHidden = true
+    self.swipeView.isHidden = true
     
     if selectedDealCategory == enumSelectedDealCategory.enumMyDeals {
       favSwitch.isHidden = true
@@ -391,7 +393,8 @@ class DealViewController: UIViewController {
     self.favSwitch.isHidden = true
     self.showMapButton.isHidden = true
     self.stackView.isHidden = true
-
+    self.swipeView.isHidden = true
+    
   }
   
 //  swiped right on the backside of the card
@@ -411,6 +414,7 @@ class DealViewController: UIViewController {
     self.favSwitch.isHidden = true
     self.showMapButton.isHidden = true
     self.stackView.isHidden = true
+    self.swipeView.isHidden = true
 
   }
   
@@ -432,6 +436,7 @@ class DealViewController: UIViewController {
     self.daysAvailableLabel.isHidden = false
     self.showMapButton.isHidden = false
     self.stackView.isHidden = false
+    self.swipeView.isHidden = false
 
     
     if selectedDealCategory != enumSelectedDealCategory.enumMyDeals {
@@ -470,6 +475,7 @@ class DealViewController: UIViewController {
     self.daysAvailableLabel.isHidden = false
     self.showMapButton.isHidden = false
     self.stackView.isHidden = false
+    self.swipeView.isHidden = false
 
     
     if selectedDealCategory != enumSelectedDealCategory.enumMyDeals {

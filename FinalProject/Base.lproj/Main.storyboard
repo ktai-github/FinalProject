@@ -34,7 +34,7 @@
                                 <rect key="frame" x="0.0" y="64" width="768" height="960"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="300" id="Pla-hs-LJr" customClass="FavsTableViewCell" customModule="FinalProject" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="300" id="Pla-hs-LJr" customClass="FavsTableViewCell" customModule="FinalProject" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="768" height="300"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Pla-hs-LJr" id="xBe-6d-795">
@@ -369,7 +369,7 @@
                                         </connections>
                                     </switch>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enjoy Deal Later -&gt;" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xcf-RK-rh1">
-                                        <rect key="frame" x="8" y="8" width="225.5" height="29"/>
+                                        <rect key="frame" x="8" y="8" width="752" height="29"/>
                                         <color key="tintColor" red="0.57303921570000005" green="0.0" blue="0.047058823530000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="Arvo-Bold" family="Arvo" pointSize="24"/>
                                         <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -471,6 +471,13 @@
                                             </stackView>
                                         </subviews>
                                     </stackView>
+                                    <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.69999998807907104" contentMode="center" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bCl-kl-E7z">
+                                        <rect key="frame" x="0.0" y="0.0" width="768" height="914"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <variation key="heightClass=regular-widthClass=compact">
+                                            <color key="backgroundColor" white="0.0" alpha="0.59863013700000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </variation>
+                                    </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IbH-Ke-mX2">
                                         <rect key="frame" x="684" y="866" width="76" height="30"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -495,6 +502,7 @@
                                     <constraint firstItem="oAF-FZ-MyA" firstAttribute="top" secondItem="xcf-RK-rh1" secondAttribute="bottom" constant="5" id="PoE-jE-FAn"/>
                                     <constraint firstItem="xcf-RK-rh1" firstAttribute="top" secondItem="hvB-1W-iP2" secondAttribute="topMargin" id="Str-l5-aGH"/>
                                     <constraint firstItem="oAF-FZ-MyA" firstAttribute="trailing" secondItem="IbH-Ke-mX2" secondAttribute="trailing" id="Ty4-8p-Mnz"/>
+                                    <constraint firstItem="xcf-RK-rh1" firstAttribute="trailing" secondItem="IbH-Ke-mX2" secondAttribute="trailing" id="XH6-O3-AKc"/>
                                     <constraint firstItem="aJ2-10-PyO" firstAttribute="trailing" secondItem="IbH-Ke-mX2" secondAttribute="trailing" id="XXK-Jo-su7"/>
                                     <constraint firstItem="ZFI-Mt-9uZ" firstAttribute="top" secondItem="eus-vl-Ktb" secondAttribute="top" id="Xbh-Mo-CMN"/>
                                     <constraint firstItem="eus-vl-Ktb" firstAttribute="leading" secondItem="hvB-1W-iP2" secondAttribute="leading" id="fIl-F0-vo2"/>
@@ -556,6 +564,7 @@
                         <outlet property="swipeLeftVisualEffect" destination="Kja-Vi-Sas" id="Qvg-17-ZGu"/>
                         <outlet property="swipeRightGestRec" destination="ZQx-1Q-QOI" id="4Bh-N4-Nsy"/>
                         <outlet property="swipeRightVisualEffect" destination="JYV-fB-R0b" id="rkm-Co-NWk"/>
+                        <outlet property="swipeView" destination="bCl-kl-E7z" id="oAL-sC-LCZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7s2-wZ-G3A" userLabel="First Responder" sceneMemberID="firstResponder"/>
