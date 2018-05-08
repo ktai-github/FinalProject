@@ -278,7 +278,7 @@ class DealViewController: UIViewController {
   //
   //    }
     
-      UIView.animate(withDuration: 1.5, animations: {
+      UIView.animate(withDuration: 0.5, animations: {
         self.cardView.frame = CGRect(x: self.cardView.frame.origin.x, y: self.cardView.frame.origin.y + 1000.0, width: self.cardView.frame.size.width, height: self.cardView.frame.size.height)
       }) { (true) in
         self.nextButton.sendActions(for: .touchUpInside)
@@ -334,7 +334,7 @@ class DealViewController: UIViewController {
       //
       //    }
     
-      UIView.animate(withDuration: 1.5, animations: {
+      UIView.animate(withDuration: 0.5, animations: {
         self.cardView.frame = CGRect(x: self.cardView.frame.origin.x, y: self.cardView.frame.origin.y + 1000.0, width: self.cardView.frame.size.width, height: self.cardView.frame.size.height)
       }) { (true) in
         self.nextButton.sendActions(for: .touchUpInside)
@@ -382,7 +382,7 @@ class DealViewController: UIViewController {
   @IBAction func swipedLeftVisualEffect(_ sender: UISwipeGestureRecognizer) {
 //    visualEffectView.isHidden = true
     
-    UIView.transition(with: cardView, duration: 1.5, options: .transitionFlipFromRight, animations: nil, completion: nil)
+    UIView.transition(with: cardView, duration: 0.5, options: .transitionFlipFromRight, animations: nil, completion: nil)
     self.blackMaskView.isHidden = true
     self.placeNameLabel.isHidden = true
     //          self.blackMaskView.isHidden = true
@@ -403,7 +403,7 @@ class DealViewController: UIViewController {
   @IBAction func swipedRightVisualEffect(_ sender: UISwipeGestureRecognizer) {
 //    visualEffectView.isHidden = true
     
-    UIView.transition(with: cardView, duration: 1.5, options: .transitionFlipFromLeft, animations: nil, completion: nil)
+    UIView.transition(with: cardView, duration: 0.5, options: .transitionFlipFromLeft, animations: nil, completion: nil)
     self.blackMaskView.isHidden = true
     self.placeNameLabel.isHidden = true
     //          self.blackMaskView.isHidden = true
@@ -426,7 +426,7 @@ class DealViewController: UIViewController {
     
 //      loadDetails()
 //    }
-    UIView.transition(with: cardView, duration: 1.5, options: .transitionFlipFromRight, animations: nil, completion: nil)
+    UIView.transition(with: cardView, duration: 0.5, options: .transitionFlipFromRight, animations: nil, completion: nil)
     self.blackMaskView.isHidden = false
     self.placeNameLabel.isHidden = false
     //          self.blackMaskView.isHidden = true
@@ -465,7 +465,7 @@ class DealViewController: UIViewController {
 //        self.cardView.layer.removeAllAnimations()
 //      }
 //        UIView.transition(with: cardView, duration: 1.5, options: .transitionFlipFromLeft, animations: nil) { (NULL) in
-    UIView.transition(with: cardView, duration: 1.5, options: .transitionFlipFromLeft, animations: nil, completion: nil)
+    UIView.transition(with: cardView, duration: 0.5, options: .transitionFlipFromLeft, animations: nil, completion: nil)
     self.blackMaskView.isHidden = false
     self.placeNameLabel.isHidden = false
 //          self.blackMaskView.isHidden = true
