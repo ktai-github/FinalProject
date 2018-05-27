@@ -411,10 +411,12 @@
                                             <segue destination="8Sl-3g-vIZ" kind="show" identifier="segueToMapView" id="gWw-iU-UW0"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r58-RT-lAJ">
-                                        <rect key="frame" x="27.5" y="205" width="265.5" height="48"/>
-                                        <string key="text">Swipe left or right for details
-Swipe down to save</string>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r58-RT-lAJ">
+                                        <rect key="frame" x="27.5" y="193" width="265.5" height="72"/>
+                                        <string key="text" base64-UTF8="YES">
+SU5TVFJVQ1RJT05TOhDigKhTd2lwZSBsZWZ0IG9yIHJpZ2h0IGZvciBkZXRhaWxzClN3aXBlIGRvd24g
+dG8gc2F2ZQ
+</string>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -472,7 +474,7 @@ Swipe down to save</string>
                         <barButtonItem key="leftBarButtonItem" title="Item" image="menu" id="gh8-sU-b7A" userLabel="Menu">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <segue destination="si5-cd-3BL" kind="show" id="91a-GM-5Da"/>
+                                <segue destination="si5-cd-3BL" kind="show" animates="NO" id="91a-GM-5Da"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="action" id="ura-Rn-RFy">

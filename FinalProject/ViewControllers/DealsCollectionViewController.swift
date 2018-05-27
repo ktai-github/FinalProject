@@ -1,4 +1,4 @@
-//
+// THIS VC IS ORPHANED
 //  DealsCollectionViewController.swift
 //  FinalProject
 //
