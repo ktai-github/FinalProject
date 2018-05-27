@@ -146,6 +146,14 @@ class DealViewController: UIViewController {
       placeCoordinateLatitude = tempDealPlace.placeLat
       placeCoordinateLongitude = tempDealPlace.placeLong
       placeName = tempDealPlace.placeName
+      
+    } else if selectedDealCategory == enumSelectedDealCategory.enumDrinkDeals ||
+      selectedDealCategory == enumSelectedDealCategory.enumDateDeals ||
+      selectedDealCategory == enumSelectedDealCategory.enumFoodDeals
+      {
+      
+      nextDealButton((Any).self)
+
     }
     self.view.layoutIfNeeded()
   }
