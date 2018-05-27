@@ -5,6 +5,7 @@
 //  Created by KevinT on 2018-04-09.
 //  Copyright © 2018 KevinT. All rights reserved.
 //
+// BUG: L'abboir brunch deal will crash the app if delete from My Deals
 
 import UIKit
 //import FirebaseDatabase

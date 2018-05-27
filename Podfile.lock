@@ -27,7 +27,6 @@ PODS:
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
-  - Nuke (6.1)
   - Realm (3.3.2):
     - Realm/Headers (= 3.3.2)
   - Realm/Headers (3.3.2)
@@ -37,7 +36,6 @@ PODS:
 DEPENDENCIES:
   - Firebase/Core
   - Firebase/Database
-  - Nuke (~> 6.0)
   - RealmSwift
 
 SPEC REPOS:
@@ -50,7 +48,6 @@ SPEC REPOS:
     - GoogleToolboxForMac
     - leveldb-library
     - nanopb
-    - Nuke
     - Realm
     - RealmSwift
 
@@ -63,10 +60,9 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: 2501e2ad72a52eb3dfe7bd9aee7dad11b858bd20
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
-  Nuke: 0513c8d156bd9a2adb15db70622c3527f44542c5
   Realm: d927fbf66df5532cfafc08afb5f7e53ded37b894
   RealmSwift: 4e903a494e05d866581d69ad6f7e7b879d446baf
 
-PODFILE CHECKSUM: 809a848bfb01148d1fe59de4c8f17ae22c27f1a3
+PODFILE CHECKSUM: 6e7dbea09e1baf0532f16f1548cfbb75dfc86842
 
 COCOAPODS: 1.5.0

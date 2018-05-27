@@ -5,6 +5,9 @@
 //  Created by KevinT on 2018-04-10.
 //  Copyright © 2018 KevinT. All rights reserved.
 //
+// BUG: L'abboir brunch deal will crash the app if delete from My Deals
+
+// Next Deal button should be more obvious to the user to that this is a button and that you have to click it to see next deal
 
 import UIKit
 //import RealmSwift

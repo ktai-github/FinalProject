@@ -34,7 +34,7 @@
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="300" id="Pla-hs-LJr" customClass="FavsTableViewCell" customModule="FinalProject" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="300" id="Pla-hs-LJr" customClass="FavsTableViewCell" customModule="FinalProject" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="300"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Pla-hs-LJr" id="xBe-6d-795">
@@ -192,19 +192,8 @@
                                     <action selector="dateDealsTapped:" destination="si5-cd-3BL" eventType="touchUpInside" id="JGc-zO-9Zs"/>
                                 </connections>
                             </button>
-                            <button contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5OI-Uj-fVE">
-                                <rect key="frame" x="10" y="271" width="118" height="48"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
-                                <state key="normal" title="All Deals">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="allDealsTapped:" destination="si5-cd-3BL" eventType="touchUpInside" id="pwj-Re-SgT"/>
-                                    <segue destination="Ial-8D-BS2" kind="show" id="D7W-sr-RUj"/>
-                                </connections>
-                            </button>
                             <button contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GGl-Wa-bTe">
-                                <rect key="frame" x="10" y="321" width="125" height="48"/>
+                                <rect key="frame" x="10" y="271" width="125" height="48"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
                                 <state key="normal" title="My Deals">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -215,7 +204,7 @@
                                 </connections>
                             </button>
                             <button contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XB9-bY-rPv">
-                                <rect key="frame" x="10" y="371" width="204" height="48"/>
+                                <rect key="frame" x="10" y="321" width="204" height="48"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
                                 <state key="normal" title="Clear My Deals">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -229,7 +218,6 @@
                         <constraints>
                             <constraint firstItem="v8o-0Y-Of2" firstAttribute="top" secondItem="JYh-Gl-i8j" secondAttribute="bottom" constant="2" id="01d-tZ-7Hx"/>
                             <constraint firstItem="zBf-6i-YkE" firstAttribute="top" secondItem="IRr-qI-OXy" secondAttribute="top" id="2Jw-3u-yqH"/>
-                            <constraint firstItem="5OI-Uj-fVE" firstAttribute="top" secondItem="v8o-0Y-Of2" secondAttribute="bottom" constant="2" id="Ah7-yv-n9U"/>
                             <constraint firstItem="JYh-Gl-i8j" firstAttribute="leading" secondItem="v8o-0Y-Of2" secondAttribute="leading" id="BBC-R8-O1U"/>
                             <constraint firstItem="XB9-bY-rPv" firstAttribute="top" secondItem="GGl-Wa-bTe" secondAttribute="bottom" constant="2" id="F4l-1T-FPp"/>
                             <constraint firstItem="fh4-A7-rQc" firstAttribute="top" secondItem="c66-z8-B4b" secondAttribute="bottom" constant="1" id="UqB-0Q-SVf"/>
@@ -237,17 +225,16 @@
                             <constraint firstAttribute="trailing" secondItem="IRr-qI-OXy" secondAttribute="trailing" id="X3H-ug-QfB"/>
                             <constraint firstItem="zBf-6i-YkE" firstAttribute="leading" secondItem="IRr-qI-OXy" secondAttribute="leading" id="X9J-ce-ore"/>
                             <constraint firstItem="zBf-6i-YkE" firstAttribute="bottom" secondItem="gv5-eh-zkI" secondAttribute="bottom" id="Z88-y5-kBJ"/>
-                            <constraint firstItem="5OI-Uj-fVE" firstAttribute="leading" secondItem="GGl-Wa-bTe" secondAttribute="leading" id="c6Q-Ck-YlK"/>
                             <constraint firstItem="zBf-6i-YkE" firstAttribute="top" secondItem="gv5-eh-zkI" secondAttribute="top" id="dCh-Ug-hI2"/>
-                            <constraint firstItem="GGl-Wa-bTe" firstAttribute="top" secondItem="5OI-Uj-fVE" secondAttribute="bottom" constant="2" id="ebi-16-jdM"/>
                             <constraint firstItem="c66-z8-B4b" firstAttribute="top" secondItem="gv5-eh-zkI" secondAttribute="top" constant="8" id="ffC-ef-GkM"/>
                             <constraint firstItem="JYh-Gl-i8j" firstAttribute="top" secondItem="fh4-A7-rQc" secondAttribute="bottom" constant="2" id="goO-RN-O1E"/>
                             <constraint firstItem="IRr-qI-OXy" firstAttribute="bottom" secondItem="zBf-6i-YkE" secondAttribute="bottom" id="itC-bt-qHb"/>
+                            <constraint firstItem="GGl-Wa-bTe" firstAttribute="top" secondItem="v8o-0Y-Of2" secondAttribute="bottom" constant="2" id="iu3-rM-8Fk"/>
+                            <constraint firstItem="GGl-Wa-bTe" firstAttribute="leading" secondItem="v8o-0Y-Of2" secondAttribute="leading" id="jyr-Sp-olg"/>
                             <constraint firstItem="fh4-A7-rQc" firstAttribute="leading" secondItem="JYh-Gl-i8j" secondAttribute="leading" id="kWf-of-0pE"/>
                             <constraint firstItem="IRr-qI-OXy" firstAttribute="leading" secondItem="059-8R-Uah" secondAttribute="leading" id="pql-Rz-fNR"/>
                             <constraint firstItem="c66-z8-B4b" firstAttribute="leading" secondItem="fh4-A7-rQc" secondAttribute="leading" id="qYW-3h-E9U"/>
                             <constraint firstItem="GGl-Wa-bTe" firstAttribute="leading" secondItem="XB9-bY-rPv" secondAttribute="leading" id="tHO-o5-oOp"/>
-                            <constraint firstItem="v8o-0Y-Of2" firstAttribute="leading" secondItem="5OI-Uj-fVE" secondAttribute="leading" id="uTW-hb-rn3"/>
                             <constraint firstItem="c66-z8-B4b" firstAttribute="leading" secondItem="gv5-eh-zkI" secondAttribute="leading" constant="10" id="xmV-Dl-ijG"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gv5-eh-zkI"/>
@@ -258,67 +245,6 @@
                 <exit id="dZB-GT-5ua" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="5569" y="883"/>
-        </scene>
-        <!--All Deals-->
-        <scene sceneID="pU4-3D-H12">
-            <objects>
-                <viewController id="Ial-8D-BS2" customClass="DealsCollectionViewController" customModule="FinalProject" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="U9U-3o-rg7">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Bph-od-tdc">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="N3g-Wp-GFk">
-                                    <size key="itemSize" width="150" height="150"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Item" id="oC5-Dd-I7d" customClass="DealsCollectionViewCell" customModule="FinalProject" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xF8-UJ-Frf">
-                                                    <rect key="frame" x="0.5" y="0.0" width="150" height="150"/>
-                                                </imageView>
-                                            </subviews>
-                                        </view>
-                                        <constraints>
-                                            <constraint firstItem="xF8-UJ-Frf" firstAttribute="centerY" secondItem="oC5-Dd-I7d" secondAttribute="centerY" id="gQ7-ZP-eV0"/>
-                                            <constraint firstItem="xF8-UJ-Frf" firstAttribute="width" secondItem="oC5-Dd-I7d" secondAttribute="width" id="iwt-OO-bDD"/>
-                                            <constraint firstItem="xF8-UJ-Frf" firstAttribute="centerX" secondItem="oC5-Dd-I7d" secondAttribute="centerX" id="kp1-P2-vmp"/>
-                                            <constraint firstItem="xF8-UJ-Frf" firstAttribute="height" secondItem="oC5-Dd-I7d" secondAttribute="height" id="sVo-bS-Snk"/>
-                                        </constraints>
-                                        <connections>
-                                            <outlet property="imageView" destination="xF8-UJ-Frf" id="inw-rD-YcA"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="Bph-od-tdc" firstAttribute="centerY" secondItem="N1l-6D-dtU" secondAttribute="centerY" id="EaO-vr-z25"/>
-                            <constraint firstItem="Bph-od-tdc" firstAttribute="height" secondItem="N1l-6D-dtU" secondAttribute="height" id="dH1-fX-EhM"/>
-                            <constraint firstItem="Bph-od-tdc" firstAttribute="centerX" secondItem="N1l-6D-dtU" secondAttribute="centerX" id="fda-sh-MDe"/>
-                            <constraint firstItem="Bph-od-tdc" firstAttribute="width" secondItem="N1l-6D-dtU" secondAttribute="width" id="qE9-mD-SHG"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="N1l-6D-dtU"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="All Deals" id="0Zd-pb-GH0"/>
-                    <connections>
-                        <outlet property="collectionView" destination="Bph-od-tdc" id="Cu9-YW-NMX"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZcE-gY-qRC" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="6472.4637681159429" y="633.42391304347836"/>
         </scene>
         <!--Gastown Eats-->
         <scene sceneID="LHY-Hq-314">
