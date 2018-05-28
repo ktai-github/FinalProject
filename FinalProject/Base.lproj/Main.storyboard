@@ -31,7 +31,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ufn-jn-2OY">
-                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="724"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="300" id="Pla-hs-LJr" customClass="FavsTableViewCell" customModule="FinalProject" customModuleProvider="target">
@@ -82,10 +82,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="ufn-jn-2OY" firstAttribute="bottom" secondItem="pEA-OK-NlA" secondAttribute="bottom" id="He6-jR-Xp0"/>
                             <constraint firstItem="ufn-jn-2OY" firstAttribute="width" secondItem="Vew-3f-u1t" secondAttribute="width" id="Ry9-ik-3vb"/>
                             <constraint firstItem="ufn-jn-2OY" firstAttribute="leading" secondItem="Vew-3f-u1t" secondAttribute="leading" id="csR-MC-mWy"/>
                             <constraint firstItem="ufn-jn-2OY" firstAttribute="top" secondItem="Vew-3f-u1t" secondAttribute="top" id="ebL-QK-QKB"/>
-                            <constraint firstItem="ufn-jn-2OY" firstAttribute="height" secondItem="Vew-3f-u1t" secondAttribute="height" id="xrJ-oD-0pN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Vew-3f-u1t"/>
                     </view>
@@ -104,7 +104,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VWq-fQ-P8R" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="wWe-a2-KRl" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="6473" y="-269"/>
+            <point key="canvasLocation" x="6472.8000000000002" y="-269.70443349753697"/>
         </scene>
         <!--Map View-->
         <scene sceneID="Lfw-xg-4fp">
@@ -115,7 +115,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="QWh-rg-iBj">
-                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="724"/>
                                 <color key="tintColor" red="0.57303921568627447" green="0.0" blue="0.047058823529411764" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </mapView>
                         </subviews>
@@ -124,7 +124,7 @@
                             <constraint firstItem="QWh-rg-iBj" firstAttribute="leading" secondItem="GYH-To-irM" secondAttribute="leading" id="C9x-54-lAP"/>
                             <constraint firstItem="QWh-rg-iBj" firstAttribute="top" secondItem="Ghb-CD-XE7" secondAttribute="top" id="FNc-pR-dSP"/>
                             <constraint firstAttribute="trailing" secondItem="QWh-rg-iBj" secondAttribute="trailing" id="Pdf-Ek-R6E"/>
-                            <constraint firstItem="QWh-rg-iBj" firstAttribute="bottom" secondItem="Ghb-CD-XE7" secondAttribute="bottom" id="b5y-o6-YNW"/>
+                            <constraint firstItem="QWh-rg-iBj" firstAttribute="bottom" secondItem="GYH-To-irM" secondAttribute="bottom" id="b5y-o6-YNW"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ghb-CD-XE7"/>
                     </view>
@@ -134,7 +134,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MmO-uC-Zv1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7351.875" y="116.19718309859155"/>
+            <point key="canvasLocation" x="7351.1999999999998" y="116.00985221674877"/>
         </scene>
         <!--Menu-->
         <scene sceneID="N6H-72-XyK">
@@ -573,6 +573,6 @@ dG8gc2F2ZQ
         <image name="menu" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gWw-iU-UW0"/>
+        <segue reference="CjW-Dw-yfa"/>
     </inferredMetricsTieBreakers>
 </document>
