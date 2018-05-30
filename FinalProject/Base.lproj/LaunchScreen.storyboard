@@ -36,18 +36,18 @@
                                     <nil key="backgroundColor"/>
                                 </variation>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1RH-dF-rLX">
-                                <rect key="frame" x="9.5" y="224.5" width="302" height="119.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1RH-dF-rLX">
+                                <rect key="frame" x="9.5" y="200.5" width="302" height="167.5"/>
                                 <string key="text" base64-UTF8="YES">
-SW5zdHJ1Y3Rpb25zOhDigKhTV0lQRSBMRUZUIG9yIFJJR0hUIGZvciBkZXRhaWxzClNXSVBFIERPV04g
-dG8gc2F2ZRAQClRhcCBNZW51IGJ1dHRvbiA+IE15IERlYWxzIAp0byBzZWUgc2F2ZWQgZGVhbHM
+SW5zdHJ1Y3Rpb25zOhDigKhTV0lQRSBMRUZUIG9yIFJJR0hUIGZvciBkZXRhaWxzCgpTV0lQRSBET1dO
+IHRvIHNhdmUQEAoKVGFwIE1lbnUgYnV0dG9uID4gTXkgRGVhbHMgCnRvIHNlZSBzYXZlZCBkZWFscw
 </string>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GASTOWN EATS" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UJa-M7-5Wo">
-                                <rect key="frame" x="17.5" y="147" width="285.5" height="68"/>
+                                <rect key="frame" x="17.5" y="123" width="285.5" height="68"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="68" id="P9r-ha-aLS"/>
                                 </constraints>
