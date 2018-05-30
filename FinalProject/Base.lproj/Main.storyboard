@@ -411,12 +411,8 @@
                                             <segue destination="8Sl-3g-vIZ" kind="show" identifier="segueToMapView" id="gWw-iU-UW0"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r58-RT-lAJ">
-                                        <rect key="frame" x="55" y="242.5" width="265.5" height="72"/>
-                                        <string key="text" base64-UTF8="YES">
-SU5TVFJVQ1RJT05TOhDigKhTd2lwZSBsZWZ0IG9yIHJpZ2h0IGZvciBkZXRhaWxzClN3aXBlIGRvd24g
-dG8gc2F2ZQ
-</string>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOADING..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r58-RT-lAJ">
+                                        <rect key="frame" x="134.5" y="266.5" width="107" height="24"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
