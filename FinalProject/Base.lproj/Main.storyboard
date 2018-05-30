@@ -265,7 +265,7 @@
                                     <constraint firstAttribute="height" constant="46" id="b3m-4U-kVI"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Arvo-Bold" family="Arvo" pointSize="17"/>
-                                <state key="normal" title="NEXT DEAL">
+                                <state key="normal" title="TAP HERE FOR NEXT DEAL">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
