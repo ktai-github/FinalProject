@@ -42,14 +42,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Lighthouse-night" translatesAutoresizingMaskIntoConstraints="NO" id="Dg8-Lm-8R2">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="300"/>
                                                 </imageView>
                                                 <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jp2-32-QeS" userLabel="Black Mask">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="300"/>
                                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DealName" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xco-Jn-Oe3">
-                                                    <rect key="frame" x="0.0" y="139.5" width="375" height="21"/>
+                                                    <rect key="frame" x="0.0" y="139.5" width="320" height="21"/>
                                                     <fontDescription key="fontDescription" name="Arvo-Bold" family="Arvo" pointSize="17"/>
                                                     <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -411,7 +411,7 @@
                                             <segue destination="8Sl-3g-vIZ" kind="show" identifier="segueToMapView" id="gWw-iU-UW0"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOADING..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r58-RT-lAJ">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOADING..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r58-RT-lAJ" userLabel="Loading Label">
                                         <rect key="frame" x="134.5" y="266.5" width="107" height="24"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
