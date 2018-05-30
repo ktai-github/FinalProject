@@ -50,11 +50,10 @@ class DealViewController: UIViewController {
   @IBOutlet weak var phoneLabel: UILabel!
   @IBOutlet weak var daysAvailableLabel: UILabel!
   @IBOutlet weak var cardView: UIView!
-//  @IBOutlet weak var visualEffectView: UIVisualEffectView!
   @IBOutlet weak var showMapButton: UIButton!
   @IBOutlet weak var stackView: UIStackView!
   @IBOutlet weak var swipeView: UIView!
-  @IBOutlet weak var instructionsLabel: UILabel!
+  @IBOutlet weak var loadingLabel: UILabel!
   
   var selectedDealCategory: enumSelectedDealCategory = enumSelectedDealCategory.enumRandomDeals
   
@@ -66,16 +65,14 @@ class DealViewController: UIViewController {
   var tempDealFirebase = DealFirebase()
   var tempPlaceFirebase = PlaceFirebase()
   
+//  DealPace is used to combine deal and place data when user saves it
+//  Combining deal and place data is done to persist data on Realm
   var tempDealPlace = DealPlace()
-//  var tempDealID = 0
   
-//  var isFrontVisible = true
-  
-    override func viewDidLoad() {
+  override func viewDidLoad() {
         super.viewDidLoad()
       
         FirebaseManager.defaultManager.fetchDeals {
-          
           print("fetched deals")
         }
         FirebaseManager.defaultManager.fetchPlaces {
@@ -84,24 +81,9 @@ class DealViewController: UIViewController {
           }
         }
       
-//      recognize swiping left and right
-      swipeRightGestRec.direction = UISwipeGestureRecognizerDirection.right
-      swipeLeftGestRec.direction = UISwipeGestureRecognizerDirection.left
-      imageView.addGestureRecognizer(swipeRightGestRec)
-      imageView.addGestureRecognizer(swipeLeftGestRec)
-      
-      swipeRightVisualEffect.direction = UISwipeGestureRecognizerDirection.right
-      swipeLeftVisualEffect.direction = UISwipeGestureRecognizerDirection.left
-      swipeView.addGestureRecognizer(swipeLeftVisualEffect)
-      swipeView.addGestureRecognizer(swipeRightVisualEffect)
-      
-      swipeDownGestRec.direction = UISwipeGestureRecognizerDirection.down
-      swipeDownVisualEffect.direction = UISwipeGestureRecognizerDirection.down
-      imageView.addGestureRecognizer(swipeDownGestRec)
-      swipeView.addGestureRecognizer(swipeDownVisualEffect)
-        // Do any additional setup after loading the view.
+    setUpGestureRecognizers()
 
-    //      notification for the category of deal selected in the menu
+//      notification for the category of deal selected in the menu
 //    NotificationCenter.default.addObserver(self,
 //                                           selector: #selector(notificationReceived(_:)),
 //                                           name: Notification.Name.deal,
@@ -169,7 +151,7 @@ class DealViewController: UIViewController {
       
       DispatchQueue.main.async {
         self.imageView.image = image
-        self.instructionsLabel.isHidden = true
+        self.loadingLabel.isHidden = true
       }
     }
     
@@ -640,6 +622,36 @@ class DealViewController: UIViewController {
       mapVC.placeCoordinateLongitude = (unwPlaceCoordinateLongitude as NSString).doubleValue
       
       mapVC.placeName = placeName
+    }
+  }
+  
+  fileprivate func setUpGestureRecognizers() {
+    
+//    swipe gesture recognizers for the image view with no black mask
+    let gestureRecognizersNormalView: [UISwipeGestureRecognizer] =
+      [swipeRightGestRec, swipeLeftGestRec, swipeDownGestRec]
+    
+    addDirections(toRecognizers: gestureRecognizersNormalView)
+    addGesture(recognizers: gestureRecognizersNormalView, toView: imageView)
+
+//    swipe gesture recognizers for the view with black mask
+    let gestureRecognizersVisualEffect: [UISwipeGestureRecognizer] =
+      [swipeRightVisualEffect, swipeLeftVisualEffect, swipeDownVisualEffect]
+    
+    addDirections(toRecognizers: gestureRecognizersVisualEffect)
+    addGesture(recognizers: gestureRecognizersVisualEffect, toView: swipeView)
+    
+  }
+  
+  fileprivate func addDirections(toRecognizers: [UISwipeGestureRecognizer]) {
+    toRecognizers[0].direction = UISwipeGestureRecognizerDirection.right
+    toRecognizers[1].direction = UISwipeGestureRecognizerDirection.left
+    toRecognizers[2].direction = UISwipeGestureRecognizerDirection.down
+  }
+  
+  fileprivate func addGesture(recognizers: [UIGestureRecognizer], toView: UIView) {
+    for recognizer in recognizers {
+      toView.addGestureRecognizer(recognizer)
     }
   }
 }
