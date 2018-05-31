@@ -88,7 +88,7 @@ class DealViewController: UIViewController {
 //                                           name: Notification.Name.deal,
 //                                           object: nil)
   }
-  
+
   override func viewWillAppear(_ animated: Bool) {
     
     setUpViewsInViewWillAppear()
@@ -105,16 +105,10 @@ class DealViewController: UIViewController {
       
       loadPhotoFromNetwork(imageUrl: tempDealPlace.dealImageUrl)
       
-      placeNameLabel.text = tempDealPlace.placeName
-      daysAvailableLabel.text = tempDealPlace.dealDaysAvailable
-      dealLabel.text = tempDealPlace.dealName
-      styleLabel.text = tempDealPlace.dealStyle
-      priceLabel.text = tempDealPlace.dealPrice
-      addressLabel.text = tempDealPlace.placeAddress
-      phoneLabel.text = tempDealPlace.placePhone
-      placeCoordinateLatitude = tempDealPlace.placeLat
-      placeCoordinateLongitude = tempDealPlace.placeLong
-      placeName = tempDealPlace.placeName
+      setUpLabels()
+      
+//      prepare coordinates and annotation to appear map if the user taps Show Map
+      prepareCoordinatesAndAnno()
       
 //    selected a filter category
     } else if selectedDealCategory == enumSelectedDealCategory.enumDrinkDeals ||
@@ -122,7 +116,7 @@ class DealViewController: UIViewController {
       selectedDealCategory == enumSelectedDealCategory.enumFoodDeals
       {
       
-//      show the next deal without user tapping next deal button
+//      show the next deal without user tapping next deal button for ease of use
       nextDealButton((Any).self)
 
     }
@@ -134,17 +128,6 @@ class DealViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
   
-  func loadPhotoFromNetwork(imageUrl: String) -> Void {
-    let photoManager = PhotoManager()
-    photoManager.photoNetworkRequest(url: imageUrl) { (image: UIImage) in
-      
-      DispatchQueue.main.async {
-        self.imageView.image = image
-        self.loadingLabel.isHidden = true
-      }
-    }
-    
-  }
 //  @objc func notificationReceived(_ notification: Notification) {
 //    guard let unwNotificationObj = notification.object else {
 //      print("selected deal category error")
@@ -176,8 +159,8 @@ class DealViewController: UIViewController {
       applyFilter(&filteredDealsList, category: "Food")
       
 //      fun category currently not available
-    case enumSelectedDealCategory.enumFunDeals:
-      applyFilter(&filteredDealsList, category: "Fun")
+//    case enumSelectedDealCategory.enumFunDeals:
+//      applyFilter(&filteredDealsList, category: "Fun")
 
     case enumSelectedDealCategory.enumDrinkDeals:
       applyFilter(&filteredDealsList, category: "Drinks")
@@ -186,28 +169,24 @@ class DealViewController: UIViewController {
       applyFilter(&filteredDealsList, category: "Date")
       
 //      group category currently not available
-    case enumSelectedDealCategory.enumGroupDeals:
-      applyFilter(&filteredDealsList, category: "Group")
+//    case enumSelectedDealCategory.enumGroupDeals:
+//      applyFilter(&filteredDealsList, category: "Group")
 
     default:
       
-      //      dummy filter
+//      dummy filter
       filteredDealsList = dealsList
     }
+    
     var dealNumber: Int
     
-//    if tempDealID != 0 {
-//      dealNumber = tempDealID
-//    } else {
-    
-      dealNumber = Int(arc4random_uniform(UInt32(filteredDealsList.count)))
-//    }
+    dealNumber = Int(arc4random_uniform(UInt32(filteredDealsList.count)))
     
     loadPhotoFromNetwork(imageUrl: filteredDealsList[dealNumber].img!)
     
 //    potentially to be used to save deal for later if the user chooses to
     tempDealFirebase = filteredDealsList[dealNumber]
-//    dealLabel.isHidden = false
+
     dealLabel.text = filteredDealsList[dealNumber].dealName
     priceLabel.text = filteredDealsList[dealNumber].price
     styleLabel.text = filteredDealsList[dealNumber].style
@@ -216,7 +195,7 @@ class DealViewController: UIViewController {
     for placeFB in placesList {
       if placeFB.placeID == filteredDealsList[dealNumber].placeid {
         
-        //    potentially to be used to save deal for later if the user chooses to
+//    potentially to be used to save deal for later if the user chooses to
         tempPlaceFirebase = placeFB
         
         addressLabel.text = placeFB.address
@@ -244,138 +223,79 @@ class DealViewController: UIViewController {
   //DO NOT DELETE!!
   @IBAction func unwindToDealVC(segue:UIStoryboardSegue) {}
   
-  //MARK: Swipe functionality
+  //MARK: Swipe functions
+  
   @IBAction func swipedDownGestRec(_ sender: UISwipeGestureRecognizer) {
     
-    if selectedDealCategory != enumSelectedDealCategory.enumMyDeals {
+    saveForLater()
     
-      favSwitch.isOn = true
-    
-      print("fav switch is on")
-    
-  //    UIView.transition(with: cardView, duration: 1.5, options: .transitionCurlDown, animations: nil) { (true) in
-  //      self.nextButton.sendActions(for: .touchUpInside)
-  //
-  //    }
-    
-      UIView.animate(withDuration: 0.5, animations: {
-        self.cardView.frame = CGRect(x: self.cardView.frame.origin.x, y: self.cardView.frame.origin.y + 1000.0, width: self.cardView.frame.size.width, height: self.cardView.frame.size.height)
-      }) { (true) in
-        self.nextButton.sendActions(for: .touchUpInside)
-
-      }
-
-      //      use data from temp Deal/Place Firebase objects for saving
-      guard let unwDealName = tempDealFirebase.dealName,
-        let unwDealImg = tempDealFirebase.img,
-        let unwDealPlaceID = tempDealFirebase.placeid,
-        let unwDealPrice = tempDealFirebase.price,
-        let unwDealStyle = tempDealFirebase.style,
-        let unwDealDaysAvailable = tempDealFirebase.daysAvalable,
-        let unwPlaceName = tempPlaceFirebase.name,
-        let unwPlaceAddress = tempPlaceFirebase.address,
-        let unwPlaceLat = tempPlaceFirebase.lat,
-        let unwPlaceLong = tempPlaceFirebase.lon,
-        let unwPlaceID = tempPlaceFirebase.placeID,
-        let unwPlacePhone = tempPlaceFirebase.phone
-        else {
-          print("cannot unwrap tempDealFirebase or tempPlaceFirebase properties")
-          return
-      }
-    
-      let dealPlace = DealPlace()
-      dealPlace.dealFaved = true
-      dealPlace.dealName = unwDealName
-      dealPlace.dealImageUrl = unwDealImg
-      dealPlace.placeID = unwDealPlaceID
-      dealPlace.dealPrice = unwDealPrice
-      dealPlace.dealStyle = unwDealStyle
-      dealPlace.dealDaysAvailable = unwDealDaysAvailable
-      dealPlace.placeName = unwPlaceName
-      dealPlace.placePhone = unwPlacePhone
-      dealPlace.placeAddress = unwPlaceAddress
-      dealPlace.placeLat = unwPlaceLat
-      dealPlace.placeLong = unwPlaceLong
-    
-      RealmManager.realmAdd(deal: dealPlace)
-    }
   }
   
   @IBAction func swipedDownVisualEffect(_ sender: UISwipeGestureRecognizer) {
-    
-    if selectedDealCategory != enumSelectedDealCategory.enumMyDeals {
-    
-      favSwitch.isOn = true
-    
-      print("fav switch is on")
 
-      //    UIView.transition(with: cardView, duration: 1.5, options: .transitionCurlDown, animations: nil) { (true) in
-      //      self.nextButton.sendActions(for: .touchUpInside)
-      //
-      //    }
+    saveForLater()
     
-      UIView.animate(withDuration: 0.5, animations: {
-        self.cardView.frame = CGRect(x: self.cardView.frame.origin.x, y: self.cardView.frame.origin.y + 1000.0, width: self.cardView.frame.size.width, height: self.cardView.frame.size.height)
-      }) { (true) in
-        self.nextButton.sendActions(for: .touchUpInside)
-        
-      }
-    
-      //      use data from temp Deal/Place Firebase objects for saving
-      guard let unwDealName = tempDealFirebase.dealName,
-        let unwDealImg = tempDealFirebase.img,
-        let unwDealPlaceID = tempDealFirebase.placeid,
-        let unwDealPrice = tempDealFirebase.price,
-        let unwDealStyle = tempDealFirebase.style,
-        let unwDealDaysAvailable = tempDealFirebase.daysAvalable,
-        let unwPlaceName = tempPlaceFirebase.name,
-        let unwPlaceAddress = tempPlaceFirebase.address,
-        let unwPlaceLat = tempPlaceFirebase.lat,
-        let unwPlaceLong = tempPlaceFirebase.lon,
-        let unwPlaceID = tempPlaceFirebase.placeID,
-        let unwPlacePhone = tempPlaceFirebase.phone
-        else {
-          print("cannot unwrap tempDealFirebase or tempPlaceFirebase properties")
-          return
-      }
-
-      let dealPlace = DealPlace()
-      dealPlace.dealFaved = true
-      dealPlace.dealName = unwDealName
-      dealPlace.dealImageUrl = unwDealImg
-      dealPlace.placeID = unwDealPlaceID
-      dealPlace.dealPrice = unwDealPrice
-      dealPlace.dealStyle = unwDealStyle
-      dealPlace.dealDaysAvailable = unwDealDaysAvailable
-      dealPlace.placeName = unwPlaceName
-      dealPlace.placePhone = unwPlacePhone
-      dealPlace.placeAddress = unwPlaceAddress
-      dealPlace.placeLat = unwPlaceLat
-      dealPlace.placeLong = unwPlaceLong
-
-      RealmManager.realmAdd(deal: dealPlace)
-    }
+//    if selectedDealCategory != enumSelectedDealCategory.enumMyDeals {
+//
+//      favSwitch.isOn = true
+//
+//      print("fav switch is on")
+//
+//      //    UIView.transition(with: cardView, duration: 1.5, options: .transitionCurlDown, animations: nil) { (true) in
+//      //      self.nextButton.sendActions(for: .touchUpInside)
+//      //
+//      //    }
+//
+//      UIView.animate(withDuration: 0.5, animations: {
+//        self.cardView.frame = CGRect(x: self.cardView.frame.origin.x, y: self.cardView.frame.origin.y + 1000.0, width: self.cardView.frame.size.width, height: self.cardView.frame.size.height)
+//      }) { (true) in
+//        self.nextButton.sendActions(for: .touchUpInside)
+//
+//      }
+//
+//      //      use data from temp Deal/Place Firebase objects for saving
+//      guard let unwDealName = tempDealFirebase.dealName,
+//        let unwDealImg = tempDealFirebase.img,
+//        let unwDealPlaceID = tempDealFirebase.placeid,
+//        let unwDealPrice = tempDealFirebase.price,
+//        let unwDealStyle = tempDealFirebase.style,
+//        let unwDealDaysAvailable = tempDealFirebase.daysAvalable,
+//        let unwPlaceName = tempPlaceFirebase.name,
+//        let unwPlaceAddress = tempPlaceFirebase.address,
+//        let unwPlaceLat = tempPlaceFirebase.lat,
+//        let unwPlaceLong = tempPlaceFirebase.lon,
+//        let unwPlaceID = tempPlaceFirebase.placeID,
+//        let unwPlacePhone = tempPlaceFirebase.phone
+//        else {
+//          print("cannot unwrap tempDealFirebase or tempPlaceFirebase properties")
+//          return
+//      }
+//
+//      let dealPlace = DealPlace()
+//      dealPlace.dealFaved = true
+//      dealPlace.dealName = unwDealName
+//      dealPlace.dealImageUrl = unwDealImg
+//      dealPlace.placeID = unwDealPlaceID
+//      dealPlace.dealPrice = unwDealPrice
+//      dealPlace.dealStyle = unwDealStyle
+//      dealPlace.dealDaysAvailable = unwDealDaysAvailable
+//      dealPlace.placeName = unwPlaceName
+//      dealPlace.placePhone = unwPlacePhone
+//      dealPlace.placeAddress = unwPlaceAddress
+//      dealPlace.placeLat = unwPlaceLat
+//      dealPlace.placeLong = unwPlaceLong
+//
+//      RealmManager.realmAdd(deal: dealPlace)
+//    }
   }
   
   
 //  swiped left on the backside of the card
+
+  
   @IBAction func swipedLeftVisualEffect(_ sender: UISwipeGestureRecognizer) {
-//    visualEffectView.isHidden = true
     
-    UIView.transition(with: cardView, duration: 0.5, options: .transitionFlipFromRight, animations: nil, completion: nil)
-    self.blackMaskView.isHidden = true
-    self.placeNameLabel.isHidden = true
-    //          self.blackMaskView.isHidden = true
-    self.dealLabel.isHidden = true
-    self.styleLabel.isHidden = true
-    self.priceLabel.isHidden = true
-    self.addressLabel.isHidden = true
-    self.phoneLabel.isHidden = true
-    self.daysAvailableLabel.isHidden = true
-    self.favSwitch.isHidden = true
-    self.showMapButton.isHidden = true
-    self.stackView.isHidden = true
-    self.swipeView.isHidden = true
+    flipCard()
     
   }
   
@@ -613,7 +533,9 @@ class DealViewController: UIViewController {
       mapVC.placeName = placeName
     }
   }
-  
+
+//  MARK: - Gesture Functions
+
   fileprivate func setUpGestureRecognizers() {
 
 //    arrays of gesture recognizers must be order of right, left, down
@@ -646,12 +568,117 @@ class DealViewController: UIViewController {
     }
   }
   
+//  MARK: - ViewWillAppear Refactored Functions
+  
   fileprivate func setUpViewsInViewWillAppear() {
     favSwitch.isHidden = true
     nextButton.isHidden = false
     
     self.blackMaskView.isHidden = true
     self.placeNameLabel.isHidden = true
+    self.dealLabel.isHidden = true
+    self.styleLabel.isHidden = true
+    self.priceLabel.isHidden = true
+    self.addressLabel.isHidden = true
+    self.phoneLabel.isHidden = true
+    self.daysAvailableLabel.isHidden = true
+    self.favSwitch.isHidden = true
+    self.showMapButton.isHidden = true
+    self.stackView.isHidden = true
+    self.swipeView.isHidden = true
+  }
+  
+  func loadPhotoFromNetwork(imageUrl: String) -> Void {
+    let photoManager = PhotoManager()
+    photoManager.photoNetworkRequest(url: imageUrl) { (image: UIImage) in
+      
+      DispatchQueue.main.async {
+        self.imageView.image = image
+        self.loadingLabel.isHidden = true
+      }
+    }
+    
+  }
+  
+  fileprivate func setUpLabels() {
+    placeNameLabel.text = tempDealPlace.placeName
+    daysAvailableLabel.text = tempDealPlace.dealDaysAvailable
+    dealLabel.text = tempDealPlace.dealName
+    styleLabel.text = tempDealPlace.dealStyle
+    priceLabel.text = tempDealPlace.dealPrice
+    addressLabel.text = tempDealPlace.placeAddress
+    phoneLabel.text = tempDealPlace.placePhone
+  }
+  
+  fileprivate func prepareCoordinatesAndAnno() {
+    placeCoordinateLatitude = tempDealPlace.placeLat
+    placeCoordinateLongitude = tempDealPlace.placeLong
+    placeName = tempDealPlace.placeName
+  }
+  
+  //MARK: - Swipe Procedures
+  
+  fileprivate func saveForLater() {
+    if selectedDealCategory != enumSelectedDealCategory.enumMyDeals {
+      
+      favSwitch.isOn = true
+      
+      print("fav switch is on")
+      
+      //    slower animation for presentation
+      //    UIView.transition(with: cardView, duration: 1.5, options: .transitionCurlDown, animations: nil) { (true) in
+      //      self.nextButton.sendActions(for: .touchUpInside)
+      //
+      //    }
+      
+      UIView.animate(withDuration: 0.5, animations: {
+        self.cardView.frame = CGRect(x: self.cardView.frame.origin.x, y: self.cardView.frame.origin.y + 1000.0, width: self.cardView.frame.size.width, height: self.cardView.frame.size.height)
+      }) { (true) in
+        self.nextButton.sendActions(for: .touchUpInside)
+        
+      }
+      
+      //      use data from temp Deal/Place Firebase objects for saving
+      guard let unwDealName = tempDealFirebase.dealName,
+        let unwDealImg = tempDealFirebase.img,
+        let unwDealPlaceID = tempDealFirebase.placeid,
+        let unwDealPrice = tempDealFirebase.price,
+        let unwDealStyle = tempDealFirebase.style,
+        let unwDealDaysAvailable = tempDealFirebase.daysAvalable,
+        let unwPlaceName = tempPlaceFirebase.name,
+        let unwPlaceAddress = tempPlaceFirebase.address,
+        let unwPlaceLat = tempPlaceFirebase.lat,
+        let unwPlaceLong = tempPlaceFirebase.lon,
+        let unwPlaceID = tempPlaceFirebase.placeID,
+        let unwPlacePhone = tempPlaceFirebase.phone
+        else {
+          print("cannot unwrap tempDealFirebase or tempPlaceFirebase properties")
+          return
+      }
+      
+      let dealPlace = DealPlace()
+      dealPlace.dealFaved = true
+      dealPlace.dealName = unwDealName
+      dealPlace.dealImageUrl = unwDealImg
+      dealPlace.placeID = unwDealPlaceID
+      dealPlace.dealPrice = unwDealPrice
+      dealPlace.dealStyle = unwDealStyle
+      dealPlace.dealDaysAvailable = unwDealDaysAvailable
+      dealPlace.placeName = unwPlaceName
+      dealPlace.placePhone = unwPlacePhone
+      dealPlace.placeAddress = unwPlaceAddress
+      dealPlace.placeLat = unwPlaceLat
+      dealPlace.placeLong = unwPlaceLong
+      
+      RealmManager.realmAdd(deal: dealPlace)
+    }
+  }
+  
+  fileprivate func flipCard() {
+    UIView.transition(with: cardView, duration: 0.5, options: .transitionFlipFromRight, animations: nil, completion: nil)
+    self.blackMaskView.isHidden = true
+    self.placeNameLabel.isHidden = true
+    //          self.blackMaskView.isHidden = true
     self.dealLabel.isHidden = true
     self.styleLabel.isHidden = true
     self.priceLabel.isHidden = true
