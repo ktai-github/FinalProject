@@ -287,13 +287,6 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.59863013698630141" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </variation>
                                     </view>
-                                    <switch hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="aJ2-10-PyO">
-                                        <rect key="frame" x="318" y="8" width="51" height="31"/>
-                                        <color key="onTintColor" red="0.57647058819999997" green="0.0" blue="0.070588235289999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <connections>
-                                            <action selector="favSwitch:" destination="THJ-yi-499" eventType="valueChanged" id="bND-0o-6ui"/>
-                                        </connections>
-                                    </switch>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enjoy Deal Later -&gt;" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xcf-RK-rh1">
                                         <rect key="frame" x="8" y="8" width="359" height="29"/>
                                         <color key="tintColor" red="0.57303921570000005" green="0.0" blue="0.047058823530000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -423,7 +416,6 @@
                                     <constraint firstItem="ZFI-Mt-9uZ" firstAttribute="width" secondItem="eus-vl-Ktb" secondAttribute="width" id="0Hs-dc-BLb"/>
                                     <constraint firstItem="ZFI-Mt-9uZ" firstAttribute="leading" secondItem="eus-vl-Ktb" secondAttribute="leading" id="0be-cu-iQv"/>
                                     <constraint firstAttribute="bottom" secondItem="cR8-mO-BWd" secondAttribute="bottom" constant="50" id="10d-AI-Csc"/>
-                                    <constraint firstItem="aJ2-10-PyO" firstAttribute="top" secondItem="xcf-RK-rh1" secondAttribute="top" id="382-qR-mlU"/>
                                     <constraint firstItem="oAF-FZ-MyA" firstAttribute="leading" secondItem="xcf-RK-rh1" secondAttribute="leading" id="60E-cY-nc7"/>
                                     <constraint firstAttribute="trailing" secondItem="eus-vl-Ktb" secondAttribute="trailing" id="AXz-XZ-R7R"/>
                                     <constraint firstAttribute="trailing" secondItem="IbH-Ke-mX2" secondAttribute="trailing" constant="8" id="C8U-6k-VTb"/>
@@ -437,7 +429,6 @@
                                     <constraint firstItem="bCl-kl-E7z" firstAttribute="centerX" secondItem="ZFI-Mt-9uZ" secondAttribute="centerX" id="Tle-BF-bDT"/>
                                     <constraint firstItem="oAF-FZ-MyA" firstAttribute="trailing" secondItem="IbH-Ke-mX2" secondAttribute="trailing" id="Ty4-8p-Mnz"/>
                                     <constraint firstItem="xcf-RK-rh1" firstAttribute="trailing" secondItem="IbH-Ke-mX2" secondAttribute="trailing" id="XH6-O3-AKc"/>
-                                    <constraint firstItem="aJ2-10-PyO" firstAttribute="trailing" secondItem="IbH-Ke-mX2" secondAttribute="trailing" id="XXK-Jo-su7"/>
                                     <constraint firstItem="ZFI-Mt-9uZ" firstAttribute="top" secondItem="eus-vl-Ktb" secondAttribute="top" id="Xbh-Mo-CMN"/>
                                     <constraint firstItem="eus-vl-Ktb" firstAttribute="leading" secondItem="hvB-1W-iP2" secondAttribute="leading" id="fIl-F0-vo2"/>
                                     <constraint firstItem="r58-RT-lAJ" firstAttribute="centerY" secondItem="bCl-kl-E7z" secondAttribute="centerY" id="kB7-dg-QJs"/>
@@ -486,7 +477,6 @@
                         <outlet property="cardView" destination="hvB-1W-iP2" id="DEh-84-OhS"/>
                         <outlet property="daysAvailableLabel" destination="e2K-kv-5uD" id="Vgc-DL-htz"/>
                         <outlet property="dealLabel" destination="oAF-FZ-MyA" id="9yK-us-c6T"/>
-                        <outlet property="favSwitch" destination="aJ2-10-PyO" id="kbm-Sd-taZ"/>
                         <outlet property="imageView" destination="eus-vl-Ktb" id="fUs-ah-4B7"/>
                         <outlet property="loadingLabel" destination="r58-RT-lAJ" id="Yfu-uQ-oM8"/>
                         <outlet property="nextButton" destination="nrw-h9-m6W" id="Udl-J3-qNn"/>

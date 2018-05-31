@@ -37,7 +37,6 @@ class DealViewController: UIViewController {
   @IBOutlet var swipeDownGestRec: UISwipeGestureRecognizer!
   @IBOutlet var swipeDownVisualEffect: UISwipeGestureRecognizer!
   
-  @IBOutlet weak var favSwitch: UISwitch!
   @IBOutlet weak var blackMaskView: UIView!
   @IBOutlet weak var dealLabel: UILabel!
   @IBOutlet weak var placeNameLabel: UILabel!
@@ -67,7 +66,7 @@ class DealViewController: UIViewController {
 //  Combining deal and place data is done to persist data on Realm
   var tempDealPlace = DealPlace()
   
-  // MARK: View Controller Life Cycle
+  // MARK: - View Controller Life Cycle
   override func viewDidLoad() {
         super.viewDidLoad()
       
@@ -94,8 +93,6 @@ class DealViewController: UIViewController {
     setUpViewsInViewWillAppear()
     
     if selectedDealCategory == enumSelectedDealCategory.enumMyDeals {
-//      always disable fav switch
-      favSwitch.isHidden = true
       
 //      disable next button if showing deals in My Deals
       nextButton.isHidden = true
@@ -139,91 +136,10 @@ class DealViewController: UIViewController {
 //    print(selectedDealCategory + " notification received")
 //  }
   
-  //MARK: Load Details on Screen
-  fileprivate func applyFilter(_ filteredDealsList: inout [DealFirebase], category: String) {
-    for deal in dealsList {
-      if (deal.style?.contains(category))! {
-        filteredDealsList.append(deal)
-      }
-    }
-    print("filtered \(category) deals only")
-  }
-  
-  func loadDetails() -> () {
-    
-    var filteredDealsList = [DealFirebase]()
-    
-    switch selectedDealCategory {
-      
-    case enumSelectedDealCategory.enumFoodDeals:
-      applyFilter(&filteredDealsList, category: "Food")
-      
-//      fun category currently not available
-//    case enumSelectedDealCategory.enumFunDeals:
-//      applyFilter(&filteredDealsList, category: "Fun")
-
-    case enumSelectedDealCategory.enumDrinkDeals:
-      applyFilter(&filteredDealsList, category: "Drinks")
-
-    case enumSelectedDealCategory.enumDateDeals:
-      applyFilter(&filteredDealsList, category: "Date")
-      
-//      group category currently not available
-//    case enumSelectedDealCategory.enumGroupDeals:
-//      applyFilter(&filteredDealsList, category: "Group")
-
-    default:
-      
-//      dummy filter
-      filteredDealsList = dealsList
-    }
-    
-    var dealNumber: Int
-    
-    dealNumber = Int(arc4random_uniform(UInt32(filteredDealsList.count)))
-    
-    loadPhotoFromNetwork(imageUrl: filteredDealsList[dealNumber].img!)
-    
-//    potentially to be used to save deal for later if the user chooses to
-    tempDealFirebase = filteredDealsList[dealNumber]
-
-    dealLabel.text = filteredDealsList[dealNumber].dealName
-    priceLabel.text = filteredDealsList[dealNumber].price
-    styleLabel.text = filteredDealsList[dealNumber].style
-    daysAvailableLabel.text = filteredDealsList[dealNumber].daysAvalable
-    
-    for placeFB in placesList {
-      if placeFB.placeID == filteredDealsList[dealNumber].placeid {
-        
-//    potentially to be used to save deal for later if the user chooses to
-        tempPlaceFirebase = placeFB
-        
-        addressLabel.text = placeFB.address
-        placeNameLabel.text = placeFB.name
-        phoneLabel.text = placeFB.phone
-        guard let unwLatitude = placeFB.lat, let unwLongitude = placeFB.lon else {
-          print("cannot unwrap lat long")
-          return
-        }
-        
-//        potentially to be used for mapview if user chooses to see on map
-        placeCoordinateLatitude = unwLatitude
-        placeCoordinateLongitude = unwLongitude
-        
-        guard let unwPlaceName = placeFB.name else {
-          print("cannot unwrap place name")
-          return
-        }
-        placeName = unwPlaceName
-      }
-    }
-    
-  }
-  
   //DO NOT DELETE!!
   @IBAction func unwindToDealVC(segue:UIStoryboardSegue) {}
   
-//MARK: Swipe functions
+//MARK: - Swipe Procedures
   
 //  swiped down on the front side of the card
   @IBAction func swipedDownGestRec(_ sender: UISwipeGestureRecognizer) {
@@ -267,8 +183,9 @@ class DealViewController: UIViewController {
     
   }
   
+//  MARK: - Button Functions
+  
   @IBAction func nextDealButton(_ sender: Any) {
-    favSwitch.isOn = false
     
     print(selectedDealCategory)
     
@@ -300,64 +217,6 @@ class DealViewController: UIViewController {
 //    open sharing options
     activityViewController.popoverPresentationController?.sourceView = self.view
     self.present(activityViewController, animated: true, completion: nil)
-  }
-  
-  //MARK: Favourite switch
-  @IBAction func favSwitch(_ sender: UISwitch) {
-    //BUG: In one case, saving the same deal twice saves a different deal the second time
-    if sender.isOn == true {
-      print("fav switch is on")
-
-      //      use data from temp Deal/Place Firebase objects for saving
-      guard let unwDealName = tempDealFirebase.dealName,
-        let unwDealImg = tempDealFirebase.img,
-        let unwDealPlaceID = tempDealFirebase.placeid,
-        let unwDealPrice = tempDealFirebase.price,
-        let unwDealStyle = tempDealFirebase.style,
-        let unwDealDaysAvailable = tempDealFirebase.daysAvalable,
-        let unwPlaceName = tempPlaceFirebase.name,
-        let unwPlaceAddress = tempPlaceFirebase.address,
-        let unwPlaceLat = tempPlaceFirebase.lat,
-        let unwPlaceLong = tempPlaceFirebase.lon,
-        let unwPlaceID = tempPlaceFirebase.placeID,
-        let unwPlacePhone = tempPlaceFirebase.phone
-      else {
-        print("cannot unwrap tempDealFirebase or tempPlaceFirebase properties")
-        return
-      }
-      
-      let dealPlace = DealPlace()
-      dealPlace.dealFaved = true
-      dealPlace.dealName = unwDealName
-      dealPlace.dealImageUrl = unwDealImg
-      dealPlace.placeID = unwDealPlaceID
-      dealPlace.dealPrice = unwDealPrice
-      dealPlace.dealStyle = unwDealStyle
-      dealPlace.dealDaysAvailable = unwDealDaysAvailable
-      dealPlace.placeName = unwPlaceName
-      dealPlace.placePhone = unwPlacePhone
-      dealPlace.placeAddress = unwPlaceAddress
-      dealPlace.placeLat = unwPlaceLat
-      dealPlace.placeLong = unwPlaceLong
-      
-      RealmManager.realmAdd(deal: dealPlace)
-      
-    } else {
-      
-      print("fav switch is off")
-      
-//      delete from realm if user turn switch off
-      guard let unwDealName = dealLabel.text else {
-        return
-      }
-      
-      let dealPlace = DealPlace()
-      dealPlace.dealFaved = false
-      dealPlace.dealName = unwDealName
-
-      RealmManager.realmDelete(unwDealName, dealPlace)
-      
-    }
   }
   
 //  deinit {
@@ -395,7 +254,7 @@ class DealViewController: UIViewController {
     }
   }
 
-//  MARK: - Gesture Functions
+//  MARK: - Gesture Refactored
 
   fileprivate func setUpGestureRecognizers() {
 
@@ -429,10 +288,9 @@ class DealViewController: UIViewController {
     }
   }
   
-//  MARK: - ViewWillAppear Refactored Functions
+//  MARK: - ViewWillAppear Refactored
   
   fileprivate func setUpViewsInViewWillAppear() {
-    favSwitch.isHidden = true
     nextButton.isHidden = false
     
     self.blackMaskView.isHidden = true
@@ -443,7 +301,6 @@ class DealViewController: UIViewController {
     self.addressLabel.isHidden = true
     self.phoneLabel.isHidden = true
     self.daysAvailableLabel.isHidden = true
-    self.favSwitch.isHidden = true
     self.showMapButton.isHidden = true
     self.stackView.isHidden = true
     self.swipeView.isHidden = true
@@ -477,12 +334,10 @@ class DealViewController: UIViewController {
     placeName = tempDealPlace.placeName
   }
   
-  //MARK: - Swipe Procedures
+  //MARK: - Swipe Procedures Refactored
   
   fileprivate func saveForLater() {
     if selectedDealCategory != enumSelectedDealCategory.enumMyDeals {
-      
-      favSwitch.isOn = true
       
       print("fav switch is on")
       
@@ -547,15 +402,15 @@ class DealViewController: UIViewController {
     self.addressLabel.isHidden = true
     self.phoneLabel.isHidden = true
     self.daysAvailableLabel.isHidden = true
-    self.favSwitch.isHidden = true
     self.showMapButton.isHidden = true
     self.stackView.isHidden = true
     self.swipeView.isHidden = true
   }
   
   fileprivate func flipCardFromFrontToBack(direction: UIViewAnimationOptions) {
-    favSwitch.isOn = false
+
     UIView.transition(with: cardView, duration: 0.5, options: direction, animations: nil, completion: nil)
+    
     self.blackMaskView.isHidden = false
     self.placeNameLabel.isHidden = false
     self.dealLabel.isHidden = false
@@ -567,10 +422,87 @@ class DealViewController: UIViewController {
     self.showMapButton.isHidden = false
     self.stackView.isHidden = false
     self.swipeView.isHidden = false
-    
-    if selectedDealCategory != enumSelectedDealCategory.enumMyDeals {
-      
-      self.favSwitch.isHidden = true
+  }
+  
+//  MARK: - Next Button Refactored
+  
+  fileprivate func applyFilter(_ filteredDealsList: inout [DealFirebase], category: String) {
+    for deal in dealsList {
+      if (deal.style?.contains(category))! {
+        filteredDealsList.append(deal)
+      }
     }
+    print("filtered \(category) deals only")
+  }
+  
+  func loadDetails() -> () {
+    
+    var filteredDealsList = [DealFirebase]()
+    
+    switch selectedDealCategory {
+      
+    case enumSelectedDealCategory.enumFoodDeals:
+      applyFilter(&filteredDealsList, category: "Food")
+      
+      //      fun category currently not available
+      //    case enumSelectedDealCategory.enumFunDeals:
+      //      applyFilter(&filteredDealsList, category: "Fun")
+      
+    case enumSelectedDealCategory.enumDrinkDeals:
+      applyFilter(&filteredDealsList, category: "Drinks")
+      
+    case enumSelectedDealCategory.enumDateDeals:
+      applyFilter(&filteredDealsList, category: "Date")
+      
+      //      group category currently not available
+      //    case enumSelectedDealCategory.enumGroupDeals:
+      //      applyFilter(&filteredDealsList, category: "Group")
+      
+    default:
+      
+      //      dummy filter
+      filteredDealsList = dealsList
+    }
+    
+    var dealNumber: Int
+    
+    dealNumber = Int(arc4random_uniform(UInt32(filteredDealsList.count)))
+    
+    loadPhotoFromNetwork(imageUrl: filteredDealsList[dealNumber].img!)
+    
+    //    potentially to be used to save deal for later if the user chooses to
+    tempDealFirebase = filteredDealsList[dealNumber]
+    
+    dealLabel.text = filteredDealsList[dealNumber].dealName
+    priceLabel.text = filteredDealsList[dealNumber].price
+    styleLabel.text = filteredDealsList[dealNumber].style
+    daysAvailableLabel.text = filteredDealsList[dealNumber].daysAvalable
+    
+    for placeFB in placesList {
+      if placeFB.placeID == filteredDealsList[dealNumber].placeid {
+        
+        //    potentially to be used to save deal for later if the user chooses to
+        tempPlaceFirebase = placeFB
+        
+        addressLabel.text = placeFB.address
+        placeNameLabel.text = placeFB.name
+        phoneLabel.text = placeFB.phone
+        guard let unwLatitude = placeFB.lat, let unwLongitude = placeFB.lon else {
+          print("cannot unwrap lat long")
+          return
+        }
+        
+        //        potentially to be used for mapview if user chooses to see on map
+        placeCoordinateLatitude = unwLatitude
+        placeCoordinateLongitude = unwLongitude
+        
+        guard let unwPlaceName = placeFB.name else {
+          print("cannot unwrap place name")
+          return
+        }
+        placeName = unwPlaceName
+      }
+    }
+    
   }
 }
