@@ -8,8 +8,6 @@
 // BUG: L'abboir brunch deal will crash the app if delete from My Deals
 
 import UIKit
-//import FirebaseDatabase
-//import RealmSwift
 
 // notification for the category of deal selected in the menu
 //extension Notification.Name {
@@ -69,6 +67,7 @@ class DealViewController: UIViewController {
 //  Combining deal and place data is done to persist data on Realm
   var tempDealPlace = DealPlace()
   
+  // MARK: View Controller Life Cycle
   override func viewDidLoad() {
         super.viewDidLoad()
       
@@ -91,25 +90,14 @@ class DealViewController: UIViewController {
   }
   
   override func viewWillAppear(_ animated: Bool) {
-    favSwitch.isHidden = true
-    nextButton.isHidden = false
     
-    self.blackMaskView.isHidden = true
-    self.placeNameLabel.isHidden = true
-//    self.blackMaskView.isHidden = false
-    self.dealLabel.isHidden = true
-    self.styleLabel.isHidden = true
-    self.priceLabel.isHidden = true
-    self.addressLabel.isHidden = true
-    self.phoneLabel.isHidden = true
-    self.daysAvailableLabel.isHidden = true
-    self.favSwitch.isHidden = true
-    self.showMapButton.isHidden = true
-    self.stackView.isHidden = true
-    self.swipeView.isHidden = true
+    setUpViewsInViewWillAppear()
     
     if selectedDealCategory == enumSelectedDealCategory.enumMyDeals {
+//      always disable fav switch
       favSwitch.isHidden = true
+      
+//      disable next button if showing deals in My Deals
       nextButton.isHidden = true
       
       print("loaded dealvc with My Deals category selected")
@@ -124,16 +112,17 @@ class DealViewController: UIViewController {
       priceLabel.text = tempDealPlace.dealPrice
       addressLabel.text = tempDealPlace.placeAddress
       phoneLabel.text = tempDealPlace.placePhone
-      
       placeCoordinateLatitude = tempDealPlace.placeLat
       placeCoordinateLongitude = tempDealPlace.placeLong
       placeName = tempDealPlace.placeName
       
+//    selected a filter category
     } else if selectedDealCategory == enumSelectedDealCategory.enumDrinkDeals ||
       selectedDealCategory == enumSelectedDealCategory.enumDateDeals ||
       selectedDealCategory == enumSelectedDealCategory.enumFoodDeals
       {
       
+//      show the next deal without user tapping next deal button
       nextDealButton((Any).self)
 
     }
@@ -626,7 +615,8 @@ class DealViewController: UIViewController {
   }
   
   fileprivate func setUpGestureRecognizers() {
-    
+
+//    arrays of gesture recognizers must be order of right, left, down
 //    swipe gesture recognizers for the image view with no black mask
     let gestureRecognizersNormalView: [UISwipeGestureRecognizer] =
       [swipeRightGestRec, swipeLeftGestRec, swipeDownGestRec]
@@ -643,6 +633,7 @@ class DealViewController: UIViewController {
     
   }
   
+//  rely on arrays of gesture recognizers in order of right, left, down
   fileprivate func addDirections(toRecognizers: [UISwipeGestureRecognizer]) {
     toRecognizers[0].direction = UISwipeGestureRecognizerDirection.right
     toRecognizers[1].direction = UISwipeGestureRecognizerDirection.left
@@ -653,5 +644,23 @@ class DealViewController: UIViewController {
     for recognizer in recognizers {
       toView.addGestureRecognizer(recognizer)
     }
+  }
+  
+  fileprivate func setUpViewsInViewWillAppear() {
+    favSwitch.isHidden = true
+    nextButton.isHidden = false
+    
+    self.blackMaskView.isHidden = true
+    self.placeNameLabel.isHidden = true
+    self.dealLabel.isHidden = true
+    self.styleLabel.isHidden = true
+    self.priceLabel.isHidden = true
+    self.addressLabel.isHidden = true
+    self.phoneLabel.isHidden = true
+    self.daysAvailableLabel.isHidden = true
+    self.favSwitch.isHidden = true
+    self.showMapButton.isHidden = true
+    self.stackView.isHidden = true
+    self.swipeView.isHidden = true
   }
 }
