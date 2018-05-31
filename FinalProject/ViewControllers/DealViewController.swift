@@ -223,186 +223,47 @@ class DealViewController: UIViewController {
   //DO NOT DELETE!!
   @IBAction func unwindToDealVC(segue:UIStoryboardSegue) {}
   
-  //MARK: Swipe functions
+//MARK: Swipe functions
   
+//  swiped down on the front side of the card
   @IBAction func swipedDownGestRec(_ sender: UISwipeGestureRecognizer) {
     
     saveForLater()
     
   }
   
+//  swiped down on the back side of the card
   @IBAction func swipedDownVisualEffect(_ sender: UISwipeGestureRecognizer) {
 
     saveForLater()
     
-//    if selectedDealCategory != enumSelectedDealCategory.enumMyDeals {
-//
-//      favSwitch.isOn = true
-//
-//      print("fav switch is on")
-//
-//      //    UIView.transition(with: cardView, duration: 1.5, options: .transitionCurlDown, animations: nil) { (true) in
-//      //      self.nextButton.sendActions(for: .touchUpInside)
-//      //
-//      //    }
-//
-//      UIView.animate(withDuration: 0.5, animations: {
-//        self.cardView.frame = CGRect(x: self.cardView.frame.origin.x, y: self.cardView.frame.origin.y + 1000.0, width: self.cardView.frame.size.width, height: self.cardView.frame.size.height)
-//      }) { (true) in
-//        self.nextButton.sendActions(for: .touchUpInside)
-//
-//      }
-//
-//      //      use data from temp Deal/Place Firebase objects for saving
-//      guard let unwDealName = tempDealFirebase.dealName,
-//        let unwDealImg = tempDealFirebase.img,
-//        let unwDealPlaceID = tempDealFirebase.placeid,
-//        let unwDealPrice = tempDealFirebase.price,
-//        let unwDealStyle = tempDealFirebase.style,
-//        let unwDealDaysAvailable = tempDealFirebase.daysAvalable,
-//        let unwPlaceName = tempPlaceFirebase.name,
-//        let unwPlaceAddress = tempPlaceFirebase.address,
-//        let unwPlaceLat = tempPlaceFirebase.lat,
-//        let unwPlaceLong = tempPlaceFirebase.lon,
-//        let unwPlaceID = tempPlaceFirebase.placeID,
-//        let unwPlacePhone = tempPlaceFirebase.phone
-//        else {
-//          print("cannot unwrap tempDealFirebase or tempPlaceFirebase properties")
-//          return
-//      }
-//
-//      let dealPlace = DealPlace()
-//      dealPlace.dealFaved = true
-//      dealPlace.dealName = unwDealName
-//      dealPlace.dealImageUrl = unwDealImg
-//      dealPlace.placeID = unwDealPlaceID
-//      dealPlace.dealPrice = unwDealPrice
-//      dealPlace.dealStyle = unwDealStyle
-//      dealPlace.dealDaysAvailable = unwDealDaysAvailable
-//      dealPlace.placeName = unwPlaceName
-//      dealPlace.placePhone = unwPlacePhone
-//      dealPlace.placeAddress = unwPlaceAddress
-//      dealPlace.placeLat = unwPlaceLat
-//      dealPlace.placeLong = unwPlaceLong
-//
-//      RealmManager.realmAdd(deal: dealPlace)
-//    }
   }
   
-  
-//  swiped left on the backside of the card
-
-  
+//  swiped left on the back side of the card
   @IBAction func swipedLeftVisualEffect(_ sender: UISwipeGestureRecognizer) {
     
-    flipCard()
+    flipCardFromBackToFront(direction: UIViewAnimationOptions.transitionFlipFromRight)
     
   }
   
-//  swiped right on the backside of the card
+//  swiped right on the back side of the card
   @IBAction func swipedRightVisualEffect(_ sender: UISwipeGestureRecognizer) {
-//    visualEffectView.isHidden = true
-    
-    UIView.transition(with: cardView, duration: 0.5, options: .transitionFlipFromLeft, animations: nil, completion: nil)
-    self.blackMaskView.isHidden = true
-    self.placeNameLabel.isHidden = true
-    //          self.blackMaskView.isHidden = true
-    self.dealLabel.isHidden = true
-    self.styleLabel.isHidden = true
-    self.priceLabel.isHidden = true
-    self.addressLabel.isHidden = true
-    self.phoneLabel.isHidden = true
-    self.daysAvailableLabel.isHidden = true
-    self.favSwitch.isHidden = true
-    self.showMapButton.isHidden = true
-    self.stackView.isHidden = true
-    self.swipeView.isHidden = true
+
+    flipCardFromBackToFront(direction: UIViewAnimationOptions.transitionFlipFromLeft)
 
   }
   
+//  swiped left on the front side of the card
   @IBAction func swipeLeftGestRec(_ sender: UISwipeGestureRecognizer) {
-    print("swiped left")
-    favSwitch.isOn = false
     
-//      loadDetails()
-//    }
-    UIView.transition(with: cardView, duration: 0.5, options: .transitionFlipFromRight, animations: nil, completion: nil)
-    self.blackMaskView.isHidden = false
-    self.placeNameLabel.isHidden = false
-    //          self.blackMaskView.isHidden = true
-    self.dealLabel.isHidden = false
-    self.styleLabel.isHidden = false
-    self.priceLabel.isHidden = false
-    self.addressLabel.isHidden = false
-    self.phoneLabel.isHidden = false
-    self.daysAvailableLabel.isHidden = false
-    self.showMapButton.isHidden = false
-    self.stackView.isHidden = false
-    self.swipeView.isHidden = false
-
+    flipCardFromFrontToBack(direction: UIViewAnimationOptions.transitionFlipFromRight)
     
-    if selectedDealCategory != enumSelectedDealCategory.enumMyDeals {
-
-      self.favSwitch.isHidden = true
-    }
   }
+  
+//  swiped right on the front side of the card
   @IBAction func swipeRightGestRec(_ sender: UISwipeGestureRecognizer) {
-    print("swiped right")
-    favSwitch.isOn = false
     
-//    if selectedDealCategory != enumSelectedDealCategory.enumMyDeals {
-//      loadDetails()
-//      let option: UIViewAnimationOptions = .transitionFlipFromLeft
-      
-//      if (isFrontVisible) {
-//        isFrontVisible = false
-    
-// multiple spins
-//      UIView.transition(with: cardView, duration: 0.75, options: [.transitionFlipFromLeft,.repeat], animations: nil, completion: nil)
-//
-//      let delayTime = DispatchTime.now() + 1.4
-//      DispatchQueue.main.asyncAfter(deadline: delayTime) {
-//        self.cardView.layer.removeAllAnimations()
-//      }
-//        UIView.transition(with: cardView, duration: 1.5, options: .transitionFlipFromLeft, animations: nil) { (NULL) in
-    UIView.transition(with: cardView, duration: 0.5, options: .transitionFlipFromLeft, animations: nil, completion: nil)
-    self.blackMaskView.isHidden = false
-    self.placeNameLabel.isHidden = false
-//          self.blackMaskView.isHidden = true
-    self.dealLabel.isHidden = false
-    self.styleLabel.isHidden = false
-    self.priceLabel.isHidden = false
-    self.addressLabel.isHidden = false
-    self.phoneLabel.isHidden = false
-    self.daysAvailableLabel.isHidden = false
-    self.showMapButton.isHidden = false
-    self.stackView.isHidden = false
-    self.swipeView.isHidden = false
-
-    
-    if selectedDealCategory != enumSelectedDealCategory.enumMyDeals {
-      
-      self.favSwitch.isHidden = true
-    }
-
-//        }
-//      } else {
-//        isFrontVisible = true
-    
-//        self.visualEffectView.isHidden = true
-//        self.placeNameLabel.isHidden = true
-////        self.blackMaskView.isHidden = false
-//        self.dealLabel.isHidden = true
-//        self.styleLabel.isHidden = true
-//        self.priceLabel.isHidden = true
-//        self.addressLabel.isHidden = true
-//        self.phoneLabel.isHidden = true
-//        self.daysAvailableLabel.isHidden = true
-//        self.favSwitch.isHidden = true
-
-//      }
-//    }
-    
+    flipCardFromFrontToBack(direction: UIViewAnimationOptions.transitionFlipFromLeft)
     
   }
   
@@ -674,11 +535,12 @@ class DealViewController: UIViewController {
     }
   }
   
-  fileprivate func flipCard() {
-    UIView.transition(with: cardView, duration: 0.5, options: .transitionFlipFromRight, animations: nil, completion: nil)
+  fileprivate func flipCardFromBackToFront(direction: UIViewAnimationOptions) {
+
+    UIView.transition(with: cardView, duration: 0.5, options: direction, animations: nil, completion: nil)
+
     self.blackMaskView.isHidden = true
     self.placeNameLabel.isHidden = true
-    //          self.blackMaskView.isHidden = true
     self.dealLabel.isHidden = true
     self.styleLabel.isHidden = true
     self.priceLabel.isHidden = true
@@ -689,5 +551,26 @@ class DealViewController: UIViewController {
     self.showMapButton.isHidden = true
     self.stackView.isHidden = true
     self.swipeView.isHidden = true
+  }
+  
+  fileprivate func flipCardFromFrontToBack(direction: UIViewAnimationOptions) {
+    favSwitch.isOn = false
+    UIView.transition(with: cardView, duration: 0.5, options: direction, animations: nil, completion: nil)
+    self.blackMaskView.isHidden = false
+    self.placeNameLabel.isHidden = false
+    self.dealLabel.isHidden = false
+    self.styleLabel.isHidden = false
+    self.priceLabel.isHidden = false
+    self.addressLabel.isHidden = false
+    self.phoneLabel.isHidden = false
+    self.daysAvailableLabel.isHidden = false
+    self.showMapButton.isHidden = false
+    self.stackView.isHidden = false
+    self.swipeView.isHidden = false
+    
+    if selectedDealCategory != enumSelectedDealCategory.enumMyDeals {
+      
+      self.favSwitch.isHidden = true
+    }
   }
 }
