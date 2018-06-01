@@ -36,8 +36,40 @@
                                     <nil key="backgroundColor"/>
                                 </variation>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1RH-dF-rLX">
-                                <rect key="frame" x="9.5" y="200.5" width="302" height="167.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please confirm deal with respective business" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="15" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XUd-29-Gve">
+                                <rect key="frame" x="10" y="349.5" width="300" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="hon-y3-TFj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GASTOWN EATS" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UJa-M7-5Wo">
+                                <rect key="frame" x="10" y="50" width="300" height="68"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="68" id="P9r-ha-aLS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Rockwell-Bold" family="Rockwell" pointSize="33"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="15" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UQb-yd-lvO">
+                                <rect key="frame" x="13" y="442.5" width="290" height="95.5"/>
+                                <string key="text">DISCLAIMER: deals subject to change without notice. 
+All rights to images belong to their respective owners. 
+
+
+iOS app developed by: Kevin Tai
+kevin.tai.mail@gmail.com
+
+Cloud data by: Stewart Pressney</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="15" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1RH-dF-rLX">
+                                <rect key="frame" x="9" y="168" width="302" height="167.5"/>
                                 <string key="text" base64-UTF8="YES">
 SW5zdHJ1Y3Rpb25zOhDigKhTV0lQRSBMRUZUIG9yIFJJR0hUIGZvciBkZXRhaWxzCgpTV0lQRSBET1dO
 IHRvIHNhdmUQEAoKVGFwIE1lbnUgYnV0dG9uID4gTXkgRGVhbHMgCnRvIHNlZSBzYXZlZCBkZWFscw
@@ -46,30 +78,28 @@ IHRvIHNhdmUQEAoKVGFwIE1lbnUgYnV0dG9uID4gTXkgRGVhbHMgCnRvIHNlZSBzYXZlZCBkZWFscw
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GASTOWN EATS" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UJa-M7-5Wo">
-                                <rect key="frame" x="17.5" y="123" width="285.5" height="68"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="68" id="P9r-ha-aLS"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Rockwell-Bold" family="Rockwell" pointSize="33"/>
-                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="CYX-kO-rhV" firstAttribute="leading" secondItem="7Zv-iP-oB6" secondAttribute="leading" id="0jf-gU-Wbx"/>
                             <constraint firstItem="4Yt-bC-dvI" firstAttribute="trailing" secondItem="PCn-WN-MeA" secondAttribute="trailing" id="8a2-Ui-Js5"/>
-                            <constraint firstItem="1RH-dF-rLX" firstAttribute="top" secondItem="UJa-M7-5Wo" secondAttribute="bottom" constant="9.5" id="ES2-gZ-anv"/>
+                            <constraint firstItem="PCn-WN-MeA" firstAttribute="top" secondItem="UJa-M7-5Wo" secondAttribute="bottom" constant="-118" id="CJe-mh-fWX"/>
+                            <constraint firstItem="XUd-29-Gve" firstAttribute="leading" secondItem="QR9-jk-Anz" secondAttribute="leading" constant="10" id="ECg-fd-AMC"/>
+                            <constraint firstItem="UQb-yd-lvO" firstAttribute="top" secondItem="XUd-29-Gve" secondAttribute="bottom" constant="78" id="EdW-Nm-x5W"/>
+                            <constraint firstItem="QR9-jk-Anz" firstAttribute="trailing" secondItem="XUd-29-Gve" secondAttribute="trailing" constant="10" id="FBg-GR-pJd"/>
+                            <constraint firstItem="QR9-jk-Anz" firstAttribute="trailing" secondItem="UQb-yd-lvO" secondAttribute="trailing" constant="17" id="GJR-0F-Efh"/>
+                            <constraint firstItem="QR9-jk-Anz" firstAttribute="bottom" secondItem="UQb-yd-lvO" secondAttribute="bottom" constant="30" id="HmL-d6-Yok"/>
+                            <constraint firstItem="UQb-yd-lvO" firstAttribute="leading" secondItem="QR9-jk-Anz" secondAttribute="leading" constant="13" id="IEA-Os-lVT"/>
                             <constraint firstItem="PCn-WN-MeA" firstAttribute="top" secondItem="7Zv-iP-oB6" secondAttribute="top" id="Ibu-yS-TxN"/>
                             <constraint firstItem="1RH-dF-rLX" firstAttribute="centerX" secondItem="CYX-kO-rhV" secondAttribute="centerX" id="NXH-Cq-N7V"/>
                             <constraint firstItem="CYX-kO-rhV" firstAttribute="top" secondItem="4Yt-bC-dvI" secondAttribute="top" id="SvR-f7-ViP"/>
                             <constraint firstItem="4Yt-bC-dvI" firstAttribute="top" secondItem="PCn-WN-MeA" secondAttribute="top" id="Tzc-bc-Jzf"/>
-                            <constraint firstItem="UJa-M7-5Wo" firstAttribute="centerX" secondItem="PCn-WN-MeA" secondAttribute="centerX" id="alq-Vc-pk9"/>
                             <constraint firstAttribute="trailing" secondItem="CYX-kO-rhV" secondAttribute="trailing" id="fVr-LH-cnW"/>
                             <constraint firstItem="4Yt-bC-dvI" firstAttribute="leading" secondItem="CYX-kO-rhV" secondAttribute="leading" id="hmY-kQ-grQ"/>
-                            <constraint firstItem="1RH-dF-rLX" firstAttribute="centerY" secondItem="CYX-kO-rhV" secondAttribute="centerY" id="ogp-A5-d0x"/>
+                            <constraint firstItem="UJa-M7-5Wo" firstAttribute="leading" secondItem="QR9-jk-Anz" secondAttribute="leading" constant="10" id="jiC-J6-XbZ"/>
+                            <constraint firstItem="XUd-29-Gve" firstAttribute="top" secondItem="1RH-dF-rLX" secondAttribute="bottom" constant="14" id="nh4-hz-MYu"/>
                             <constraint firstItem="PCn-WN-MeA" firstAttribute="leading" secondItem="4Yt-bC-dvI" secondAttribute="leading" id="qLU-8i-Dbq"/>
+                            <constraint firstItem="QR9-jk-Anz" firstAttribute="trailing" secondItem="UJa-M7-5Wo" secondAttribute="trailing" constant="10" id="rUB-ha-55b"/>
                             <constraint firstItem="CYX-kO-rhV" firstAttribute="bottom" secondItem="4Yt-bC-dvI" secondAttribute="bottom" id="wcJ-Sp-gPq"/>
                             <constraint firstItem="PCn-WN-MeA" firstAttribute="bottom" secondItem="CYX-kO-rhV" secondAttribute="bottom" id="xIp-wz-p3f"/>
                             <constraint firstItem="CYX-kO-rhV" firstAttribute="centerY" secondItem="7Zv-iP-oB6" secondAttribute="centerY" id="z4Y-h9-dPA"/>
@@ -80,7 +110,7 @@ IHRvIHNhdmUQEAoKVGFwIE1lbnUgYnV0dG9uID4gTXkgRGVhbHMgCnRvIHNlZSBzYXZlZCBkZWFscw
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="52" y="374.66266866566718"/>
+            <point key="canvasLocation" x="50.625" y="373.94366197183098"/>
         </scene>
     </scenes>
     <resources>

@@ -1,5 +1,5 @@
-// THIS VC IS ORPHANED
-//  DealsCollectionViewController.swift
+// THIS VC IS ORPHANED AND NO LONGER IN USE
+//  DealsCollectionViewController.swift (DEPRECATED)
 //  FinalProject
 //
 //  Created by KevinT on 2018-04-18.

@@ -1,4 +1,4 @@
-//
+// THIS VC IS ORPHANED AND NO LONGER IN USE
 //  MenuTableViewController.swift (DEPRECATED)
 //  FinalProject
 //
