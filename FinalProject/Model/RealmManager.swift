@@ -14,26 +14,26 @@ class RealmManager: NSObject {
 //  for simplicity, deals and places nodes from firebase are combined into one record DealPlace in realm data persistence
   static func realmQueryAllRecords() -> (Results<DealPlace>) {
     let realm = try! Realm()
-    let deals = try! realm.objects(DealPlace.self)
-    return deals
+    let dealPlaces = try! realm.objects(DealPlace.self)
+    return dealPlaces
   }
   
-  static func realmAdd(deal: DealPlace) {
+  static func realmAdd(dealPlace: DealPlace) {
     let realm = try! Realm()
     try! realm.write {
-      realm.add(deal)
-      print("added \(deal.dealName) to realm")
+      realm.add(dealPlace)
+      print("added \(dealPlace.dealName) to realm")
     }
   }
   
-  static func realmDelete(_ unwDealName: String, _ deal: DealPlace) {
+  static func realmDelete(_ unwDealName: String, _ dealPlace: DealPlace) {
     
     let realm = try! Realm()
-    let deals = realm.objects(DealPlace.self).filter("dealName = '\(unwDealName)'").first
+    let dealPlaces = realm.objects(DealPlace.self).filter("dealName = '\(unwDealName)'").first
     
     try! realm.write {
-      realm.delete(deals!)
-      print("deleted \(deal.dealName) from realm")
+      realm.delete(dealPlaces!)
+      print("deleted \(dealPlace.dealName) from realm")
     }
   }
   

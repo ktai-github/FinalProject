@@ -15,14 +15,16 @@ class MapViewController: UIViewController {
   
   var placeName: String?
   
-  var placeCoordinateLatitude: Double = 0.0
-  var placeCoordinateLongitude: Double = 0.0
+  var placeCoordinates: (placeLong: Double?,
+                          placeLat: Double?)
+  
+//  var placeCoordinateLatitude: Double = 0.0
+//  var placeCoordinateLongitude: Double = 0.0
   
   let locationManager = CLLocationManager()
   let kRegionRadius: CLLocationDistance = 1000
   
   var selectedDealCategory = enumSelectedDealCategory.enumRandomDeals
-  
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -38,14 +40,6 @@ class MapViewController: UIViewController {
         
         createAnno(annoLatitude: (favDeals[i].placeLat as NSString).doubleValue, annoLongitude: (favDeals[i].placeLong as NSString).doubleValue, annoTitle: favDeals[i].placeName)
         
-//        let tempCoordinateLocation2D = CLLocationCoordinate2D(latitude: (favDeals[i].placeLat as NSString).doubleValue , longitude: (favDeals[i].placeLong as NSString).doubleValue)
-//
-//        let anno = MKPointAnnotation()
-//        anno.coordinate = tempCoordinateLocation2D
-//        anno.title = favDeals[i].placeName
-//
-//        mapView.addAnnotation(anno)
-        
         let regionCenterLocation = CLLocation(latitude: 49.283854 , longitude: -123.108070)
         centerMapOnLocation(location: regionCenterLocation)
       }
@@ -53,11 +47,13 @@ class MapViewController: UIViewController {
 //    access map vc from clicking map on deal vc
     } else {
     
-      let location = CLLocation(latitude: placeCoordinateLatitude, longitude: placeCoordinateLongitude)
+//      let location = CLLocation(latitude: placeCoordinateLatitude, longitude: placeCoordinateLongitude)
+      let location = CLLocation(latitude: placeCoordinates.placeLat!, longitude: placeCoordinates.placeLong!)
 
       centerMapOnLocation(location: location)
       
-      createAnno(annoLatitude: placeCoordinateLatitude, annoLongitude: placeCoordinateLongitude, annoTitle: placeName!)
+//      createAnno(annoLatitude: placeCoordinateLatitude, annoLongitude: placeCoordinateLongitude, annoTitle: placeName!)
+      createAnno(annoLatitude: placeCoordinates.placeLat!, annoLongitude: placeCoordinates.placeLong!, annoTitle: placeName!)
     }
   }
 

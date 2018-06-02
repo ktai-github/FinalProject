@@ -247,8 +247,11 @@ class DealViewController: UIViewController {
         print("cannot unwrap lat long")
         return
       }
-      mapVC.placeCoordinateLatitude = (unwPlaceCoordinateLatitude as NSString).doubleValue
-      mapVC.placeCoordinateLongitude = (unwPlaceCoordinateLongitude as NSString).doubleValue
+//      mapVC.placeCoordinateLatitude = (unwPlaceCoordinateLatitude as NSString).doubleValue
+//      mapVC.placeCoordinateLongitude = (unwPlaceCoordinateLongitude as NSString).doubleValue
+      
+      mapVC.placeCoordinates.placeLat = (unwPlaceCoordinateLatitude as NSString).doubleValue
+      mapVC.placeCoordinates.placeLong = (unwPlaceCoordinateLongitude as NSString).doubleValue
       
       mapVC.placeName = placeName
     }
@@ -386,7 +389,7 @@ class DealViewController: UIViewController {
       dealPlace.placeLat = unwPlaceLat
       dealPlace.placeLong = unwPlaceLong
       
-      RealmManager.realmAdd(deal: dealPlace)
+      RealmManager.realmAdd(dealPlace: dealPlace)
     }
   }
   

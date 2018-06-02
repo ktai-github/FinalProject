@@ -19,25 +19,17 @@ class FavsViewController: UIViewController, UITableViewDelegate, UITableViewData
   var tempDealPlace = DealPlace()
   var deals = RealmManager.realmQueryAllRecords()
   
-    override func viewDidLoad() {
-        super.viewDidLoad()
-      self.favsTableView.dataSource = self
-      self.favsTableView.delegate = self
-      self.favsTableView.reloadData()
-        // Do any additional setup after loading the view.
-    }
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    self.favsTableView.dataSource = self
+    self.favsTableView.delegate = self
+    self.favsTableView.reloadData()
+  }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-  
-//  func loadPhotoFromNetwork(imageUrl: String) -> Void {
-//
-//
-//
-//
-//  }
+  override func didReceiveMemoryWarning() {
+      super.didReceiveMemoryWarning()
+      // Dispose of any resources that can be recreated.
+  }
 
   func numberOfSectionsInTableView(tableView: UITableView) -> Int{
     return 1
@@ -74,8 +66,6 @@ class FavsViewController: UIViewController, UITableViewDelegate, UITableViewData
     return true
   }
   
-  
-  
   func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
     
     let dealPlace = DealPlace()
@@ -97,7 +87,7 @@ class FavsViewController: UIViewController, UITableViewDelegate, UITableViewData
     tableView.endUpdates()
     print("deleted row")
     
-//    BUG: user view a deal in dealvc that is already a fav
+//    BUG: user view a deal in deal vc that is already a fav
 //    and then immediate go to fav list and view the same deal
 //    go to the favvc and delete that deal
 //    attempting back out to the dealvc might crash the app
@@ -111,7 +101,6 @@ class FavsViewController: UIViewController, UITableViewDelegate, UITableViewData
     performSegue(withIdentifier: "unwindSegueToDealVC", sender: self)
 
   }
-  
   
     // MARK: - Navigation
 

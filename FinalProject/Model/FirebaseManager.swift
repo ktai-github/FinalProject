@@ -18,7 +18,6 @@ class FirebaseManager: NSObject {
 
   override init() {
     ref = Database.database().reference()
-
   }
 
   func fetchDeals(completion: @escaping () -> ()) {
@@ -42,6 +41,7 @@ class FirebaseManager: NSObject {
         dealFirebase.style = styleArray?.joined(separator: ", ")
         print("printing dealFirebase.style " + dealFirebase.style!)
         
+//        daysAvalable spelling mistake on Firebase database
         let daysArray = dictionary["daysAvalable"] as? [String]
         dealFirebase.daysAvalable = daysArray?.joined(separator: ", ")
         print("printing dealFirebase.daysAvalable " + dealFirebase.daysAvalable!)
@@ -77,5 +77,4 @@ class FirebaseManager: NSObject {
       }
     })
   }
-
 }
