@@ -55,9 +55,9 @@ class DealViewController: UIViewController {
   var selectedDealCategory: enumSelectedDealCategory = enumSelectedDealCategory.enumRandomDeals
   
   var placeName: String?
-  
-  var placeCoordinateLatitude: String?
-  var placeCoordinateLongitude: String?
+
+  var placeCoordinates: (placeLong: String?,
+                          placeLat: String?)
   
   var tempDealFirebase = DealFirebase()
   var tempPlaceFirebase = PlaceFirebase()
@@ -243,15 +243,13 @@ class DealViewController: UIViewController {
       
       let mapVC = segue.destination as! MapViewController
       
-      guard let unwPlaceCoordinateLatitude = placeCoordinateLatitude, let unwPlaceCoordinateLongitude = placeCoordinateLongitude else {
+      guard case placeCoordinates.placeLat = placeCoordinates.placeLat, case placeCoordinates.placeLong = placeCoordinates.placeLong else {
         print("cannot unwrap lat long")
         return
       }
-//      mapVC.placeCoordinateLatitude = (unwPlaceCoordinateLatitude as NSString).doubleValue
-//      mapVC.placeCoordinateLongitude = (unwPlaceCoordinateLongitude as NSString).doubleValue
-      
-      mapVC.placeCoordinates.placeLat = (unwPlaceCoordinateLatitude as NSString).doubleValue
-      mapVC.placeCoordinates.placeLong = (unwPlaceCoordinateLongitude as NSString).doubleValue
+
+      mapVC.placeCoordinates.placeLat = (placeCoordinates.placeLat! as NSString).doubleValue
+      mapVC.placeCoordinates.placeLong = (placeCoordinates.placeLong! as NSString).doubleValue
       
       mapVC.placeName = placeName
     }
@@ -332,8 +330,8 @@ class DealViewController: UIViewController {
   }
   
   fileprivate func prepareCoordinatesAndAnno() {
-    placeCoordinateLatitude = tempDealPlace.placeLat
-    placeCoordinateLongitude = tempDealPlace.placeLong
+    placeCoordinates.placeLat = tempDealPlace.placeLat
+    placeCoordinates.placeLong = tempDealPlace.placeLong
     placeName = tempDealPlace.placeName
   }
   
@@ -368,7 +366,7 @@ class DealViewController: UIViewController {
         let unwPlaceAddress = tempPlaceFirebase.address,
         let unwPlaceLat = tempPlaceFirebase.lat,
         let unwPlaceLong = tempPlaceFirebase.lon,
-        let unwPlaceID = tempPlaceFirebase.placeID,
+//        let unwPlaceID = tempPlaceFirebase.placeID,
         let unwPlacePhone = tempPlaceFirebase.phone
         else {
           print("cannot unwrap tempDealFirebase or tempPlaceFirebase properties")
@@ -496,8 +494,8 @@ class DealViewController: UIViewController {
         }
         
         //        potentially to be used for mapview if user chooses to see on map
-        placeCoordinateLatitude = unwLatitude
-        placeCoordinateLongitude = unwLongitude
+        placeCoordinates.placeLat = unwLatitude
+        placeCoordinates.placeLong = unwLongitude
         
         guard let unwPlaceName = placeFB.name else {
           print("cannot unwrap place name")
