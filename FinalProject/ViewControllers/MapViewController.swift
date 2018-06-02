@@ -19,67 +19,75 @@ class MapViewController: UIViewController {
   var placeCoordinateLongitude: Double = 0.0
   
   let locationManager = CLLocationManager()
-  let regionRadius: CLLocationDistance = 1000
+  let kRegionRadius: CLLocationDistance = 1000
   
   var selectedDealCategory = enumSelectedDealCategory.enumRandomDeals
   
+  
   override func viewDidLoad() {
-        super.viewDidLoad()
+    super.viewDidLoad()
 
 //    access map vc from clicking my deals on menu table vc
     if selectedDealCategory == enumSelectedDealCategory.enumMyDeals {
       
       let favDeals = RealmManager.realmQueryAllRecords()
       
-//      let tempCoordinateLocation = CLLocation(latitude: (favDeals[0].placeLat as NSString).doubleValue , longitude: (favDeals[0].placeLong as NSString).doubleValue)
-      let tempCoordinateLocation = CLLocation(latitude: 49.283854 , longitude: -123.108070)
-      centerMapOnLocation(location: tempCoordinateLocation)
-      
 //      create anno with name and coordinate for each fav deal and add to the map
 //      index integer seems to be needed to access properties in a for loop
       for i in 0..<favDeals.count {
         
-        let tempCoordinateLocation2D = CLLocationCoordinate2D(latitude: (favDeals[i].placeLat as NSString).doubleValue , longitude: (favDeals[i].placeLong as NSString).doubleValue)
-
-        let anno = MKPointAnnotation()
-        anno.coordinate = tempCoordinateLocation2D
-        anno.title = favDeals[i].placeName
+        createAnno(annoLatitude: (favDeals[i].placeLat as NSString).doubleValue, annoLongitude: (favDeals[i].placeLong as NSString).doubleValue, annoTitle: favDeals[i].placeName)
         
-        mapView.addAnnotation(anno)
-        print("added: \(String(describing: anno.title))")
+//        let tempCoordinateLocation2D = CLLocationCoordinate2D(latitude: (favDeals[i].placeLat as NSString).doubleValue , longitude: (favDeals[i].placeLong as NSString).doubleValue)
+//
+//        let anno = MKPointAnnotation()
+//        anno.coordinate = tempCoordinateLocation2D
+//        anno.title = favDeals[i].placeName
+//
+//        mapView.addAnnotation(anno)
+        
+        let regionCenterLocation = CLLocation(latitude: 49.283854 , longitude: -123.108070)
+        centerMapOnLocation(location: regionCenterLocation)
       }
     
 //    access map vc from clicking map on deal vc
     } else {
     
-      let initialLocation = CLLocation(latitude: placeCoordinateLatitude, longitude: placeCoordinateLongitude)
+      let location = CLLocation(latitude: placeCoordinateLatitude, longitude: placeCoordinateLongitude)
 
-      centerMapOnLocation(location: initialLocation)
+      centerMapOnLocation(location: location)
       
-      let initialLocation2D = CLLocationCoordinate2D(latitude: placeCoordinateLatitude, longitude: placeCoordinateLongitude)
-      
-      //      create anno with name and coordinate and add to the map
-      let anno = MKPointAnnotation()
-      anno.coordinate = initialLocation2D
-      anno.title = placeName
-      
-      mapView.addAnnotation(anno)
-      
-    // Do any additional setup after loading the view.
+      createAnno(annoLatitude: placeCoordinateLatitude, annoLongitude: placeCoordinateLongitude, annoTitle: placeName!)
     }
   }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+  override func didReceiveMemoryWarning() {
+      super.didReceiveMemoryWarning()
+      // Dispose of any resources that can be recreated.
+  }
   
   func centerMapOnLocation(location: CLLocation) {
-    let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius, regionRadius)
+    
+    let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, kRegionRadius, kRegionRadius)
     mapView.setRegion(coordinateRegion, animated: true)
+    
+  }
+  
+  fileprivate func createAnno(annoLatitude: Double, annoLongitude: Double, annoTitle: String) {
+    
+    let location2D = CLLocationCoordinate2D(latitude: annoLatitude, longitude: annoLongitude)
+    
+    //      create anno with name and coordinate and add to the map
+    let anno = MKPointAnnotation()
+    anno.coordinate = location2D
+    anno.title = annoTitle
+    
+    mapView.addAnnotation(anno)
+    print("added: \(String(describing: anno.title))")
   }
   
   func checkLocationAuthorizationStatus() {
+    
     if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
       mapView.showsUserLocation = true
     } else {
@@ -88,6 +96,7 @@ class MapViewController: UIViewController {
   }
   
   override func viewDidAppear(_ animated: Bool) {
+    
     super.viewDidAppear(true)
     checkLocationAuthorizationStatus()
   }
