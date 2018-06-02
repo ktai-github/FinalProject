@@ -68,16 +68,16 @@ class DealViewController: UIViewController {
   
   // MARK: - View Controller Life Cycle
   override func viewDidLoad() {
-        super.viewDidLoad()
-      
-        FirebaseManager.defaultManager.fetchDeals {
-          print("fetched deals")
-        }
-        FirebaseManager.defaultManager.fetchPlaces {
-          DispatchQueue.main.async {
-            self.loadDetails()
-          }
-        }
+    super.viewDidLoad()
+  
+    FirebaseManager.defaultManager.fetchDeals {
+      print("fetched deals")
+    }
+    FirebaseManager.defaultManager.fetchPlaces {
+      DispatchQueue.main.async {
+        self.loadDetails()
+      }
+    }
       
     setUpGestureRecognizers()
 

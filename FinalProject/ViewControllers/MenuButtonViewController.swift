@@ -12,29 +12,19 @@ import RealmSwift
 class MenuButtonViewController: UIViewController {
 
   var userSelectedCategory: enumSelectedDealCategory = enumSelectedDealCategory.enumRandomDeals
-
   
-  //  navigate to deal vc with the category that was selected for filtering deals
-  func userSelected(category: enumSelectedDealCategory) {
-    userSelectedCategory = category
-    //    NotificationCenter.default.post(name: Notification.Name.deal,
-    //                                    object: userSelectedCategory)
-    //    self.navigationController?.popViewController(animated: true)
-    performSegue(withIdentifier: "unwindSegueFromMenuToDealVC", sender: self)
+  override func viewDidLoad() {
+      super.viewDidLoad()
+      // Do any additional setup after loading the view.
+  }
+
+  override func didReceiveMemoryWarning() {
+      super.didReceiveMemoryWarning()
+      // Dispose of any resources that can be recreated.
   }
   
+//  MARK: - User Selection Functions
   
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
   @IBAction func randomDealsTapped(_ sender: UIButton) {
     print("random deals selected")
     userSelected(category: enumSelectedDealCategory.enumRandomDeals)
@@ -58,12 +48,6 @@ class MenuButtonViewController: UIViewController {
     userSelected(category: enumSelectedDealCategory.enumDateDeals)
 
   }
-
-  @IBAction func allDealsTapped(_ sender: UIButton) {
-    print("all deals selected")
-    //segue in storyboard
-  }
-  
 
   @IBAction func myDealsTapped(_ sender: UIButton) {
     print("my deals selected")
@@ -97,6 +81,17 @@ class MenuButtonViewController: UIViewController {
   
   }
   
+  //  navigate to deal vc with the category that was selected for filtering deals
+  func userSelected(category: enumSelectedDealCategory) {
+    
+    userSelectedCategory = category
+    
+    //    NotificationCenter.default.post(name: Notification.Name.deal,
+    //                                    object: userSelectedCategory)
+    //    self.navigationController?.popViewController(animated: true)
+    
+    performSegue(withIdentifier: "unwindSegueFromMenuToDealVC", sender: self)
+  }
 
   /*
     // MARK: - Navigation
@@ -108,6 +103,7 @@ class MenuButtonViewController: UIViewController {
     }
     */
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    
     // Get the new view controller using segue.destinationViewController.
     // Pass the selected object to the new view controller.
     if segue.identifier == "unwindSegueFromMenuToDealVC" {
@@ -116,7 +112,5 @@ class MenuButtonViewController: UIViewController {
       dealVC.selectedDealCategory = userSelectedCategory
       
     }
-    
   }
-
 }
