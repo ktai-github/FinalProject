@@ -1,8 +1,8 @@
 # FinalProject
 
-*** iOS App developed by Kevin Tai
+iOS App developed by Kevin Tai
 
-Cloud data by Stewart Pressney ***
+Cloud data by Stewart Pressney
 
 ## Overview
 
