@@ -1,7 +1,8 @@
 # FinalProject
 
-** iOS App developed by Kevin Tai
-Cloud data by Stewart Pressney **
+*** iOS App developed by Kevin Tai
+
+Cloud data by Stewart Pressney ***
 
 ## Overview
 
@@ -14,15 +15,22 @@ Cloud data by Stewart Pressney **
 - Filter random images and data by categories
 
 ## Links
-[Main View Controller Code](FinalProject/ViewControllers/DealViewController.swift)
+[Code for the Main View Controller](FinalProject/ViewControllers/DealViewController.swift)
 
 [Download from iTunes App Store](https://itunes.apple.com/ca/app/gastown-eats/id1383378025?mt=8)
 
 [Watch YouTube video about Gastown Eats](https://www.youtube.com/watch?v=M-ZNoRMsvl0)
 
+## Images
+
+![SWIPE LEFT OR RIGHT](https://is5-ssl.mzstatic.com/image/thumb/Purple125/v4/ec/cd/f2/eccdf2c3-d4e9-3d31-62c0-1fcf19c3481f/mzl.drrbmdzm.jpg/300x0w.jpg)
+![SWIPE DOWN](https://is4-ssl.mzstatic.com/image/thumb/Purple115/v4/e8/0f/5d/e80f5dd8-fb44-cfea-151f-3183b88a5a43/pr_source.jpg/300x0w.jpg)
+![Share](https://is5-ssl.mzstatic.com/image/thumb/Purple125/v4/ca/31/47/ca314729-d857-880a-86fc-21dd07ae24b9/pr_source.jpg/300x0w.jpg)
+![Map](https://is2-ssl.mzstatic.com/image/thumb/Purple115/v4/dd/a8/a1/dda8a1e3-8cd5-554c-d750-b15a21e3dbf3/pr_source.jpg/300x0w.jpg)
+
 ## Getting Started
 
-Download the [project](FinalProject)
+Download the [project](https://github.com/ktai-github/FinalProject)
 
 Open the project in Xcode
 
