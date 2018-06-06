@@ -2,11 +2,12 @@
 //  GastownEatsUnitTests.swift
 //  GastownEatsUnitTests
 //
-//  Created by KevinT on 2018-06-03.
+//  Created by KevinT on 2018-06-05.
 //  Copyright © 2018 KevinT. All rights reserved.
 //
 
 import XCTest
+@testable import FinalProject
 
 class GastownEatsUnitTests: XCTestCase {
     

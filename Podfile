@@ -12,5 +12,9 @@ target 'FinalProject' do
   pod 'Firebase/Core'
   pod 'Firebase/Database'
   # Pods for FinalProject
+    target 'GastownEatsUnitTests' do
+        inherit! :search_paths
+        pod 'Firebase/Core'
+    end
 
 end
