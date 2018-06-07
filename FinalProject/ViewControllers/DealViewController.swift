@@ -291,20 +291,24 @@ class DealViewController: UIViewController {
   
 //  MARK: - ViewWillAppear Refactored
   
+  fileprivate func detailViews(hide: Bool) {
+    self.blackMaskView.isHidden = hide
+    self.placeNameLabel.isHidden = hide
+    self.dealLabel.isHidden = hide
+    self.styleLabel.isHidden = hide
+    self.priceLabel.isHidden = hide
+    self.addressLabel.isHidden = hide
+    self.phoneLabel.isHidden = hide
+    self.daysAvailableLabel.isHidden = hide
+    self.showMapButton.isHidden = hide
+    self.stackView.isHidden = hide
+    self.swipeView.isHidden = hide
+  }
+
   fileprivate func setUpViewsInViewWillAppear() {
     nextButton.isHidden = false
-    
-    self.blackMaskView.isHidden = true
-    self.placeNameLabel.isHidden = true
-    self.dealLabel.isHidden = true
-    self.styleLabel.isHidden = true
-    self.priceLabel.isHidden = true
-    self.addressLabel.isHidden = true
-    self.phoneLabel.isHidden = true
-    self.daysAvailableLabel.isHidden = true
-    self.showMapButton.isHidden = true
-    self.stackView.isHidden = true
-    self.swipeView.isHidden = true
+
+    detailViews(hide: true)
   }
   
   func loadPhotoFromNetwork(imageUrl: String) -> Void {
@@ -395,34 +399,14 @@ class DealViewController: UIViewController {
 
     UIView.transition(with: cardView, duration: 0.5, options: direction, animations: nil, completion: nil)
 
-    self.blackMaskView.isHidden = true
-    self.placeNameLabel.isHidden = true
-    self.dealLabel.isHidden = true
-    self.styleLabel.isHidden = true
-    self.priceLabel.isHidden = true
-    self.addressLabel.isHidden = true
-    self.phoneLabel.isHidden = true
-    self.daysAvailableLabel.isHidden = true
-    self.showMapButton.isHidden = true
-    self.stackView.isHidden = true
-    self.swipeView.isHidden = true
+    detailViews(hide: true)
   }
   
   fileprivate func flipCardFromFrontToBack(direction: UIViewAnimationOptions) {
 
     UIView.transition(with: cardView, duration: 0.5, options: direction, animations: nil, completion: nil)
-    
-    self.blackMaskView.isHidden = false
-    self.placeNameLabel.isHidden = false
-    self.dealLabel.isHidden = false
-    self.styleLabel.isHidden = false
-    self.priceLabel.isHidden = false
-    self.addressLabel.isHidden = false
-    self.phoneLabel.isHidden = false
-    self.daysAvailableLabel.isHidden = false
-    self.showMapButton.isHidden = false
-    self.stackView.isHidden = false
-    self.swipeView.isHidden = false
+
+    detailViews(hide: false)
   }
   
 //  MARK: - Next Button Refactored
