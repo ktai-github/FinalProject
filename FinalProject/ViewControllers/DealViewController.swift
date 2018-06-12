@@ -98,11 +98,11 @@ class DealViewController: UIViewController {
       print("loaded dealvc with My Deals category selected")
       print(tempDealPlace.dealName + " at " + tempDealPlace.placeName + " available in dealvc")
 
-      DispatchQueue.global(qos: .userInitiated).async {
+//      DispatchQueue.global(qos: .userInitiated).async { [unowned self] in
 
         self.loadPhotoFromNetwork(imageUrl: self.tempDealPlace.dealImageUrl)
       
-      }
+//      }
       
       setUpLabels()
       
@@ -315,11 +315,11 @@ class DealViewController: UIViewController {
   
   func loadPhotoFromNetwork(imageUrl: String) -> Void {
     let photoManager = PhotoManager()
-//    DispatchQueue.global(qos: .userInitiated).async {
+//    DispatchQueue.global(qos: .userInitiated).async { [unowned self] in
 
       photoManager.photoNetworkRequest(url: imageUrl) { [unowned self] (image: UIImage) in
       
-//        DispatchQueue.main.async {
+//        DispatchQueue.main.async { [unowned self] in
           self.imageView.image = image
           self.loadingLabel.isHidden = true
 //        }
@@ -458,11 +458,11 @@ class DealViewController: UIViewController {
     
     dealNumber = Int(arc4random_uniform(UInt32(filteredDealsList.count)))
     
-//    DispatchQueue.global(qos: .userInitiated).async {
+//    DispatchQueue.global(qos: .userInitiated).async { [unowned self] in
 
       self.loadPhotoFromNetwork(imageUrl: filteredDealsList[dealNumber].img!)
       
-//      DispatchQueue.main.async {
+//      DispatchQueue.main.async { [unowned self] in
 
         //    potentially to be used to save deal for later if the user chooses to
         self.tempDealFirebase = filteredDealsList[dealNumber]
