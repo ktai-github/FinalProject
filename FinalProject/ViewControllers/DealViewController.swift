@@ -74,9 +74,7 @@ class DealViewController: UIViewController {
       print("fetched deals")
     }
     FirebaseManager.defaultManager.fetchPlaces {
-      DispatchQueue.main.async {
         self.loadDetails()
-      }
     }
       
     setUpGestureRecognizers()
@@ -99,8 +97,12 @@ class DealViewController: UIViewController {
       
       print("loaded dealvc with My Deals category selected")
       print(tempDealPlace.dealName + " at " + tempDealPlace.placeName + " available in dealvc")
+
+      DispatchQueue.global(qos: .userInitiated).async {
+
+        self.loadPhotoFromNetwork(imageUrl: self.tempDealPlace.dealImageUrl)
       
-      loadPhotoFromNetwork(imageUrl: tempDealPlace.dealImageUrl)
+      }
       
       setUpLabels()
       
@@ -313,13 +315,16 @@ class DealViewController: UIViewController {
   
   func loadPhotoFromNetwork(imageUrl: String) -> Void {
     let photoManager = PhotoManager()
-    photoManager.photoNetworkRequest(url: imageUrl) { (image: UIImage) in
+//    DispatchQueue.global(qos: .userInitiated).async {
+
+      photoManager.photoNetworkRequest(url: imageUrl) { [unowned self] (image: UIImage) in
       
-      DispatchQueue.main.async {
-        self.imageView.image = image
-        self.loadingLabel.isHidden = true
+//        DispatchQueue.main.async {
+          self.imageView.image = image
+          self.loadingLabel.isHidden = true
+//        }
       }
-    }
+//    }
     
   }
   
@@ -421,23 +426,23 @@ class DealViewController: UIViewController {
   }
   
   func loadDetails() -> () {
-    
+
     var filteredDealsList = [DealFirebase]()
     
-    switch selectedDealCategory {
+    switch self.selectedDealCategory {
       
     case enumSelectedDealCategory.enumFoodDeals:
-      applyFilter(&filteredDealsList, category: "Food")
+      self.applyFilter(&filteredDealsList, category: "Food")
       
       //      fun category currently not available
       //    case enumSelectedDealCategory.enumFunDeals:
       //      applyFilter(&filteredDealsList, category: "Fun")
       
     case enumSelectedDealCategory.enumDrinkDeals:
-      applyFilter(&filteredDealsList, category: "Drinks")
+      self.applyFilter(&filteredDealsList, category: "Drinks")
       
     case enumSelectedDealCategory.enumDateDeals:
-      applyFilter(&filteredDealsList, category: "Date")
+      self.applyFilter(&filteredDealsList, category: "Date")
       
       //      group category currently not available
       //    case enumSelectedDealCategory.enumGroupDeals:
@@ -453,41 +458,46 @@ class DealViewController: UIViewController {
     
     dealNumber = Int(arc4random_uniform(UInt32(filteredDealsList.count)))
     
-    loadPhotoFromNetwork(imageUrl: filteredDealsList[dealNumber].img!)
-    
-    //    potentially to be used to save deal for later if the user chooses to
-    tempDealFirebase = filteredDealsList[dealNumber]
-    
-    dealLabel.text = filteredDealsList[dealNumber].dealName
-    priceLabel.text = filteredDealsList[dealNumber].price
-    styleLabel.text = filteredDealsList[dealNumber].style
-    daysAvailableLabel.text = filteredDealsList[dealNumber].daysAvalable
-    
+//    DispatchQueue.global(qos: .userInitiated).async {
+
+      self.loadPhotoFromNetwork(imageUrl: filteredDealsList[dealNumber].img!)
+      
+//      DispatchQueue.main.async {
+
+        //    potentially to be used to save deal for later if the user chooses to
+        self.tempDealFirebase = filteredDealsList[dealNumber]
+      
+        self.dealLabel.text = filteredDealsList[dealNumber].dealName
+        self.priceLabel.text = filteredDealsList[dealNumber].price
+        self.styleLabel.text = filteredDealsList[dealNumber].style
+        self.daysAvailableLabel.text = filteredDealsList[dealNumber].daysAvalable
+//      }
+//    }
     for placeFB in placesList {
       if placeFB.placeID == filteredDealsList[dealNumber].placeid {
         
         //    potentially to be used to save deal for later if the user chooses to
-        tempPlaceFirebase = placeFB
+        self.tempPlaceFirebase = placeFB
         
-        addressLabel.text = placeFB.address
-        placeNameLabel.text = placeFB.name
-        phoneLabel.text = placeFB.phone
+        self.addressLabel.text = placeFB.address
+        self.placeNameLabel.text = placeFB.name
+        self.phoneLabel.text = placeFB.phone
+
         guard let unwLatitude = placeFB.lat, let unwLongitude = placeFB.lon else {
           print("cannot unwrap lat long")
           return
         }
         
         //        potentially to be used for mapview if user chooses to see on map
-        placeCoordinates.placeLat = unwLatitude
-        placeCoordinates.placeLong = unwLongitude
+        self.placeCoordinates.placeLat = unwLatitude
+        self.placeCoordinates.placeLong = unwLongitude
         
         guard let unwPlaceName = placeFB.name else {
           print("cannot unwrap place name")
           return
         }
-        placeName = unwPlaceName
+        self.placeName = unwPlaceName
       }
     }
-    
   }
 }

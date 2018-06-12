@@ -49,7 +49,7 @@ class FavsViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     cell.dealLabel.text = deals[indexPath.row].dealName
     let photoManager = PhotoManager()
-    photoManager.photoNetworkRequest(url:  deals[indexPath.row].dealImageUrl) { (image: UIImage) in
+    photoManager.photoNetworkRequest(url:  deals[indexPath.row].dealImageUrl) { [unowned self] (image: UIImage) in
       DispatchQueue.main.async {
         cell.dealImageView.image = image
       }
