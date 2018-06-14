@@ -9,18 +9,11 @@
 
 import UIKit
 
-// notification for the category of deal selected in the menu
-//extension Notification.Name {
-//  static let deal: Notification.Name = Notification.Name("deal")
-//}
-
 enum enumSelectedDealCategory {
   case enumRandomDeals
   case enumFoodDeals
   case enumDrinkDeals
   case enumDateDeals
-  case enumFunDeals
-  case enumGroupDeals
   case enumMyDeals
 }
 
@@ -79,11 +72,6 @@ class DealViewController: UIViewController {
       
     setUpGestureRecognizers()
 
-//      notification for the category of deal selected in the menu
-//    NotificationCenter.default.addObserver(self,
-//                                           selector: #selector(notificationReceived(_:)),
-//                                           name: Notification.Name.deal,
-//                                           object: nil)
   }
 
   override func viewWillAppear(_ animated: Bool) {
@@ -121,22 +109,6 @@ class DealViewController: UIViewController {
     }
     self.view.layoutIfNeeded()
   }
-  
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-  
-//  @objc func notificationReceived(_ notification: Notification) {
-//    guard let unwNotificationObj = notification.object else {
-//      print("selected deal category error")
-//      return
-//    }
-//
-////    receiving notification for the category of deal selected
-//    selectedDealCategory = String(describing: unwNotificationObj)
-//    print(selectedDealCategory + " notification received")
-//  }
   
   //DO NOT DELETE!!
   @IBAction func unwindToDealVC(segue:UIStoryboardSegue) {}
@@ -220,14 +192,6 @@ class DealViewController: UIViewController {
     activityViewController.popoverPresentationController?.sourceView = self.view
     self.present(activityViewController, animated: true, completion: nil)
   }
-  
-//  deinit {
-//
-////    removing observer from notification
-//        NotificationCenter.default.removeObserver(self,
-//                                                  name: Notification.Name.deal,
-//                                                  object: nil)
-//  }
 
     /*
     // MARK: - Navigation
@@ -351,12 +315,6 @@ class DealViewController: UIViewController {
       
       print("fav switch is on")
       
-      //    slower animation for presentation
-      //    UIView.transition(with: cardView, duration: 1.5, options: .transitionCurlDown, animations: nil) { (true) in
-      //      self.nextButton.sendActions(for: .touchUpInside)
-      //
-      //    }
-      
       UIView.animate(withDuration: 0.5, animations: {
         self.cardView.frame = CGRect(x: self.cardView.frame.origin.x, y: self.cardView.frame.origin.y + 1000.0, width: self.cardView.frame.size.width, height: self.cardView.frame.size.height)
       }) { (true) in
@@ -434,19 +392,11 @@ class DealViewController: UIViewController {
     case enumSelectedDealCategory.enumFoodDeals:
       self.applyFilter(&filteredDealsList, category: "Food")
       
-      //      fun category currently not available
-      //    case enumSelectedDealCategory.enumFunDeals:
-      //      applyFilter(&filteredDealsList, category: "Fun")
-      
     case enumSelectedDealCategory.enumDrinkDeals:
       self.applyFilter(&filteredDealsList, category: "Drinks")
       
     case enumSelectedDealCategory.enumDateDeals:
       self.applyFilter(&filteredDealsList, category: "Date")
-      
-      //      group category currently not available
-      //    case enumSelectedDealCategory.enumGroupDeals:
-      //      applyFilter(&filteredDealsList, category: "Group")
       
     default:
       

@@ -104,7 +104,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VWq-fQ-P8R" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="wWe-a2-KRl" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="6472.8000000000002" y="-269.70443349753697"/>
+            <point key="canvasLocation" x="6518" y="882"/>
         </scene>
         <!--Map View-->
         <scene sceneID="Lfw-xg-4fp">
@@ -134,7 +134,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MmO-uC-Zv1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7351.1999999999998" y="116.00985221674877"/>
+            <point key="canvasLocation" x="7351" y="116"/>
         </scene>
         <!--Menu-->
         <scene sceneID="N6H-72-XyK">
@@ -559,6 +559,6 @@
         <image name="menu" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gWw-iU-UW0"/>
+        <segue reference="CjW-Dw-yfa"/>
     </inferredMetricsTieBreakers>
 </document>

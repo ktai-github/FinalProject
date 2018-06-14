@@ -16,11 +16,6 @@ class MenuButtonViewController: UIViewController {
   override func viewDidLoad() {
       super.viewDidLoad()
   }
-
-  override func didReceiveMemoryWarning() {
-      super.didReceiveMemoryWarning()
-      // Dispose of any resources that can be recreated.
-  }
   
 //  MARK: - User Selection Functions
   
@@ -84,11 +79,7 @@ class MenuButtonViewController: UIViewController {
   func userSelected(category: enumSelectedDealCategory) {
     
     userSelectedCategory = category
-    
-    //    NotificationCenter.default.post(name: Notification.Name.deal,
-    //                                    object: userSelectedCategory)
-    //    self.navigationController?.popViewController(animated: true)
-    
+        
     performSegue(withIdentifier: "unwindSegueFromMenuToDealVC", sender: self)
   }
 

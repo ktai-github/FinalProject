@@ -60,11 +60,6 @@ class MapViewController: UIViewController {
       createAnno(annoLatitude: placeCoordinates.placeLat!, annoLongitude: placeCoordinates.placeLong!, annoTitle: placeName)
     }
   }
-
-  override func didReceiveMemoryWarning() {
-      super.didReceiveMemoryWarning()
-      // Dispose of any resources that can be recreated.
-  }
   
   func centerMapOnLocation(location: CLLocation) {
     
@@ -100,14 +95,4 @@ class MapViewController: UIViewController {
     super.viewDidAppear(true)
     checkLocationAuthorizationStatus()
   }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
