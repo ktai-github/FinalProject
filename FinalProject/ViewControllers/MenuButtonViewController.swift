@@ -59,10 +59,7 @@ class MenuButtonViewController: UIViewController {
                                        handler: { _ in print("clicked ok")
                                         
                                         //      delete all favs from realm
-                                        let realm = try! Realm()
-                                        try! realm.write {
-                                          realm.deleteAll()
-                                        }
+                                        RealmManager.realmDeleteAll()
     }))
     
     clearAlert.addAction(UIAlertAction(title: NSLocalizedString("Cancel",

@@ -10,7 +10,6 @@
 // Next Deal button should be more obvious to the user to that this is a button and that you have to click it to see next deal
 
 import UIKit
-//import RealmSwift
 
 class FavsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
   

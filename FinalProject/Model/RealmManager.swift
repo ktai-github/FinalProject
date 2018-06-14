@@ -26,10 +26,10 @@ class RealmManager: NSObject {
     }
   }
   
-  static func realmDelete(_ unwDealName: String, _ dealPlace: DealPlace) {
+  static func realmDelete(_ dealName: String, _ dealPlace: DealPlace) {
     
     let realm = try! Realm()
-    let dealPlaces = realm.objects(DealPlace.self).filter("dealName = '\(unwDealName)'").first
+    let dealPlaces = realm.objects(DealPlace.self).filter("dealName = '\(dealName)'").first
     
     try! realm.write {
       realm.delete(dealPlaces!)
@@ -37,4 +37,12 @@ class RealmManager: NSObject {
     }
   }
   
+  static func realmDeleteAll () {
+    //      delete all favs from realm
+    let realm = try! Realm()
+    try! realm.write {
+      realm.deleteAll()
+      print("deleted all from realm")
+    }
+  }
 }

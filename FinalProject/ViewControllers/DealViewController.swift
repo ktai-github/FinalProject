@@ -76,7 +76,7 @@ class DealViewController: UIViewController {
 
   override func viewWillAppear(_ animated: Bool) {
     
-    setUpViewsInViewWillAppear()
+    setUpViews()
     
     if selectedDealCategory == enumSelectedDealCategory.enumMyDeals {
       
@@ -132,28 +132,28 @@ class DealViewController: UIViewController {
 //  swiped left on the back side of the card
   @IBAction func swipedLeftVisualEffect(_ sender: UISwipeGestureRecognizer) {
     
-    flipCardFromBackToFront(direction: UIViewAnimationOptions.transitionFlipFromRight)
+    flipCard(direction: UIViewAnimationOptions.transitionFlipFromRight, backSideToFrontSide: true)
     
   }
   
 //  swiped right on the back side of the card
   @IBAction func swipedRightVisualEffect(_ sender: UISwipeGestureRecognizer) {
 
-    flipCardFromBackToFront(direction: UIViewAnimationOptions.transitionFlipFromLeft)
+    flipCard(direction: UIViewAnimationOptions.transitionFlipFromLeft, backSideToFrontSide: true)
 
   }
   
 //  swiped left on the front side of the card
   @IBAction func swipeLeftGestRec(_ sender: UISwipeGestureRecognizer) {
     
-    flipCardFromFrontToBack(direction: UIViewAnimationOptions.transitionFlipFromRight)
+    flipCard(direction: UIViewAnimationOptions.transitionFlipFromRight, backSideToFrontSide: false)
     
   }
   
 //  swiped right on the front side of the card
   @IBAction func swipeRightGestRec(_ sender: UISwipeGestureRecognizer) {
     
-    flipCardFromFrontToBack(direction: UIViewAnimationOptions.transitionFlipFromLeft)
+    flipCard(direction: UIViewAnimationOptions.transitionFlipFromLeft, backSideToFrontSide: false)
     
   }
   
@@ -271,7 +271,7 @@ class DealViewController: UIViewController {
     self.swipeView.isHidden = hide
   }
 
-  fileprivate func setUpViewsInViewWillAppear() {
+  fileprivate func setUpViews() {
     nextButton.isHidden = false
 
     detailViews(hide: true)
@@ -312,9 +312,7 @@ class DealViewController: UIViewController {
   
   fileprivate func saveForLater() {
     if selectedDealCategory != enumSelectedDealCategory.enumMyDeals {
-      
-      print("fav switch is on")
-      
+            
       UIView.animate(withDuration: 0.5, animations: {
         self.cardView.frame = CGRect(x: self.cardView.frame.origin.x, y: self.cardView.frame.origin.y + 1000.0, width: self.cardView.frame.size.width, height: self.cardView.frame.size.height)
       }) { (true) in
@@ -358,18 +356,18 @@ class DealViewController: UIViewController {
     }
   }
   
-  fileprivate func flipCardFromBackToFront(direction: UIViewAnimationOptions) {
+  fileprivate func flipCard(direction: UIViewAnimationOptions, backSideToFrontSide: Bool) {
 
     UIView.transition(with: cardView, duration: 0.5, options: direction, animations: nil, completion: nil)
+    
+    if backSideToFrontSide == true {
+      
+      detailViews(hide: true)  // no details shown
 
-    detailViews(hide: true)
-  }
-  
-  fileprivate func flipCardFromFrontToBack(direction: UIViewAnimationOptions) {
-
-    UIView.transition(with: cardView, duration: 0.5, options: direction, animations: nil, completion: nil)
-
-    detailViews(hide: false)
+    } else {
+      
+      detailViews(hide: false)  // show details
+    }
   }
   
 //  MARK: - Next Button Refactored

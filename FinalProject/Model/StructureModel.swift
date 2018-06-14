@@ -28,6 +28,9 @@ struct PlaceFirebase {
   var address: String?
 }
 
+
+//  DealPace is used to combine deal and place data when user saves it
+//  Combining deal and place data is done to persist data on Realm
 class DealPlace: Object {
   @objc dynamic var dealName = ""
   @objc dynamic var dealImageUrl = ""
