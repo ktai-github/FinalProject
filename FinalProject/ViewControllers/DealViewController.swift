@@ -372,57 +372,66 @@ class DealViewController: UIViewController {
   
 //  MARK: - Next Button Refactored
   
-  fileprivate func applyFilter(_ filteredDealsList: inout [DealFirebase], category: String) {
+//  Parameters in swift is constant by default
+//  Parameter can mutate in the function if it is specified as inout variable
+  fileprivate func applyFilter(category: String) -> ([DealFirebase]) {
+    
+    var filteredDealsList = [DealFirebase]()
+    
     for deal in dealsList {
+
       if (deal.style?.contains(category))! {
         filteredDealsList.append(deal)
       }
     }
+
     print("filtered \(category) deals only")
+
+    return filteredDealsList
   }
   
   func loadDetails() -> () {
 
-    var filteredDealsList = [DealFirebase]()
+    var outputDealsList = [DealFirebase]()
     
     switch self.selectedDealCategory {
       
     case enumSelectedDealCategory.enumFoodDeals:
-      self.applyFilter(&filteredDealsList, category: "Food")
+      outputDealsList = self.applyFilter(category: "Food")
       
     case enumSelectedDealCategory.enumDrinkDeals:
-      self.applyFilter(&filteredDealsList, category: "Drinks")
-      
+      outputDealsList = self.applyFilter(category: "Drinks")
+
     case enumSelectedDealCategory.enumDateDeals:
-      self.applyFilter(&filteredDealsList, category: "Date")
-      
+      outputDealsList = self.applyFilter(category: "Date")
+
     default:
       
       //      dummy filter
-      filteredDealsList = dealsList
+      outputDealsList = dealsList
     }
     
     var dealNumber: Int
     
-    dealNumber = Int(arc4random_uniform(UInt32(filteredDealsList.count)))
+    dealNumber = Int(arc4random_uniform(UInt32(outputDealsList.count)))
     
 //    DispatchQueue.global(qos: .userInitiated).async { [unowned self] in
 
-      self.loadPhotoFromNetwork(imageUrl: filteredDealsList[dealNumber].img!)
+      self.loadPhotoFromNetwork(imageUrl: outputDealsList[dealNumber].img!)
       
 //      DispatchQueue.main.async { [unowned self] in
 
         //    potentially to be used to save deal for later if the user chooses to
-        self.tempDealFirebase = filteredDealsList[dealNumber]
+        self.tempDealFirebase = outputDealsList[dealNumber]
       
-        self.dealLabel.text = filteredDealsList[dealNumber].dealName
-        self.priceLabel.text = filteredDealsList[dealNumber].price
-        self.styleLabel.text = filteredDealsList[dealNumber].style
-        self.daysAvailableLabel.text = filteredDealsList[dealNumber].daysAvalable
+        self.dealLabel.text = outputDealsList[dealNumber].dealName
+        self.priceLabel.text = outputDealsList[dealNumber].price
+        self.styleLabel.text = outputDealsList[dealNumber].style
+        self.daysAvailableLabel.text = outputDealsList[dealNumber].daysAvalable
 //      }
 //    }
     for placeFB in placesList {
-      if placeFB.placeID == filteredDealsList[dealNumber].placeid {
+      if placeFB.placeID == outputDealsList[dealNumber].placeid {
         
         //    potentially to be used to save deal for later if the user chooses to
         self.tempPlaceFirebase = placeFB
