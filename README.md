@@ -17,8 +17,6 @@ Cloud data by Stewart Pressney
 ## Links
 [Code for the Main View Controller](FinalProject/ViewControllers/DealViewController.swift)
 
-[Download from iTunes App Store](https://itunes.apple.com/ca/app/gastown-eats/id1383378025?mt=8)
-
 [Watch YouTube video about Gastown Eats](https://www.youtube.com/watch?v=M-ZNoRMsvl0)
 
 ## Images
